@@ -24,11 +24,11 @@ const syne = Syne({
   display: "swap",
 });
 
-// Resolve the production URL — Vercel sets VERCEL_URL automatically on deploys.
-// Falls back to localhost for dev. Replace with your custom domain once it's connected.
+// Canonical site URL — custom domain in production, localhost in dev.
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  process.env.NODE_ENV === "production"
+    ? "https://madisondrennen.com"
+    : "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -47,12 +47,16 @@ export const metadata: Metadata = {
     "visual systems",
     "marketing portfolio",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Madison Drennen — Brand · Web · Marketing",
     description:
       "Polished brand systems, websites, and marketing for businesses ready to show up better.",
     type: "website",
     siteName: "Madison Drennen",
+    url: "https://madisondrennen.com",
   },
   twitter: {
     card: "summary_large_image",
