@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madison Drennen — Email Signature</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F4F2EE;
+      min-height: 100vh;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: #111111;
+      padding: 72px 40px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── Page chrome ─── */
+    .page-header {
+      font-size: 9.5px;
+      font-weight: 300;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 56px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #BBBBBB;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ─── Preview shell ─── */
+    .preview-shell {
+      background: #FFFFFF;
+      border: 1px solid #E8E5DF;
+      border-radius: 4px;
+      padding: 48px 52px;
+      width: 620px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      margin-bottom: 52px;
+    }
+
+    .email-meta {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    .email-meta-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .meta-label {
+      color: #BBBBBB;
+      width: 30px;
+      flex-shrink: 0;
+    }
+
+    .meta-value {
+      color: #555555;
+    }
+
+    .email-body {
+      font-size: 13.5px;
+      color: #333333;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .sig-divider {
+      width: 100%;
+      height: 1px;
+      background: #EEEEEE;
+      margin-bottom: 24px;
+    }
+
+    /* ─── The signature itself (preview uses web fonts) ─── */
+    .sig-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #111111;
+      letter-spacing: -0.3px;
+      line-height: 1.15;
+      margin-bottom: 3px;
+    }
+
+    .sig-title {
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      color: #999999;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    .sig-pink-bar {
+      width: 32px;
+      height: 2px;
+      background: #FF4FD8;
+      margin: 14px 0 0 0;
+    }
+
+    .sig-layout {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 18px;
+    }
+
+    .sig-left {
+      padding-right: 26px;
+    }
+
+    .sig-divider-v {
+      width: 2px;
+      background: #FF4FD8;
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+
+    .sig-right {
+      padding-left: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .sig-link {
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #444444;
+      text-decoration: none;
+      display: block;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .sig-link:hover {
+      color: #FF4FD8;
+    }
+
+
+    /* ─── Instructions ─── */
+    .instructions {
+      width: 620px;
+      margin-bottom: 40px;
+      background: #FAF9F6;
+      border: 1px solid #E8E5DF;
+      border-radius: 4px;
+      padding: 28px 32px;
+    }
+
+    .instructions-title {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 16px;
+    }
+
+    .instructions ol {
+      padding-left: 18px;
+    }
+
+    .instructions li {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    .instructions li strong {
+      font-weight: 400;
+      color: #333;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 11.5px;
+      font-weight: 300;
+      color: #999;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+
+    /* ─── Code block ─── */
+    .code-wrapper {
+      width: 620px;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1E1E1E;
+      border-radius: 4px 4px 0 0;
+      padding: 12px 20px;
+    }
+
+    .code-header-label {
+      font-size: 9.5px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .copy-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FF4FD8;
+      background: transparent;
+      border: 1px solid rgba(255,79,216,0.35);
+      border-radius: 3px;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,79,216,0.08);
+      border-color: #FF4FD8;
+    }
+
+    .copy-btn.copied {
+      color: #2DB891;
+      border-color: rgba(45, 184, 145, 0.5);
+    }
+
+    pre {
+      background: #161616;
+      border-radius: 0 0 4px 4px;
+      padding: 24px 20px;
+      overflow-x: auto;
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Consolas, monospace;
+      font-size: 11px;
+      line-height: 1.7;
+      color: #C8C8C8;
+      white-space: pre;
+      max-height: 420px;
+    }
+
+    pre .tag   { color: #7BBFFF; }
+    pre .attr  { color: #FFCB6B; }
+    pre .val   { color: #C3E88D; }
+    pre .text  { color: #C8C8C8; }
+  </style>
+</head>
+<body>
+
+  <p class="page-header">Madison Drennen &nbsp;·&nbsp; Email Signature</p>
+
+  <!-- ─── PREVIEW ─── -->
+  <p class="section-title">Preview</p>
+  <div class="preview-shell">
+
+    <!-- Fake email context -->
+    <div class="email-meta">
+      <div class="email-meta-row">
+        <span class="meta-label">To</span>
+        <span class="meta-value">client@studio.com</span>
+      </div>
+      <div class="email-meta-row">
+        <span class="meta-label">Re</span>
+        <span class="meta-value">Brand Strategy Proposal</span>
+      </div>
+    </div>
+
+    <div class="email-body">
+      Hi Sarah,<br><br>
+      Attached is the updated deck — let me know if you have any questions before our call on Thursday.<br><br>
+      Looking forward to it.
+    </div>
+
+    <!-- Divider line (as in most email clients) -->
+    <div class="sig-divider"></div>
+
+    <!-- ── SIGNATURE ── -->
+    <div class="sig-layout">
+      <div class="sig-left">
+        <div class="sig-name">Madison Drennen</div>
+        <div class="sig-title">Digital Marketer &amp; Creative Strategist</div>
+        <div class="sig-pink-bar"></div>
+      </div>
+      <div class="sig-divider-v"></div>
+      <div class="sig-right">
+        <a href="mailto:hello@madisondrennen.com" class="sig-link">hello@madisondrennen.com</a>
+        <a href="https://madisondrennen.com" class="sig-link">madisondrennen.com</a>
+        <a href="https://instagram.com/madisondrennen" class="sig-link">@madisondrennen</a>
+        <a href="https://linkedin.com/in/madisondrennen" class="sig-link">in/madisondrennen</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ─── INSTRUCTIONS ─── -->
+  <div class="instructions">
+    <p class="instructions-title">How to use this signature</p>
+    <ol>
+      <li><strong>Gmail:</strong> Settings → See all settings → Signature → Create new → click the source/HTML icon → paste the code below.</li>
+      <li><strong>Apple Mail:</strong> Preferences → Signatures → create a new one → open Mail's HTML editor or drag the signature.html file directly into the signature field.</li>
+      <li><strong>Outlook:</strong> File → Options → Mail → Signatures → New → paste into the editor (HTML mode).</li>
+    </ol>
+    <p class="note">Note: Update the mailto, Instagram, and LinkedIn URLs with your real links before pasting. Web font (Cormorant Garamond) will fall back to Georgia in most email clients — it will still look elegant.</p>
+  </div>
+
+
+  <!-- ─── CODE ─── -->
+  <p class="section-title">Copy HTML</p>
+  <div class="code-wrapper">
+    <div class="code-header">
+      <span class="code-header-label">email-signature.html</span>
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </div>
+    <pre id="sig-code"></pre>
+  </div>
+
+
+  <script>
+    // The actual email-safe signature HTML (table-based, inline styles only)
+    const signatureHTML = `<!-- Madison Drennen · Email Signature -->
+<table cellpadding="0" cellspacing="0" border="0"
+  style="font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+  <tr>
+    <!-- LEFT: Name + Title -->
+    <td style="vertical-align: middle; padding: 0 24px 0 0;">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding-bottom: 2px; line-height: 1.15;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: bold; color: #111111; letter-spacing: -0.3px;">
+              Madison Drennen
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 12px; line-height: 1.4;">
+            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; color: #999999; letter-spacing: 1.5px; text-transform: uppercase;">
+              Digital Marketer &amp; Creative Strategist
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" width="32" height="2">
+              <tr>
+                <td width="32" height="2"
+                  style="background-color: #FF4FD8; font-size: 0; line-height: 0; mso-line-height-rule: exactly;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- CENTER: Pink vertical divider -->
+    <td width="2" style="padding: 0; background-color: #FF4FD8; font-size: 0; line-height: 0;" width="2">&nbsp;</td>
+
+    <!-- RIGHT: Contact links -->
+    <td style="vertical-align: middle; padding: 0 0 0 24px;">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding-bottom: 5px; line-height: 1;">
+            <a href="mailto:hello@madisondrennen.com"
+              style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #444444; text-decoration: none; letter-spacing: 0.01em;">
+              hello@madisondrennen.com
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 5px; line-height: 1;">
+            <a href="https://madisondrennen.com"
+              style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #444444; text-decoration: none; letter-spacing: 0.01em;">
+              madisondrennen.com
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 5px; line-height: 1;">
+            <a href="https://instagram.com/madisondrennen"
+              style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #444444; text-decoration: none; letter-spacing: 0.01em;">
+              @madisondrennen
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td style="line-height: 1;">
+            <a href="https://linkedin.com/in/madisondrennen"
+              style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #444444; text-decoration: none; letter-spacing: 0.01em;">
+              in/madisondrennen
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- end signature -->`;
+
+    // Render code in pre block (escaped for display)
+    document.getElementById('sig-code').textContent = signatureHTML;
+
+    // Copy button
+    function copyCode(btn) {
+      navigator.clipboard.writeText(signatureHTML).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2200);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/sections/Hero";
+import MarqueeStrip from "@/components/sections/MarqueeStrip";
+import About from "@/components/sections/About";
+import FeaturedWork from "@/components/sections/FeaturedWork";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <MarqueeStrip />
+        <About />
+        <FeaturedWork />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

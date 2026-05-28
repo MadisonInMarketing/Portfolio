@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madison Drennen — Business Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #C2BEB7;
+      min-height: 100vh;
+      padding: 72px 40px 80px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-header {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #8a8580;
+      margin-bottom: 56px;
+      text-align: center;
+    }
+
+    .card-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 44px;
+      width: 100%;
+    }
+
+    .card-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .card-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5px;
+      font-weight: 300;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #9a9590;
+    }
+
+    /* 3.5 × 2 inches · rendered at 240px/inch = 840 × 480px */
+    .card-scaler {
+      width: 840px;
+      height: 480px;
+      flex-shrink: 0;
+      transform-origin: top center;
+    }
+
+    .card {
+      width: 840px;
+      height: 480px;
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.07),
+        0 8px 24px rgba(0,0,0,0.10),
+        0 24px 64px rgba(0,0,0,0.16),
+        0 48px 96px rgba(0,0,0,0.10);
+    }
+
+
+    /* ─────────────────── FRONT ─────────────────── */
+
+    .card-front {
+      background-color: #FAF9F6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px 62px 48px;
+    }
+
+    .front-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .monogram {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #111111;
+      line-height: 1;
+    }
+
+    .accent-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #FF4FD8;
+      margin-top: 4px;
+    }
+
+    .front-name {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .name-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 84px;
+      font-weight: 600;
+      color: #111111;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      display: block;
+    }
+
+    .front-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .accent-bar {
+      width: 30px;
+      height: 2px;
+      background: #FF4FD8;
+    }
+
+    .card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #777777;
+    }
+
+    .card-web {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      color: #AAAAAA;
+    }
+
+
+    /* ─────────────────── BACK ─────────────────── */
+
+    .card-back {
+      background-color: #111111;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px 62px 48px;
+    }
+
+    .back-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .back-monogram {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: rgba(250, 249, 246, 0.88);
+      line-height: 1;
+    }
+
+    .back-accent-bar {
+      width: 30px;
+      height: 2px;
+      background: #FF4FD8;
+      margin-top: 9px;
+    }
+
+    .back-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .contact-key {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 300;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #FF4FD8;
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .contact-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: rgba(250, 249, 246, 0.78);
+      line-height: 1;
+    }
+
+    .back-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .back-tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13.5px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(250, 249, 246, 0.24);
+      letter-spacing: 0.02em;
+    }
+
+    .back-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #FF4FD8;
+      opacity: 0.55;
+    }
+
+
+    /* ─────────────────── FOOTER NOTE ─────────────────── */
+
+    .print-note {
+      margin-top: 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #9a9590;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="page-header">Madison Drennen &nbsp;·&nbsp; Business Card Concept</p>
+
+  <div class="card-group">
+
+    <!-- ── FRONT ── -->
+    <div class="card-unit">
+      <span class="card-label">Front</span>
+      <div class="card-scaler">
+      <div class="card card-front">
+
+        <div class="front-top">
+          <span class="monogram">MD.</span>
+          <div class="accent-dot"></div>
+        </div>
+
+        <div class="front-name">
+          <span class="name-line">Madison</span>
+          <span class="name-line">Drennen</span>
+        </div>
+
+        <div class="front-bottom">
+          <div class="title-block">
+            <div class="accent-bar"></div>
+            <span class="card-title">Digital Marketer &amp; Creative Strategist</span>
+          </div>
+          <span class="card-web">madisondrennen.com</span>
+        </div>
+
+      </div>
+      </div><!-- /card-scaler -->
+    </div>
+
+    <!-- ── BACK ── -->
+    <div class="card-unit">
+      <span class="card-label">Back</span>
+      <div class="card-scaler">
+      <div class="card card-back">
+
+        <div class="back-top">
+          <span class="back-monogram">MD.</span>
+          <div class="back-accent-bar"></div>
+        </div>
+
+        <div class="back-contact">
+          <div class="contact-row">
+            <span class="contact-key">Email</span>
+            <span class="contact-val">hello@madisondrennen.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Web</span>
+            <span class="contact-val">madisondrennen.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Instagram</span>
+            <span class="contact-val">@madisondrennen</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">LinkedIn</span>
+            <span class="contact-val">linkedin.com/in/madisondrennen</span>
+          </div>
+        </div>
+
+        <div class="back-bottom">
+          <span class="back-tagline">Strategy-led creative work.</span>
+          <div class="back-dot"></div>
+        </div>
+
+      </div>
+      </div><!-- /card-scaler -->
+    </div>
+
+  </div>
+
+  <p class="print-note">Designed at 3.5&Prime; &times; 2&Prime; &nbsp;&middot;&nbsp; Send to print at 300 dpi &nbsp;&middot;&nbsp; Add 0.125&Prime; bleed for professional printing</p>
+
+  <script>
+    function scaleCards() {
+      const pad = 80;
+      const cardW = 840;
+      const available = window.innerWidth - pad;
+      const scale = available < cardW ? available / cardW : 1;
+      document.querySelectorAll('.card-scaler').forEach(scaler => {
+        // zoom affects layout flow unlike transform — card shrinks in place
+        scaler.style.zoom = scale;
+      });
+    }
+    scaleCards();
+    window.addEventListener('resize', scaleCards);
+  </script>
+
+</body>
+</html>

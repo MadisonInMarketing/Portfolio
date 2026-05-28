@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Madison Drennen — Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-muted: #555555;
+    --ink-light: #888888;
+    --accent-pink: #FF4FD8;
+    --accent-dark: #D93CBE;
+    --cream: #FAF9F6;
+    --cream-dark: #F0EDE6;
+    --border: rgba(17,17,17,0.08);
+    --border-dark: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #2a2a2a;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  body {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    min-width: 890px;
+  }
+  .page {
+    width: 850px;
+    min-height: 1100px;
+    padding: 60px 70px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .page.cream { background: var(--cream); }
+  .page.ink { background: var(--ink); color: var(--cream); }
+
+  /* Typography */
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .italic { font-style: italic; }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 600;
+  }
+  .eyebrow-underline {
+    width: 36px;
+    height: 1px;
+    background: var(--accent-pink);
+    margin-top: 6px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 92px;
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  h2.section {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  h2.section em,
+  h2.section .italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-light);
+  }
+  .page.ink h2.section { color: var(--cream); }
+  .page.ink h2.section em,
+  .page.ink h2.section .italic {
+    color: rgba(250,249,246,0.4);
+  }
+  .lede {
+    font-size: 14px;
+    color: var(--ink-muted);
+    max-width: 620px;
+    line-height: 1.55;
+  }
+  .page.ink .lede { color: rgba(250,249,246,0.7); }
+
+  .footer {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 600;
+  }
+  .footer .pink { color: var(--accent-pink); font-weight: 700; }
+  .page.ink .footer { border-top-color: rgba(255,255,255,0.08); color: rgba(250,249,246,0.5); }
+
+  /* Unified page header — ties inner pages to editorial bookends */
+  .page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 44px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .page-head .ph-left { display: flex; align-items: center; gap: 16px; }
+  .page-head .ph-num {
+    color: var(--accent-pink);
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    position: relative;
+    padding-right: 16px;
+  }
+  .page-head .ph-num::after {
+    content: "";
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 1px; height: 12px;
+    background: var(--border);
+  }
+  .page-head .ph-section { color: var(--ink); }
+  .page-head .ph-meta { color: var(--ink-light); font-weight: 500; }
+  .page.ink .page-head { border-bottom-color: rgba(255,255,255,0.08); }
+  .page.ink .page-head .ph-section { color: var(--cream); }
+  .page.ink .page-head .ph-num::after { background: rgba(255,255,255,0.1); }
+  .page.ink .page-head .ph-meta { color: rgba(250,249,246,0.5); }
+
+  /* Section sign-off — closes pages that had dead space */
+  .page-signoff {
+    position: absolute;
+    bottom: 100px;
+    left: 60px;
+    right: 60px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 30px;
+  }
+  .page.ink .page-signoff { border-top-color: rgba(255,255,255,0.08); }
+  .page-signoff .signoff-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink-muted);
+    max-width: 540px;
+  }
+  .page.ink .page-signoff .signoff-line { color: rgba(250,249,246,0.6); }
+  .page-signoff .signoff-line em { color: var(--accent-pink); font-style: italic; }
+  .page-signoff .signoff-mark {
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .page.ink .page-signoff .signoff-mark { color: rgba(250,249,246,0.5); }
+
+  /* Split editorial cover & closing */
+  .split {
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    overflow: hidden;
+  }
+  .split .panel {
+    padding: 56px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .split .panel.cream-side { background: var(--cream); color: var(--ink); }
+  .split .panel.ink-side {
+    background: var(--ink);
+    color: var(--cream);
+    border-left: 1px solid rgba(255,255,255,0.06);
+  }
+  .panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .panel-head .lbl { position: relative; padding-bottom: 8px; color: var(--ink); }
+  .panel-head .lbl::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 28px; height: 1px;
+    background: var(--accent-pink);
+  }
+  .panel-head .meta { color: var(--ink-light); font-weight: 500; letter-spacing: 0.18em; }
+  .ink-side .panel-head .lbl { color: var(--cream); }
+  .ink-side .panel-head .lbl::after { background: var(--accent-pink); }
+  .ink-side .panel-head .meta { color: rgba(250,249,246,0.45); }
+
+  .panel-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .panel-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 500;
+  }
+  .ink-side .panel-foot { color: rgba(250,249,246,0.5); }
+
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 700;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-eyebrow::before {
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--accent-pink);
+  }
+  .cover-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 76px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.005em;
+    margin-bottom: 14px;
+  }
+  .cover-wordmark .b { display: block; font-weight: 300; }
+  .cover-wordmark .b.italic { font-style: italic; font-weight: 300; color: var(--accent-pink); }
+  .cover-wordtag {
+    font-size: 9px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    margin-bottom: 26px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    display: inline-block;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    max-width: 380px;
+    line-height: 1.6;
+  }
+  .cover-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0 20px;
+  }
+  .cover-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 30px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cover-detail-grid .k { color: var(--ink-light); font-weight: 500; margin-bottom: 3px; }
+  .cover-detail-grid .v { color: var(--ink); font-weight: 600; letter-spacing: 0.08em; }
+
+  .mono-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px 0;
+  }
+  .mono-card {
+    width: 260px;
+    height: 260px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(255,79,216,0.12);
+    position: relative;
+  }
+  .mono-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .mono-caption {
+    text-align: center;
+    margin-top: 26px;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(250,249,246,0.55);
+    font-weight: 500;
+  }
+  .mono-caption .dash {
+    display: inline-block;
+    width: 18px; height: 1px;
+    background: var(--accent-pink);
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  .ink-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.45;
+    color: rgba(250,249,246,0.85);
+    text-align: center;
+    margin-top: 36px;
+    padding: 0 10px;
+  }
+  .ink-tagline em { color: var(--accent-pink); font-style: italic; }
+  .ink-corner-grid {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,249,246,0.5);
+    font-weight: 500;
+  }
+  .ink-corner-grid .v { color: var(--cream); font-weight: 600; margin-top: 2px; }
+
+  /* Closing-specific tweaks */
+  .closing-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+    margin-bottom: 26px;
+    color: var(--ink);
+  }
+  .closing-quote .it {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-light);
+  }
+  .closing-meta-stack {
+    margin-top: auto;
+  }
+  .closing-meta-stack .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .closing-meta-stack .row:last-child { border-bottom: 1px solid var(--border); }
+  .closing-meta-stack .k {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 600;
+  }
+  .closing-meta-stack .v {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* Cards */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .card .preview-area {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 26px;
+    margin: -6px -6px 16px -6px;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card.dark .preview-area { background: #111; }
+  .card .label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .card .label.danger { color: #c93a3a; }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .card p { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+  /* Logo previews */
+  .logo-md-light {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #fce4ee 0%, #f5e6ec 60%, #f7d8e2 100%);
+    border-radius: 4px;
+  }
+  .logo-md-light .name {
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    line-height: 0.95;
+  }
+  .logo-md-light .name .ln {
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+  }
+  .logo-md-light .name .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7px;
+    letter-spacing: 0.32em;
+    color: var(--ink-muted);
+    margin-top: 6px;
+  }
+  .logo-md-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #fce4ee 0%, #f5e6ec 70%, #f7d8e2 100%);
+    border-radius: 4px;
+  }
+  .logo-md-mark .mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  /* Color swatches */
+  .swatch {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .swatch .chip {
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+  }
+  /* Frame light/cream chips so they don't disappear on cream bg */
+  .swatch .chip.light-frame {
+    background: var(--chip-bg, var(--cream)) !important;
+    border: 1px solid var(--border);
+    box-shadow: inset 0 0 0 1px rgba(17,17,17,0.04);
+  }
+  .swatch .meta { padding: 14px 16px 16px; }
+  .swatch h3 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .swatch .desc { font-size: 11px; color: var(--ink-muted); margin-bottom: 10px; }
+  .swatch .row { display: flex; gap: 8px; font-size: 10px; letter-spacing: 0.04em; margin-top: 4px; }
+  .swatch .row .key { color: var(--ink); font-weight: 600; min-width: 28px; }
+  .swatch .row .val { color: var(--accent-pink); font-family: 'DM Sans', sans-serif; }
+  .swatch .row .val.plain { color: var(--ink-muted); }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin: 24px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .rule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .rule-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .rule-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .rule-card p { font-size: 11px; color: var(--ink-muted); line-height: 1.5; }
+
+  /* Typography page — Pentagram-style left-label / right-sample grid */
+  .type-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+  .type-row .type-meta { font-size: 10px; }
+  .type-row .type-meta .name {
+    color: var(--accent-pink);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .type-row .type-meta .name::after {
+    content: "";
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--accent-pink);
+    margin-top: 6px;
+  }
+  .type-row .type-meta .label {
+    color: var(--ink);
+    font-weight: 600;
+    margin-top: 14px;
+    font-size: 11px;
+  }
+  .type-row .type-meta .desc {
+    color: var(--ink-muted);
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 8px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+  }
+  .type-row .type-sample-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .type-row .type-sample-sans {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 54px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .weights-line {
+    display: flex;
+    align-items: baseline;
+    gap: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+  }
+  .weights-line .w {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .weights-line .w .show {
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 0;
+  }
+  .weights-line .w .show.serif { font-family: 'Cormorant Garamond', serif; }
+  .weights-line .w .show.sans { font-family: 'DM Sans', sans-serif; }
+
+  .scale-section {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .scale-section .scale-title {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .scale-section .scale-title::after {
+    content: "";
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--accent-pink);
+    margin-top: 6px;
+  }
+  .scale-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .scale-row .key {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  .scale-row .key .name {
+    color: var(--ink);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .scale-row .key .specs {
+    color: var(--ink-light);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+  .scale-row .sample.serif-display { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 400; line-height: 1; }
+  .scale-row .sample.serif-display em { font-style: italic; color: var(--ink-light); }
+  .scale-row .sample.h1 { font-size: 26px; font-weight: 700; }
+  .scale-row .sample.h2 { font-size: 20px; font-weight: 600; }
+  .scale-row .sample.body { font-size: 13px; color: var(--ink-muted); }
+  .scale-row .sample.label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); }
+
+  /* Voice page */
+  .voice-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+  .voice-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .voice-card .sub { font-size: 11px; color: var(--ink-muted); margin-bottom: 12px; line-height: 1.5; }
+  .voice-line { display: grid; grid-template-columns: 50px 1fr; gap: 10px; padding: 4px 0; font-size: 11px; }
+  .voice-line .tag-do { color: #2a8a4a; font-weight: 700; letter-spacing: 0.1em; }
+  .voice-line .tag-dont { color: #c93a3a; font-weight: 700; letter-spacing: 0.1em; }
+  .voice-line .quote { color: var(--ink-muted); font-style: italic; }
+
+  .quote-block {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-top: 16px;
+  }
+  .quote-block .qmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--accent-pink);
+    margin-bottom: 12px;
+  }
+  .quote-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 560px;
+  }
+  .quote-block p .pink {
+    color: var(--accent-pink);
+    font-style: italic;
+  }
+  .quote-block .meta { font-size: 11px; color: rgba(250,249,246,0.6); margin-top: 8px; font-family: 'DM Sans', sans-serif; font-style: normal; }
+
+  /* Logo suite page */
+  .logo-suite-frame {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 16px;
+    position: relative;
+  }
+  .logo-suite-frame .head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .primary-logo-label {
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .primary-logo-label::after {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent-pink);
+    margin: 6px auto 0;
+  }
+  .primary-logo {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+  }
+  .primary-logo .ghost-md {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 220px;
+    font-weight: 500;
+    color: rgba(217,60,190,0.07);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    z-index: 0;
+  }
+  .primary-logo .name {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 0.95;
+  }
+  .primary-logo .tag {
+    position: relative;
+    z-index: 1;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--ink-muted);
+    margin-top: 14px;
+  }
+  .suite-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+  .suite-split > div {
+    text-align: center;
+    padding: 14px 24px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 230px;
+  }
+  .suite-split > div:first-child { border-right: 1px solid var(--border); }
+  .suite-split .l {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .suite-split .l::after { content: ""; display: block; width: 20px; height: 1px; background: var(--accent-pink); margin: 4px auto 22px; }
+  .suite-split .submark-display {
+    font-size: 14px;
+    letter-spacing: 0.42em;
+    color: var(--ink);
+    margin-top: 30px;
+    padding: 18px 30px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .suite-split .submark-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 16px;
+    line-height: 1.4;
+  }
+  .suite-tagline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    background: rgba(255,79,216,0.04);
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: -30px;
+    padding: 18px 30px 24px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .suite-tagline span.dash {
+    width: 24px; height: 1px;
+    background: var(--accent-pink);
+  }
+  .suite-tagline .t {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  .usage-rules {
+    display: grid;
+    grid-template-columns: 180px 1fr 140px 1fr;
+    gap: 14px 20px;
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .usage-rules .heading {
+    grid-column: 1 / -1;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 4px;
+  }
+  .usage-rules .k { font-weight: 600; }
+  .usage-rules .v { color: var(--ink-muted); }
+
+  /* Prompts page (dark) */
+  .prompts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .prompt-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid transparent;
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .prompt-card.accent { border-left-color: var(--accent-pink); }
+  .prompt-card .l {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .prompt-card.muted .l { color: rgba(250,249,246,0.6); }
+  .prompt-card p {
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(250,249,246,0.75);
+  }
+
+  /* Closing page (ink) */
+  .closing-wrap {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .closing-circle {
+    position: absolute;
+    bottom: -160px;
+    left: -200px;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #3d0d2f 0%, #1f0617 60%, transparent 100%);
+  }
+  .closing-mark {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at center, #fce4ee 0%, #f5e6ec 60%, #f3d6e1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .closing-mark .glyph {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 86px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+  .closing-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--accent-pink);
+    margin: 30px 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .closing-divider::before, .closing-divider::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent-pink);
+  }
+  .closing-divider::before { left: 0; }
+  .closing-divider::after { right: 0; }
+  .closing-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--cream);
+    z-index: 2;
+  }
+  .closing-contact {
+    font-size: 12px;
+    color: rgba(250,249,246,0.55);
+    margin-top: 20px;
+    letter-spacing: 0.04em;
+    z-index: 2;
+  }
+
+  /* Small helpers */
+  .divider { height: 1px; background: var(--border); margin: 18px 0; }
+  .page.ink .divider { background: rgba(255,255,255,0.08); }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<section class="page split">
+  <div class="panel cream-side">
+    <div class="panel-head">
+      <span class="lbl">Madison Drennen</span>
+      <span class="meta">V1.0 · 2026</span>
+    </div>
+    <div class="panel-body">
+      <div class="cover-eyebrow">Brand &amp; Visual Identity</div>
+      <div class="cover-wordmark">
+        <span class="b">Madison</span>
+        <span class="b italic">Drennen.</span>
+      </div>
+      <span class="cover-wordtag">Brand &amp; Web Design</span>
+      <p class="cover-sub">The complete visual brand system —— logo, color, typography, and the rules that hold it all together.</p>
+      <div class="cover-divider"></div>
+      <div class="cover-detail-grid">
+        <div><div class="k">Document</div><div class="v">Brand Kit</div></div>
+        <div><div class="k">Edition</div><div class="v">First / 2026</div></div>
+        <div><div class="k">Designed by</div><div class="v">Madison Drennen</div></div>
+        <div><div class="k">Pages</div><div class="v">Eight / 08</div></div>
+      </div>
+    </div>
+    <div class="panel-foot">
+      <span>Brand Kit</span>
+      <span>01 / 08</span>
+    </div>
+  </div>
+  <div class="panel ink-side">
+    <div class="panel-head">
+      <span class="lbl">The Mark</span>
+      <span class="meta">MD.</span>
+    </div>
+    <div class="panel-body">
+      <div class="mono-stage">
+        <div class="mono-card">
+          <img src="/logos/logo-monogram.png" alt="MD. monogram" />
+        </div>
+        <div class="mono-caption"><span class="dash"></span>Primary Monogram<span class="dash"></span></div>
+      </div>
+      <div class="ink-tagline"><em>"</em>Elevated design for brands that are here to <em>leave a mark.</em><em>"</em></div>
+      <div class="ink-corner-grid">
+        <div><div>Built with intention</div><div class="v">Designed to last</div></div>
+        <div style="text-align:right;"><div>Studio</div><div class="v">madisondrennen.com</div></div>
+      </div>
+    </div>
+    <div class="panel-foot">
+      <span>Visual Identity System</span>
+      <span>2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2: THE MARK -->
+<section class="page cream">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">01</span>
+      <span class="ph-section">Logo &amp; Wordmark</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">The <em class="italic">mark.</em></h2>
+  <p class="lede">The MD. wordmark is the primary brand identifier. Two letters. One mark. Use it with intention.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="preview-area"><img src="/logos/logo-primary.png" alt="Madison Drennen primary logo" style="max-width:80%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;" /></div>
+      <div class="label">ALWAYS</div>
+      <h3>Maintain clear space</h3>
+      <p>Leave breathing room equal to the cap-height of the M on all sides. The mark needs space to be seen.</p>
+    </div>
+    <div class="card dark">
+      <div class="preview-area" style="background:#111;"><img src="/logos/logo-monogram.png" alt="MD. monogram" style="max-width:60%; max-height:90%; width:auto; height:auto; object-fit:contain; display:block;" /></div>
+      <div class="label">ALWAYS</div>
+      <h3>Use approved colour combinations</h3>
+      <p>Ink on Cream · Cream on Ink · Cream on Accent Pink. These are the locked combinations.</p>
+    </div>
+    <div class="card">
+      <div class="label danger">NEVER</div>
+      <h3>Distort, rotate, or restyle</h3>
+      <p>Don't stretch, skew, add drop shadows, gradients, outlines, or any effects. The mark as designed is the mark.</p>
+    </div>
+    <div class="card">
+      <div class="label danger">NEVER</div>
+      <h3>Place on busy backgrounds</h3>
+      <p>Never place the wordmark on photos, patterns, or dark gradients. It disappears -- and so does your credibility.</p>
+    </div>
+  </div>
+
+  <div class="page-signoff">
+    <div class="signoff-line">Two letters. One mark. <em>Used with intention, always.</em></div>
+    <div class="signoff-mark">MD. · Primary Wordmark</div>
+  </div>
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>02 / 08</span></div>
+</section>
+
+<!-- PAGE 3: COLOR -->
+<section class="page cream">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">02</span>
+      <span class="ph-section">Color Palette</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">A confident <em class="italic">palette.</em></h2>
+  <p class="lede">Three color families do the work. Ink grounds everything. Cream provides the canvas. Accent Pink is the spark -- used intentionally, it elevates. Used carelessly, it cheapens.</p>
+
+  <div class="section-label">PRIMARY</div>
+  <div class="grid-3">
+    <div class="swatch">
+      <div class="chip" style="background:#111111;"></div>
+      <div class="meta">
+        <h3>Ink</h3>
+        <div class="desc">Primary text &amp; headings.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#111111</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">17, 17, 17</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#555555;"></div>
+      <div class="meta">
+        <h3>Ink Muted</h3>
+        <div class="desc">Body copy &amp; captions.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#555555</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">85, 85, 85</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#888888;"></div>
+      <div class="meta">
+        <h3>Ink Light</h3>
+        <div class="desc">Subtle labels, metadata.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#888888</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">136, 136, 136</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">ACCENT</div>
+  <div class="grid-2">
+    <div class="swatch">
+      <div class="chip" style="background:#FF4FD8;"></div>
+      <div class="meta">
+        <h3>Accent Pink</h3>
+        <div class="desc">CTAs, highlights, key moments.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#FF4FD8</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">255, 79, 216</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#D93CBE;"></div>
+      <div class="meta">
+        <h3>Accent Dark</h3>
+        <div class="desc">Hover states on accent elements.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#D93CBE</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">217, 60, 190</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">BACKGROUNDS</div>
+  <div class="grid-2">
+    <div class="swatch">
+      <div class="chip light-frame" style="--chip-bg:#FAF9F6;"></div>
+      <div class="meta">
+        <h3>Cream</h3>
+        <div class="desc">Primary background.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#FAF9F6</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">250, 249, 246</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip light-frame" style="--chip-bg:#F0EDE6;"></div>
+      <div class="meta">
+        <h3>Cream Dark</h3>
+        <div class="desc">Section &amp; card backgrounds.</div>
+        <div class="row"><span class="key">HEX</span><span class="val">#F0EDE6</span></div>
+        <div class="row"><span class="key">RGB</span><span class="val plain">240, 237, 230</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-grid">
+    <div class="rule-card"><h4>The 80 / 15 / 5 Rule</h4><p>Cream and Ink carry 80% of every surface. Accent Pink handles the remaining 15% for CTAs and highlights. Never use it for body text.</p></div>
+    <div class="rule-card"><h4>Accent Pink is a spark, not a fire</h4><p>One or two moments per page. A button, a label, an underline. If everything is pink, nothing is pink.</p></div>
+  </div>
+
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>03 / 08</span></div>
+</section>
+
+<!-- PAGE 4: TYPOGRAPHY -->
+<section class="page cream">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">03</span>
+      <span class="ph-section">Typography</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">A type system that<br/><em class="italic">feels right.</em></h2>
+  <p class="lede">Two typefaces. One does the heavy lifting. The other adds the editorial warmth. Together they signal quality before a single word is read.</p>
+
+  <div class="type-row" style="margin-top: 28px;">
+    <div class="type-meta">
+      <div class="name">Primary</div>
+      <div class="label">Cormorant Garamond</div>
+      <div class="desc">For headlines, titles, and all display text. Editorial, elegant, intentional.</div>
+    </div>
+    <div>
+      <div class="type-sample-serif">Aa Bb Cc Dd 1 2 3</div>
+      <div class="weights-line">
+        <div class="w"><span class="show serif" style="font-weight:300;">Aa</span><span>Light · 300</span></div>
+        <div class="w"><span class="show serif" style="font-weight:400;">Aa</span><span>Regular · 400</span></div>
+        <div class="w"><span class="show serif" style="font-weight:400; font-style:italic;">Aa</span><span>Italic · 400</span></div>
+        <div class="w"><span class="show serif" style="font-weight:600;">Aa</span><span>Semibold · 600</span></div>
+        <div class="w"><span class="show serif" style="font-weight:700;">Aa</span><span>Bold · 700</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <div class="name">Body</div>
+      <div class="label">DM Sans</div>
+      <div class="desc">For body copy, UI, navigation, and labels. Clean, modern, endlessly readable.</div>
+    </div>
+    <div>
+      <div class="type-sample-sans">Aa Bb Cc Dd 1 2 3</div>
+      <div class="weights-line">
+        <div class="w"><span class="show sans" style="font-weight:300;">Aa</span><span>Light · 300</span></div>
+        <div class="w"><span class="show sans" style="font-weight:400;">Aa</span><span>Regular · 400</span></div>
+        <div class="w"><span class="show sans" style="font-weight:500;">Aa</span><span>Medium · 500</span></div>
+        <div class="w"><span class="show sans" style="font-weight:600;">Aa</span><span>Semibold · 600</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scale-section">
+    <div class="scale-title">Type Scale</div>
+    <div class="scale-row">
+      <div class="key"><div class="name">Display</div><div class="specs">CGM · 60–72pt · 0.95 lh</div></div>
+      <div class="sample serif-display">Madison <em>Drennen</em></div>
+    </div>
+    <div class="scale-row">
+      <div class="key"><div class="name">H1 / Page Title</div><div class="specs">DM Sans · 32pt · 1.1 lh · Bold</div></div>
+      <div class="sample h1">Brand &amp; Web Designer</div>
+    </div>
+    <div class="scale-row">
+      <div class="key"><div class="name">H2 / Section</div><div class="specs">DM Sans · 22pt · 1.2 lh · Semibold</div></div>
+      <div class="sample h2">A type system that works.</div>
+    </div>
+    <div class="scale-row">
+      <div class="key"><div class="name">Body</div><div class="specs">DM Sans · 10–11pt · 1.6 lh</div></div>
+      <div class="sample body">Every element should work together. Consistency makes it feel premium.</div>
+    </div>
+    <div class="scale-row">
+      <div class="key"><div class="name">Label / Eyebrow</div><div class="specs">DM Sans · 7pt · 0.25em · All-caps</div></div>
+      <div class="sample label">Section Label · Eyebrow · Tag</div>
+    </div>
+  </div>
+
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>04 / 08</span></div>
+</section>
+
+<!-- PAGE 5: VOICE & TONE -->
+<section class="page cream">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">04</span>
+      <span class="ph-section">Voice &amp; Tone</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">Sound like a<br/><em class="italic">trusted friend.</em></h2>
+  <p class="lede">Direct, warm, confident. Never corporate. Never salesy. Write like you're talking to someone -- not presenting to a boardroom.</p>
+
+  <div class="divider"></div>
+
+  <div class="grid-2" style="margin-top:0;">
+    <div class="voice-card">
+      <h4>Be direct. Cut the fluff.</h4>
+      <div class="sub">Say what you mean in as few words as possible.</div>
+      <div class="voice-line"><span class="tag-do">DO</span><span class="quote">"We build websites that convert."</span></div>
+      <div class="voice-line"><span class="tag-dont">DON'T</span><span class="quote">"We leverage our extensive expertise to craft exceptional digital experiences."</span></div>
+    </div>
+    <div class="voice-card">
+      <h4>Confident, not arrogant.</h4>
+      <div class="sub">Own your work without overselling it. Let results speak.</div>
+      <div class="voice-line"><span class="tag-do">DO</span><span class="quote">"Here's what we built. Here's what happened."</span></div>
+      <div class="voice-line"><span class="tag-dont">DON'T</span><span class="quote">"We are the premier brand designers in the industry."</span></div>
+    </div>
+    <div class="voice-card">
+      <h4>Warm but professional.</h4>
+      <div class="sub">Write like you're talking to someone -- not presenting to a boardroom.</div>
+      <div class="voice-line"><span class="tag-do">DO</span><span class="quote">"Not sure which package fits? Let's figure it out."</span></div>
+      <div class="voice-line"><span class="tag-dont">DON'T</span><span class="quote">"Please do not hesitate to contact us for further information."</span></div>
+    </div>
+    <div class="voice-card">
+      <h4>Use italics &amp; em dashes.</h4>
+      <div class="sub">They add rhythm and personality without exclamation marks.</div>
+      <div class="voice-line"><span class="tag-do">DO</span><span class="quote">"Everything works together -- website, kit, signature -- as one."</span></div>
+      <div class="voice-line"><span class="tag-dont">DON'T</span><span class="quote">"Everything works together! We do websites, kits AND signatures!!"</span></div>
+    </div>
+  </div>
+  <div class="voice-card" style="margin-top:14px;">
+    <h4>Never apologise for your pricing.</h4>
+    <div class="sub">State it clearly. Good work costs money -- and it's worth it.</div>
+    <div class="voice-line"><span class="tag-do">DO</span><span class="quote">"Starting at $297. Custom quote after your discovery call."</span></div>
+    <div class="voice-line"><span class="tag-dont">DON'T</span><span class="quote">"Prices vary but we try to be as affordable as possible."</span></div>
+  </div>
+
+  <div class="quote-block">
+    <div class="qmark">"</div>
+    <p>The brand isn't the logo. It's <span class="pink">how it shows up</span> — every page, every email, every impression.</p>
+    <div class="meta">Consistency is the whole point.</div>
+  </div>
+
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>05 / 08</span></div>
+</section>
+
+<!-- PAGE 6: LOGO SUITE -->
+<section class="page cream">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">05</span>
+      <span class="ph-section">Logo Suite</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">The full <em class="italic">suite.</em></h2>
+
+  <div class="logo-suite-frame">
+    <div class="head">
+      <span>MADISON DRENNEN</span>
+      <span>LOGO SUITE</span>
+    </div>
+    <div class="primary-logo-label">PRIMARY LOGO</div>
+    <div class="primary-logo">
+      <img src="/logos/logo-primary.png" alt="Madison Drennen — Brand & Web Design" style="max-width: 320px; width: 100%; display: block; margin: 30px auto 0;" />
+    </div>
+
+    <div class="suite-split">
+      <div>
+        <div class="l">SECONDARY MARK</div>
+        <img src="/logos/logo-monogram.png" alt="MD. monogram" style="width: 190px; height: 190px; object-fit: contain; display: block;" />
+        <div class="submark-caption">For social, favicons, &amp; tight applications.</div>
+      </div>
+      <div>
+        <div class="l">SUBMARK</div>
+        <div class="submark-display">BRAND &amp; WEB DESIGN</div>
+        <div class="submark-caption">For descriptors, captions, &amp; service callouts.</div>
+      </div>
+    </div>
+
+    <div class="suite-tagline">
+      <span class="dash"></span>
+      <span class="t">Elevated design for brands that are here to leave a mark</span>
+      <span class="dash"></span>
+    </div>
+  </div>
+
+  <div class="usage-rules">
+    <div class="heading">USAGE RULES</div>
+    <div class="k">Minimum size</div><div class="v">Never smaller than 24pt / 32px in any application.</div>
+    <div class="k">Never distort</div><div class="v">No stretching, skewing, rotating, or drop shadows.</div>
+    <div class="k">Clear space</div><div class="v">Equal to the cap-height of 'M' on all sides.</div>
+    <div class="k">No outlines</div><div class="v">Never apply a stroke or outline to the wordmark.</div>
+    <div class="k">Approved colors</div><div class="v">Ink on Cream · Cream on Ink · Cream on Accent Pink.</div>
+    <div class="k">No effects</div><div class="v">No gradients, textures, or glows on the mark.</div>
+  </div>
+
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>06 / 08</span></div>
+</section>
+
+<!-- PAGE 7: AI PROMPTS -->
+<section class="page ink">
+  <div class="page-head">
+    <div class="ph-left">
+      <span class="ph-num">06</span>
+      <span class="ph-section">AI Prompt Library</span>
+    </div>
+    <span class="ph-meta">Madison Drennen · Brand Kit</span>
+  </div>
+  <h2 class="section">Ready-to-paste <em class="italic">prompts.</em></h2>
+  <p class="lede">Copy and paste into ChatGPT or Claude. Pre-loaded with your brand voice.</p>
+
+  <div class="prompts-grid">
+    <div class="prompt-card accent">
+      <div class="l">INSTAGRAM CAPTION</div>
+      <p>Write an Instagram caption for my brand and web design business. I help small businesses look established with websites, brand kits, and email signatures. Tone: direct, confident, warm. No hashtags. End with a subtle CTA. Max 3 sentences.</p>
+    </div>
+    <div class="prompt-card muted">
+      <div class="l">WEBSITE HERO COPY</div>
+      <p>Write a hero headline and subheadline for my brand and web design website. Services: websites, brand kits, email signatures. Tone: confident, editorial, minimal. Headline: 4–7 words. Subheadline: 1–2 sentences, no fluff.</p>
+    </div>
+    <div class="prompt-card accent">
+      <div class="l">COLD OUTREACH EMAIL</div>
+      <p>Write a cold outreach email to a small business owner with a dated website. I'm a brand and web designer. Under 80 words. Tone: friendly, direct, not pushy. Lead with what's in it for them. One soft CTA -- a free discovery call.</p>
+    </div>
+    <div class="prompt-card muted">
+      <div class="l">PACKAGE DESCRIPTION</div>
+      <p>Write a 2–3 sentence description of my brand kit package. It includes: color palette, typography system, logo usage rules, voice &amp; tone guide, and an AI prompt library. Tone: confident, clear, no jargon. Speak to a small business owner.</p>
+    </div>
+    <div class="prompt-card accent">
+      <div class="l">LINKEDIN POST</div>
+      <p>Write a LinkedIn post about why small businesses need a brand kit PDF. I offer brand kits as a service. Tone: educational, confident, not preachy. Short paragraphs. Hook in the first line. End with a question. Max 150 words.</p>
+    </div>
+    <div class="prompt-card muted">
+      <div class="l">EMAIL SUBJECT LINES</div>
+      <p>Write 5 email subject lines for a newsletter from a brand and web designer. Audience: small business owners. Goal: get them to think about their brand. Tone: direct, intriguing. Each subject line under 8 words.</p>
+    </div>
+    <div class="prompt-card accent">
+      <div class="l">TESTIMONIAL REQUEST</div>
+      <p>Write a short message asking a past client to leave a Google review. I designed their website and brand kit. Tone: warm, brief, no pressure. Give them 2–3 optional prompts to answer. Under 60 words.</p>
+    </div>
+    <div class="prompt-card muted">
+      <div class="l">FAQ ANSWER</div>
+      <p>Write an FAQ answer to: "How long does it take to build a website?" I'm a brand and web designer for small businesses. Timeline: 2–4 weeks. Tone: clear, honest, confident. 2–3 sentences max. No corporate fluff.</p>
+    </div>
+  </div>
+
+  <div class="page-signoff">
+    <div class="signoff-line">Pre-loaded with your brand voice —— <em>copy, paste, and ship.</em></div>
+    <div class="signoff-mark">MD. · Prompt Library</div>
+  </div>
+  <div class="footer"><span>Brand Kit · <span class="pink">MD.</span></span><span>07 / 08</span></div>
+</section>
+
+<!-- PAGE 8: CLOSING -->
+<section class="page split">
+  <div class="panel cream-side">
+    <div class="panel-head">
+      <span class="lbl">End of Kit</span>
+      <span class="meta">08 / 08</span>
+    </div>
+    <div class="panel-body">
+      <div class="cover-eyebrow">Let's Connect</div>
+      <div class="closing-quote">
+        Let's build something. <span class="it">Worth talking<br/>about.</span>
+      </div>
+      <p class="cover-sub">Brand kits, websites, and visual systems for small businesses that want to look —— and feel —— established.</p>
+      <div class="closing-meta-stack">
+        <div class="row"><span class="k">Studio</span><span class="v">madisondrennen.com</span></div>
+        <div class="row"><span class="k">Email</span><span class="v">hello@madisondrennen.com</span></div>
+        <div class="row"><span class="k">Services</span><span class="v">Brand &amp; Web Design</span></div>
+      </div>
+    </div>
+    <div class="panel-foot">
+      <span>Brand Kit · V1.0</span>
+      <span>2026</span>
+    </div>
+  </div>
+  <div class="panel ink-side">
+    <div class="panel-head">
+      <span class="lbl">Submark</span>
+      <span class="meta">Until Next Time</span>
+    </div>
+    <div class="panel-body">
+      <div class="mono-stage">
+        <div class="mono-card">
+          <img src="/logos/logo-monogram.png" alt="MD. monogram" />
+        </div>
+        <div class="mono-caption"><span class="dash"></span>Designed to Last<span class="dash"></span></div>
+      </div>
+      <div class="ink-tagline">The brand isn't the logo —— it's <em>how it shows up.</em></div>
+      <div class="ink-corner-grid">
+        <div><div>Thank you</div><div class="v">for reading</div></div>
+        <div style="text-align:right;"><div>Brand &amp; Web</div><div class="v">Designer · 2026</div></div>
+      </div>
+    </div>
+    <div class="panel-foot">
+      <span>End</span>
+      <span>MD.</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
