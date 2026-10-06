@@ -9,7 +9,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 bg-ivory text-ink px-6 overflow-hidden">
+    <section id="contact" data-nav-theme="light" className="relative py-28 md:py-36 bg-ivory text-ink px-6 overflow-hidden">
       <div className="chrome-aura chrome-aura--petal top-20 -right-32 w-[36rem] h-[36rem] opacity-55" />
       <div className="chrome-aura chrome-aura--icy bottom-0 -left-32 w-[30rem] h-[30rem] opacity-45" />
 

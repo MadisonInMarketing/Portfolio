@@ -82,7 +82,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-ivory text-ink min-h-screen">
+      <main data-nav-theme="light" className="bg-ivory text-ink min-h-screen">
         {/* ── HERO ── */}
         <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 px-6 overflow-hidden">
           {/* Soft chrome aura washes */}
@@ -158,7 +158,7 @@ export default function AboutPage() {
               <div className="mt-6 space-y-3 font-mono text-[0.6rem] font-medium tracking-[0.22em] uppercase text-ink/55">
                 <div className="flex justify-between pb-2 border-b border-ink/10">
                   <span>Based</span>
-                  <span className="text-ink/80">Austin, TX</span>
+                  <span className="text-ink/80">Denver, CO</span>
                 </div>
                 <div className="flex justify-between pb-2 border-b border-ink/10">
                   <span>Est.</span>

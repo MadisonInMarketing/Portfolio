@@ -40,6 +40,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      data-nav-theme="dark"
       className="relative hero-chrome-bg overflow-hidden flex flex-col pt-32 pb-20 corner-frame"
     >
       <span className="corner-bl" />

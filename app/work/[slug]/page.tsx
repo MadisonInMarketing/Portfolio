@@ -41,7 +41,7 @@ export default function CaseStudyPage({ params }: PageProps) {
   return (
     <>
       <Navbar />
-      <main className="bg-snow min-h-screen">
+      <main data-nav-theme="light" className="bg-snow min-h-screen">
         {/* ── Hero ── */}
         <section className="relative pt-40 pb-16 px-6 overflow-hidden">
           <div

@@ -56,6 +56,7 @@ export default function MarqueeStrip() {
     <section
       id="marquee-strip"
       aria-label="Tools and platforms I work with"
+      data-nav-theme="light"
       className="relative bg-ivory text-ink"
     >
       {/* Marquee row */}

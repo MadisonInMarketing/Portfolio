@@ -7,7 +7,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function FeaturedWork() {
   return (
-    <section id="work" className="relative pt-24 md:pt-28 pb-28 md:pb-32 plum-bloom px-6 overflow-hidden">
+    <section id="work" data-nav-theme="dark" className="relative pt-24 md:pt-28 pb-28 md:pb-32 plum-bloom px-6 overflow-hidden">
       {/* Chrome auras */}
       <div className="chrome-aura chrome-aura--berry top-10 -right-32 w-[36rem] h-[36rem]" />
       <div className="chrome-aura chrome-aura--petal bottom-20 -left-32 w-[32rem] h-[32rem] opacity-30" />

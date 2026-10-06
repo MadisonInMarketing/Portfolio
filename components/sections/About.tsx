@@ -22,7 +22,7 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
+    <section id="about" data-nav-theme="light" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
       {/* Chrome sculpture backdrop, full-bleed, clipped by section overflow */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80 md:opacity-85"

@@ -12,7 +12,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative sweep-bg text-snow overflow-hidden border-t border-snow/8">
+    <footer data-nav-theme="dark" className="relative sweep-bg text-snow overflow-hidden border-t border-snow/8">
       {/* Dark veil for legibility */}
       <div className="absolute inset-0 bg-mahogany-deep/70 pointer-events-none" />
       {/* Ambient berry glow behind the star */}

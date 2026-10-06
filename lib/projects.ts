@@ -301,7 +301,7 @@ export const projects: Project[] = [
       "Experimental digital design",
     ],
     tags: ["Mockups", "Concept Design", "Visual Experiments"],
-    accentColor: "#F4A261",
+    accentColor: "#8CB6DF",
     year: "Ongoing",
     caseStudyAvailable: true,
     heroImage: "/work/explorations/02-concept.png",
