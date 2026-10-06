@@ -4,14 +4,17 @@ import AnimatedStat from "@/components/ui/AnimatedStat";
 
 const values = [
   {
+    n: "01",
     title: "Systems, not one-offs",
     line: "I design pieces that belong together — websites, brand kits, content, and marketing assets that all speak the same language.",
   },
   {
+    n: "02",
     title: "Built to actually use",
     line: "My work is made to be lived with, not just looked at. Every design has a purpose, a place, and a clear next step.",
   },
   {
+    n: "03",
     title: "Designed for the AI era",
     line: "I build prompt libraries and brand guidelines into my systems so your voice stays consistent long after the project ends.",
   },
@@ -19,9 +22,28 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="py-14 md:py-20 bg-cream px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-16 md:gap-10 items-start">
+    <section id="about" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
+      {/* Chrome sculpture backdrop — flowing silver ribbon */}
+      <div
+        className="absolute -top-10 -right-16 md:-right-10 w-[85%] md:w-[55%] h-[115%] pointer-events-none opacity-70 md:opacity-80"
+        style={{
+          backgroundImage: "url('/brand/v4/bg-chrome-sculpture.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "right top",
+          backgroundRepeat: "no-repeat",
+          maskImage:
+            "radial-gradient(ellipse 70% 85% at 75% 40%, black 30%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 85% at 75% 40%, black 30%, transparent 85%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Soft petal + icy washes layered on top for brand tint */}
+      <div className="chrome-aura chrome-aura--petal -top-24 -right-32 w-[32rem] h-[32rem] opacity-30" />
+      <div className="chrome-aura chrome-aura--icy bottom-0 -left-32 w-[30rem] h-[30rem] opacity-50" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-12 gap-16 md:gap-12 items-start">
 
           {/* Left — photo */}
           <div className="md:col-span-5">
@@ -30,15 +52,18 @@ export default function About() {
             </RevealOnScroll>
 
             <RevealOnScroll delay={1} className="mt-8">
-              <div className="relative w-full aspect-[1545/1999] bg-cream-dark overflow-hidden group">
-                <img
-                  src="/headshot.jpg"
-                  alt="Madison Drennen"
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
-                <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-accent opacity-40" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-accent opacity-40" />
+              <div className="relative glass-tile-light p-3">
+                <div className="relative w-full aspect-[1545/1999] overflow-hidden rounded-[18px] bg-petal/20 group">
+                  <img
+                    src="/headshot.jpg"
+                    alt="Madison Drennen"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                  <div className="absolute inset-0 bg-berry/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <span className="absolute top-5 right-5 text-berry text-lg spark z-10" aria-hidden="true">
+                  ✦
+                </span>
               </div>
             </RevealOnScroll>
           </div>
@@ -46,16 +71,23 @@ export default function About() {
           {/* Right — headline + stats + values */}
           <div className="md:col-span-7 md:pt-14">
             <RevealOnScroll variant="clip">
-              <h2 className="font-display text-display-lg font-light text-ink leading-tight tracking-tight mb-12">
-                Hi, I&apos;m Madison.{" "}
-                <em className="italic text-ink/45">
-                  I build polished brand systems, websites, and marketing assets for businesses ready to show up better.
-                </em>
+              <h2
+                className="font-display font-bold text-ink leading-[0.92] tracking-[-0.045em] mb-10"
+                style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
+              >
+                Somewhere between{" "}
+                <span className="text-berry">strategy and design<span className="text-berry">.</span></span>
               </h2>
             </RevealOnScroll>
 
+            <RevealOnScroll delay={1}>
+              <p className="font-sans text-base md:text-lg font-normal text-ink/70 leading-relaxed mb-10 max-w-xl">
+                I&apos;m Madison. I work in digital marketing — brand systems, websites, and campaign creative for businesses ready to show up better.
+              </p>
+            </RevealOnScroll>
+
             {/* Stats */}
-            <RevealOnScroll delay={1} className="grid grid-cols-3 gap-4 border-t border-b border-ink/8 py-8 mb-12">
+            <RevealOnScroll delay={2} className="grid grid-cols-3 gap-4 border-t border-b border-ink/12 py-8 mb-12">
               {[
                 { raw: "3+", label: "Years in Brand & Marketing" },
                 { raw: "5+", label: "Businesses Worked With" },
@@ -65,18 +97,21 @@ export default function About() {
               ))}
             </RevealOnScroll>
 
-            {/* Values — tight, no cards */}
-            <div className="space-y-7">
+            {/* Values — numbered editorial rows */}
+            <div className="space-y-0">
               {values.map((v, i) => (
                 <RevealOnScroll key={v.title} delay={(i + 1) as 1 | 2 | 3}>
-                  <div className="flex gap-4 items-start">
-                    <span
-                      className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-2"
-                      style={{ boxShadow: "0 0 6px rgba(255,79,216,0.5)" }}
-                    />
+                  <div className="grid grid-cols-[48px_1fr] gap-6 py-6 border-t border-ink/10 items-baseline">
+                    <span className="font-mono text-xs font-medium tracking-[0.22em] text-berry">
+                      {v.n}
+                    </span>
                     <div>
-                      <p className="font-sans text-sm font-medium text-ink mb-1">{v.title}</p>
-                      <p className="font-sans text-sm font-light text-ink-muted leading-relaxed">{v.line}</p>
+                      <p className="font-display text-xl md:text-2xl font-bold text-ink mb-2 tracking-[-0.02em]">
+                        {v.title}
+                      </p>
+                      <p className="font-sans text-sm md:text-base font-normal text-ink/65 leading-relaxed">
+                        {v.line}
+                      </p>
                     </div>
                   </div>
                 </RevealOnScroll>

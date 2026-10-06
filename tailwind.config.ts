@@ -9,41 +9,69 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF9F6",
-        "cream-dark": "#F0EDE6",
-        ink: "#111111",
+        // ── Brand v4 "Chrome Aura" — OFFICIAL palette (Oct 2026) ──
+        onyx: "#250209",
+        mahogany: "#250209",
+        "mahogany-deep": "#1A0714",
+        "mahogany-rich": "#3A0E1E",
+        charcoal: "#3A0E1E",
+        plum: "#24081A",
+        "plum-deep": "#1A0714",
+
+        snow: "#FFF3F2",
+        ivory: "#FFF3F2",
+        paper: "#FCFCFA",
+        petal: "#FFCAE4",
+        "petal-soft": "#FBD9EC",
+        blush: "#FBD9EC",
+
+        berry: "#BA006D",
+        "berry-deep": "#89235B",
+        raspberry: "#89235B",
+        "raspberry-light": "#D12E86",
+        magenta: "#BA006D",
+        "pink-chrome": "#E05A9F",
+        "lilac-chrome": "#C8B9FF",
+
+        "icy-blue": "#D9EAFE",
+        "chrome-gray": "#B9B9B7",
+        "chrome-mid": "#B9B9B7",
+
+        ink: "#250209",
         "ink-muted": "#555555",
         "ink-light": "#888888",
-        // Pink accent system
-        accent: "#FF4FD8",
-        "accent-light": "#FFB3EF",
-        "accent-dark": "#D93CBE",
-        "accent-glow": "rgba(255, 79, 216, 0.18)",
-        "accent-glow-sm": "rgba(255, 79, 216, 0.10)",
+
+        // Legacy aliases
+        cream: "#FFF3F2",
+        "cream-dark": "#FBD9EC",
+        accent: "#BA006D",
+        "accent-light": "#E05A9F",
+        "accent-dark": "#89235B",
       },
       fontFamily: {
-        display: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        accent: ["var(--font-syne)", "system-ui", "sans-serif"],
+        display: ["var(--font-instrument)", "system-ui", "sans-serif"],
+        sans: ["var(--font-instrument)", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
+        accent: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
-        "display-2xl": ["clamp(4rem, 10vw, 9rem)", { lineHeight: "0.92" }],
-        "display-xl": ["clamp(2.5rem, 6vw, 5.5rem)", { lineHeight: "1.0" }],
-        "display-lg": ["clamp(2rem, 4.5vw, 4rem)", { lineHeight: "1.05" }],
-        "display-md": ["clamp(1.5rem, 3vw, 2.5rem)", { lineHeight: "1.1" }],
+        "display-2xl": ["clamp(4rem, 10vw, 10rem)", { lineHeight: "0.88" }],
+        "display-xl": ["clamp(2.75rem, 7vw, 7rem)", { lineHeight: "0.92" }],
+        "display-lg": ["clamp(2rem, 5vw, 5rem)", { lineHeight: "1.0" }],
+        "display-md": ["clamp(1.5rem, 3.5vw, 3rem)", { lineHeight: "1.1" }],
       },
       letterSpacing: {
-        tightest: "-0.04em",
-        tighter: "-0.02em",
-        widest: "0.2em",
-        "ultra-wide": "0.35em",
+        tightest: "-0.05em",
+        tighter: "-0.03em",
+        widest: "0.22em",
+        "ultra-wide": "0.32em",
       },
       boxShadow: {
-        "glow-sm": "0 0 20px rgba(255, 79, 216, 0.12)",
-        "glow-md": "0 0 40px rgba(255, 79, 216, 0.18)",
-        "glow-lg": "0 0 80px rgba(255, 79, 216, 0.22)",
-        "lift-sm": "0 8px 32px rgba(17, 17, 17, 0.08)",
-        "lift-md": "0 16px 48px rgba(17, 17, 17, 0.12)",
+        "glow-sm": "0 0 20px rgba(186, 0, 109, 0.18)",
+        "glow-md": "0 0 40px rgba(186, 0, 109, 0.26)",
+        "glow-lg": "0 0 80px rgba(186, 0, 109, 0.32)",
+        "glow-berry": "0 8px 48px rgba(186, 0, 109, 0.45)",
+        "glass": "0 20px 60px -20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,243,242,0.08)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease forwards",
@@ -53,8 +81,8 @@ const config: Config = {
         "float-medium": "float 4s ease-in-out infinite",
         "bounce-gentle": "bounceGentle 2s ease-in-out infinite",
         "pulse-glow": "pulseGlow 3s ease-in-out infinite",
-        "text-shimmer": "textShimmer 3s linear infinite",
         marquee: "marquee 22s linear infinite",
+        "spark-pulse": "sparkPulse 2.4s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {
@@ -78,21 +106,23 @@ const config: Config = {
           "50%": { transform: "translateY(7px)", opacity: "1" },
         },
         pulseGlow: {
-          "0%, 100%": { boxShadow: "0 0 8px rgba(255,79,216,0.4)", opacity: "0.6" },
-          "50%": { boxShadow: "0 0 22px rgba(255,79,216,0.85)", opacity: "1" },
+          "0%, 100%": { boxShadow: "0 0 8px rgba(186,0,109,0.4)", opacity: "0.6" },
+          "50%": { boxShadow: "0 0 22px rgba(186,0,109,0.9)", opacity: "1" },
         },
-        textShimmer: {
-          "0%": { backgroundPosition: "-200% center" },
-          "100%": { backgroundPosition: "200% center" },
+        sparkPulse: {
+          "0%, 100%": { opacity: "0.75", transform: "scale(1) rotate(0deg)" },
+          "50%": { opacity: "1", transform: "scale(1.15) rotate(12deg)" },
         },
       },
       backgroundImage: {
-        "accent-gradient":
-          "linear-gradient(135deg, #FF4FD8 0%, #D93CBE 100%)",
-        "accent-gradient-soft":
-          "linear-gradient(135deg, rgba(255,79,216,0.12) 0%, rgba(217,60,190,0.06) 100%)",
-        "hero-glow":
-          "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255,79,216,0.06) 0%, transparent 70%)",
+        "berry-gradient": "linear-gradient(135deg, #BA006D 0%, #89235B 100%)",
+        "berry-gradient-soft":
+          "linear-gradient(135deg, rgba(186,0,109,0.18) 0%, rgba(137,35,91,0.06) 100%)",
+        "sweep-bg": "url('/brand/v4/bg-primary-sweeps.png')",
+        "silk-bg": "url('/brand/v4/bg-burgundy-silk.png')",
+        "ribbon-bg": "url('/brand/v4/bg-burgundy-ribbon.png')",
+        "pearl-bg": "url('/brand/v4/bg-pearl-silk.png')",
+        "chrome-sculpture": "url('/brand/v4/bg-chrome-sculpture.png')",
       },
       transitionTimingFunction: {
         "expo-out": "cubic-bezier(0.16, 1, 0.3, 1)",

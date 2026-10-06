@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 
@@ -12,52 +11,117 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-ink text-cream overflow-hidden">
-      {/* Subtle pink ambient hue */}
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[70%] h-[18rem] bg-accent/[0.08] blur-[140px] pointer-events-none" />
+    <footer className="relative sweep-bg text-snow overflow-hidden border-t border-snow/8">
+      {/* Dark veil for legibility */}
+      <div className="absolute inset-0 bg-mahogany-deep/70 pointer-events-none" />
+      {/* Ambient berry glow behind the star */}
+      <div className="chrome-aura chrome-aura--berry top-10 left-1/2 -translate-x-1/2 w-[60%] h-[20rem] opacity-80" />
+      <div className="chrome-aura chrome-aura--petal top-24 left-1/2 -translate-x-1/2 w-[30%] h-[12rem] opacity-50" />
 
       {/* Top hairline gradient */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, transparent, rgba(255,79,216,0.35) 30%, rgba(255,79,216,0.55) 50%, rgba(255,79,216,0.35) 70%, transparent)",
+            "linear-gradient(to right, transparent, rgba(255,202,228,0.35) 30%, rgba(186,0,109,0.9) 50%, rgba(255,202,228,0.35) 70%, transparent)",
         }}
       />
 
-      <div className="relative flex flex-col items-center justify-center px-6 py-14 md:py-16">
-        {/* Monogram */}
+      <div className="relative flex flex-col items-center justify-center px-6 pt-16 pb-14 md:pt-20 md:pb-16">
+        {/* ── STAR LOCKUP ── */}
         <Link
           href="#hero"
           aria-label="Back to top"
-          className="group inline-flex items-center justify-center w-12 h-12 rounded-full border border-cream/15 hover:border-accent transition-colors duration-400 overflow-hidden mb-5"
+          className="group flex flex-col items-center text-center"
         >
-          <Image
-            src="/logos/logo-monogram.png"
-            alt="Madison Drennen monogram"
-            width={48}
-            height={48}
-            className="w-7 h-7 object-contain transition-transform duration-500 group-hover:scale-110"
-          />
+          {/* Chrome 4-point sparkle (concave) */}
+          <span className="relative inline-block mb-6" aria-hidden="true">
+            <svg
+              viewBox="0 0 100 100"
+              className="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_0_32px_rgba(224,90,159,0.7)] transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6"
+            >
+              <defs>
+                {/* Berry core gradient (shiny chrome belly) */}
+                <radialGradient id="sparkCore" cx="42%" cy="36%" r="68%">
+                  <stop offset="0%" stopColor="#FFF3F2" />
+                  <stop offset="18%" stopColor="#FFCAE4" />
+                  <stop offset="48%" stopColor="#E05A9F" />
+                  <stop offset="78%" stopColor="#BA006D" />
+                  <stop offset="100%" stopColor="#6E0A42" />
+                </radialGradient>
+                {/* Chrome white rim gradient */}
+                <linearGradient id="sparkRim" x1="20%" y1="0%" x2="80%" y2="100%">
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="35%" stopColor="#FFE4EF" />
+                  <stop offset="70%" stopColor="#D8C4CC" />
+                  <stop offset="100%" stopColor="#FFFFFF" />
+                </linearGradient>
+                {/* Inner specular highlight */}
+                <radialGradient id="sparkGlint" cx="40%" cy="32%" r="22%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
+                  <stop offset="60%" stopColor="rgba(255,255,255,0.3)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                </radialGradient>
+              </defs>
+
+              {/*
+                4-point star with CONCAVE curves between the points —
+                the signature ✦ geometry. Points touch 50,4 / 96,50 / 50,96 / 4,50;
+                arms pinch inward through quadratic control points at (50,50).
+              */}
+              {/* Outer chrome rim */}
+              <path
+                d="M50 2
+                   Q 50 50, 98 50
+                   Q 50 50, 50 98
+                   Q 50 50, 2 50
+                   Q 50 50, 50 2 Z"
+                fill="url(#sparkRim)"
+                opacity="0.95"
+              />
+              {/* Core berry body — slightly inset */}
+              <path
+                d="M50 8
+                   Q 50 50, 92 50
+                   Q 50 50, 50 92
+                   Q 50 50, 8 50
+                   Q 50 50, 50 8 Z"
+                fill="url(#sparkCore)"
+              />
+              {/* Specular glint on upper-left arm */}
+              <path
+                d="M50 8
+                   Q 50 50, 8 50
+                   Q 50 50, 50 8 Z"
+                fill="url(#sparkGlint)"
+                opacity="0.85"
+              />
+            </svg>
+          </span>
+
+          {/* MADISON IN MARKETING tight caps */}
+          <h2
+            className="font-display font-bold text-snow leading-none tracking-[-0.01em] mb-5 whitespace-nowrap"
+            style={{ fontSize: "clamp(1.1rem, 6vw, 3rem)" }}
+          >
+            MADISON <span className="text-berry">IN</span> MARKETING
+          </h2>
+
+          {/* Subtitle */}
+          <p className="font-mono text-[0.6rem] md:text-[0.7rem] font-medium tracking-[0.35em] md:tracking-[0.42em] uppercase text-petal/85 whitespace-nowrap">
+            Creative · Marketing · AI
+          </p>
         </Link>
 
-        {/* Wordmark + tag */}
-        <div className="flex flex-col items-center leading-none mb-4">
-          <span className="font-display text-xl font-semibold tracking-tight text-cream">
-            Madison Drennen
-          </span>
-          <span className="font-accent text-[0.55rem] font-600 tracking-[0.32em] uppercase text-accent mt-2">
-            Brand · Web · Marketing
-          </span>
-        </div>
+        {/* Hairline divider */}
+        <div className="w-full max-w-md mt-10 mb-6 h-px bg-gradient-to-r from-transparent via-snow/15 to-transparent" />
 
-        {/* Copyright */}
-        <p className="font-sans text-xs text-cream/45 text-center">
-          © {year} Madison Drennen. All rights reserved.
+        {/* Copyright + socials */}
+        <p className="font-mono text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/50 text-center">
+          © {year} · Madison Drennen · Est. 2026
         </p>
 
-        {/* Social row */}
-        <div className="flex items-center gap-5 mt-6">
+        <div className="flex items-center gap-5 mt-5">
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}
@@ -65,7 +129,7 @@ export default function Footer() {
               aria-label={label}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="text-cream/50 hover:text-accent hover:-translate-y-0.5 transition-all duration-300"
+              className="text-snow/60 hover:text-berry hover:-translate-y-0.5 transition-all duration-300"
             >
               <Icon size={20} strokeWidth={1.5} />
             </a>

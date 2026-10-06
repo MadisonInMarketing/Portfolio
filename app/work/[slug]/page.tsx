@@ -41,13 +41,16 @@ export default function CaseStudyPage({ params }: PageProps) {
   return (
     <>
       <Navbar />
-      <main className="bg-cream min-h-screen">
+      <main className="bg-snow min-h-screen">
         {/* ── Hero ── */}
         <section className="relative pt-40 pb-16 px-6 overflow-hidden">
           <div
             className="absolute inset-0 opacity-5 -z-10"
             style={{ background: project.accentColor }}
           />
+          {/* Soft brand washes */}
+          <div className="absolute top-10 -right-32 w-[28rem] h-[28rem] bg-petal/30 blur-[110px] rounded-full pointer-events-none -z-10" />
+          <div className="absolute -bottom-10 -left-24 w-[22rem] h-[22rem] bg-icy-blue/35 blur-[100px] rounded-full pointer-events-none -z-10" />
           <div className="max-w-7xl mx-auto">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-12">
@@ -65,7 +68,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                 Work
               </Link>
               <span className="text-ink/20 text-sm">/</span>
-              <span className="font-sans text-[0.65rem] font-medium tracking-widest uppercase text-accent">
+              <span className="font-sans text-[0.65rem] font-medium tracking-widest uppercase text-berry">
                 {project.title}
               </span>
             </div>
@@ -80,19 +83,19 @@ export default function CaseStudyPage({ params }: PageProps) {
                   {project.category}
                 </span>
                 <h1
-                  className="font-display font-light text-ink leading-[0.92] tracking-tight mb-6"
+                  className="font-display font-bold text-ink leading-[0.9] tracking-[-0.04em] lowercase mb-6"
                   style={{ fontSize: "clamp(2.75rem, 7vw, 6.5rem)" }}
                 >
                   {project.title}
                 </h1>
-                <p className="font-sans text-base font-light text-ink-muted leading-relaxed max-w-xl">
+                <p className="font-sans text-base font-normal text-ink-muted leading-relaxed max-w-xl">
                   {project.shortDescription}
                 </p>
               </div>
               <div className="md:col-span-4 flex flex-col gap-4 md:items-end">
                 <div className="text-right">
                   <p className="font-sans text-[0.6rem] tracking-widest uppercase text-ink/30 mb-1">Year</p>
-                  <p className="font-display text-2xl font-light text-ink">{project.year}</p>
+                  <p className="font-display text-2xl font-semibold text-ink">{project.year}</p>
                 </div>
                 <div className="text-right">
                   <p className="font-sans text-[0.6rem] tracking-widest uppercase text-ink/30 mb-1">Company</p>
@@ -106,7 +109,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                         href={pdf.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 font-sans text-[0.65rem] font-medium tracking-widest uppercase px-4 py-2.5 rounded-[4px] border border-ink/15 text-ink/70 hover:border-accent hover:bg-accent hover:text-cream transition-all duration-300"
+                        className="group inline-flex items-center gap-2 font-sans text-[0.65rem] font-medium tracking-widest uppercase px-4 py-2.5 rounded-[4px] border border-ink/15 text-ink/70 hover:border-berry hover:bg-berry hover:text-snow transition-all duration-300"
                       >
                         <span>↓ {pdf.label}</span>
                       </a>
@@ -141,7 +144,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                       style={{ background: `${project.accentColor}10` }}
                     >
                       <span
-                        className="absolute font-display text-[20rem] font-light italic leading-none pointer-events-none select-none"
+                        className="absolute font-display text-[20rem] font-bold leading-none pointer-events-none select-none"
                         style={{ color: `${project.accentColor}06` }}
                       >
                         {project.title.charAt(0)}
@@ -160,7 +163,7 @@ export default function CaseStudyPage({ params }: PageProps) {
 
                   {/* Eyebrow */}
                   <span
-                    className="font-accent text-[0.65rem] font-700 tracking-[0.32em] uppercase flex items-center gap-2.5 mb-4"
+                    className="font-mono text-[0.65rem] font-bold tracking-[0.32em] uppercase flex items-center gap-2.5 mb-4"
                     style={{ color: project.accentColor }}
                   >
                     <span className="w-2 h-2 rounded-full" style={{ background: project.accentColor, boxShadow: `0 0 10px ${project.accentColor}80` }} />
@@ -169,16 +172,13 @@ export default function CaseStudyPage({ params }: PageProps) {
 
                   {/* Big display heading */}
                   <h2
-                    className="font-display font-light text-ink leading-[1] tracking-tight mb-8"
+                    className="font-display font-bold text-ink leading-[0.9] tracking-[-0.045em] mb-8"
                     style={{ fontSize: "clamp(2rem, 3.4vw, 3.25rem)" }}
                   >
                     What I{" "}
-                    <em
-                      className="italic"
-                      style={{ color: project.accentColor }}
-                    >
-                      built.
-                    </em>
+                    <span style={{ color: project.accentColor }}>
+                      built<span style={{ color: project.accentColor }}>.</span>
+                    </span>
                   </h2>
 
                   {/* Role list — bigger, numbered */}
@@ -186,12 +186,12 @@ export default function CaseStudyPage({ params }: PageProps) {
                     {project.whatIDid.map((item, idx) => (
                       <li key={item} className="flex items-baseline gap-4 group">
                         <span
-                          className="font-accent text-[0.65rem] font-700 tracking-[0.2em] tabular-nums flex-shrink-0 transition-colors duration-300"
+                          className="font-mono text-[0.65rem] font-bold tracking-[0.2em] tabular-nums flex-shrink-0 transition-colors duration-300"
                           style={{ color: `${project.accentColor}80` }}
                         >
                           0{idx + 1}
                         </span>
-                        <span className="font-display text-lg md:text-xl font-light text-ink leading-snug">
+                        <span className="font-display text-lg md:text-xl font-semibold text-ink leading-snug">
                           {item}
                         </span>
                       </li>
@@ -203,7 +203,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="font-accent text-[0.6rem] font-700 tracking-[0.22em] uppercase px-3 py-2 rounded-[3px] transition-colors duration-300"
+                        className="font-mono text-[0.6rem] font-bold tracking-[0.22em] uppercase px-3 py-2 rounded-[3px] transition-colors duration-300"
                         style={{
                           background: `${project.accentColor}10`,
                           color: project.accentColor,
@@ -224,11 +224,11 @@ export default function CaseStudyPage({ params }: PageProps) {
                 <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16">
                   {project.challenge && (
                     <div>
-                      <h2 className="font-display text-display-md font-light text-ink tracking-tight mb-4">
+                      <h2 className="font-display text-display-md font-bold text-ink tracking-[-0.03em] lowercase mb-4">
                         The Challenge
                       </h2>
                       {project.challenge.split("\n\n").map((para, i) => (
-                        <p key={i} className="font-sans text-base font-light text-ink-muted leading-relaxed mb-3 last:mb-0">
+                        <p key={i} className="font-sans text-base font-normal text-ink-muted leading-relaxed mb-3 last:mb-0">
                           {para}
                         </p>
                       ))}
@@ -237,11 +237,11 @@ export default function CaseStudyPage({ params }: PageProps) {
 
                   {project.approach && (
                     <div>
-                      <h2 className="font-display text-display-md font-light text-ink tracking-tight mb-4">
+                      <h2 className="font-display text-display-md font-bold text-ink tracking-[-0.03em] lowercase mb-4">
                         The Approach
                       </h2>
                       {project.approach.split("\n\n").map((para, i) => (
-                        <p key={i} className="font-sans text-base font-light text-ink-muted leading-relaxed mb-3 last:mb-0">
+                        <p key={i} className="font-sans text-base font-normal text-ink-muted leading-relaxed mb-3 last:mb-0">
                           {para}
                         </p>
                       ))}
@@ -272,7 +272,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                     style={{ background: `${project.accentColor}10` }}
                   >
                     <span
-                      className="absolute font-display text-[20rem] font-light italic leading-none pointer-events-none select-none"
+                      className="absolute font-display text-[20rem] font-bold leading-none pointer-events-none select-none"
                       style={{ color: `${project.accentColor}06` }}
                     >
                       {project.title.charAt(0)}
@@ -296,7 +296,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2"
                           style={{ background: project.accentColor }}
                         />
-                        <span className="font-sans text-sm font-light text-ink-muted">{item}</span>
+                        <span className="font-sans text-sm font-normal text-ink-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -317,11 +317,11 @@ export default function CaseStudyPage({ params }: PageProps) {
                 <div className="md:col-span-8 space-y-6">
                   {project.challenge && (
                     <div>
-                      <h2 className="font-display text-display-md font-light text-ink tracking-tight mb-4">
+                      <h2 className="font-display text-display-md font-bold text-ink tracking-[-0.03em] lowercase mb-4">
                         The Challenge
                       </h2>
                       {project.challenge.split("\n\n").map((para, i) => (
-                        <p key={i} className="font-sans text-base font-light text-ink-muted leading-relaxed mb-3 last:mb-0">
+                        <p key={i} className="font-sans text-base font-normal text-ink-muted leading-relaxed mb-3 last:mb-0">
                           {para}
                         </p>
                       ))}
@@ -330,11 +330,11 @@ export default function CaseStudyPage({ params }: PageProps) {
 
                   {project.approach && (
                     <div>
-                      <h2 className="font-display text-display-md font-light text-ink tracking-tight mb-4">
+                      <h2 className="font-display text-display-md font-bold text-ink tracking-[-0.03em] lowercase mb-4">
                         The Approach
                       </h2>
                       {project.approach.split("\n\n").map((para, i) => (
-                        <p key={i} className="font-sans text-base font-light text-ink-muted leading-relaxed mb-3 last:mb-0">
+                        <p key={i} className="font-sans text-base font-normal text-ink-muted leading-relaxed mb-3 last:mb-0">
                           {para}
                         </p>
                       ))}
@@ -348,7 +348,7 @@ export default function CaseStudyPage({ params }: PageProps) {
 
         {/* ── Project Gallery (row-based, no staggering, no cropping) ── */}
         {project.gallery && project.gallery.length > 0 && (
-          <section className="px-6 pb-24 bg-cream-dark/40 py-20">
+          <section className="px-6 pb-24 bg-snow-dark/50 py-20">
             <div className="max-w-7xl mx-auto">
               <p className="font-sans text-[0.65rem] font-medium tracking-[0.25em] uppercase text-accent flex items-center gap-2 mb-12">
                 <span className="w-5 h-px bg-accent" />
@@ -363,11 +363,11 @@ export default function CaseStudyPage({ params }: PageProps) {
                     <div key={ri}>
                       {row.label && (
                         <div className="flex items-center gap-3 mb-5">
-                          <span className="font-accent text-[0.6rem] font-700 tracking-[0.3em] uppercase text-ink/65">
+                          <span className="font-mono text-[0.6rem] font-bold tracking-[0.3em] uppercase text-ink/65">
                             {row.label}
                           </span>
                           <span className="flex-1 h-px bg-ink/10" />
-                          <span className="font-accent text-[0.55rem] font-500 tracking-[0.22em] uppercase text-ink/30 tabular-nums">
+                          <span className="font-mono text-[0.55rem] font-medium tracking-[0.22em] uppercase text-ink/30 tabular-nums">
                             {String(row.items.length).padStart(2, "0")}
                           </span>
                         </div>
@@ -410,7 +410,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                               )}
 
                               {item.type === "video" && (
-                                <span className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-ink/70 backdrop-blur-sm text-cream text-[0.5rem] font-accent font-700 tracking-[0.2em] uppercase">
+                                <span className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-ink/70 backdrop-blur-sm text-snow text-[0.5rem] font-mono font-bold tracking-[0.2em] uppercase">
                                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                                   Video
                                 </span>
@@ -418,7 +418,7 @@ export default function CaseStudyPage({ params }: PageProps) {
 
                               {!isTransparent && (
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                                  <p className="font-sans text-xs font-light text-cream leading-snug">
+                                  <p className="font-sans text-xs font-normal text-snow leading-snug">
                                     {item.alt}
                                   </p>
                                 </div>
@@ -445,14 +445,14 @@ export default function CaseStudyPage({ params }: PageProps) {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/8">
                 {project.results.map((stat, i) => (
-                  <div key={i} className="bg-cream p-8 md:p-10 text-center">
-                    <p className="font-display text-4xl md:text-5xl font-light text-ink mb-2 leading-none">{stat.value}</p>
+                  <div key={i} className="bg-snow p-8 md:p-10 text-center">
+                    <p className="font-display text-4xl md:text-5xl font-bold text-ink mb-2 leading-none">{stat.value}</p>
                     <p className="font-sans text-[0.6rem] tracking-widest uppercase text-ink/40">{stat.label}</p>
                   </div>
                 ))}
               </div>
               {project.resultsCaption && (
-                <p className="font-sans text-xs font-light text-ink/40 mt-4 text-center italic">
+                <p className="font-mono text-xs font-medium tracking-[0.22em] uppercase text-berry/70 mt-4 text-center">
                   {project.resultsCaption}
                 </p>
               )}
@@ -476,11 +476,11 @@ export default function CaseStudyPage({ params }: PageProps) {
               >
                 <div className="text-right">
                   <p className="font-sans text-[0.6rem] tracking-widest uppercase text-ink/30 mb-1">Next Project</p>
-                  <p className="font-display text-2xl font-light text-ink group-hover:text-accent transition-colors duration-300">
+                  <p className="font-display text-2xl font-semibold text-ink group-hover:text-accent transition-colors duration-300">
                     {nextProject.title}
                   </p>
                 </div>
-                <span className="w-10 h-10 rounded-full border border-ink/20 group-hover:border-accent group-hover:bg-accent group-hover:text-cream flex items-center justify-center transition-all duration-300 text-ink/40">
+                <span className="w-10 h-10 rounded-full border border-ink/20 group-hover:border-accent group-hover:bg-accent group-hover:text-snow flex items-center justify-center transition-all duration-300 text-ink/40">
                   →
                 </span>
               </Link>

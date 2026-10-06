@@ -40,5 +40,17 @@ yarn-error.log*
 /Madison_Drennen_*.pdf
 /Madison_Drennen_*.jpg
 
+# Brand reference drops & design system exports (local only)
+/MadisonInMarketing Design System/
+/intro-*.png
+/intro-*.jpg
+/ChatGPT Image*.png
+/Flowing Chrome*.png
+/Glossy Burgundy*.png
+/Silky Burgundy*.png
+/Madison Brand Identity*.png
+/LinkedIn Banner-*.png
+/Intro Series-*.png
+
 # claude code local config
 /.claude/

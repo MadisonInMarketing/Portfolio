@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "Sales creative, pricing sheets & email signatures",
     ],
     tags: ["Web Design & Build", "Brand Systems", "Content & Social"],
-    accentColor: "#FF4FD8",
+    accentColor: "#D4255F",
     year: "2026",
     caseStudyAvailable: true,
     heroImage: "/work/gymrise/hero.png",

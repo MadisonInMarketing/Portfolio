@@ -1,27 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, Syne } from "next/font/google";
+import { Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const instrument = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -33,11 +26,12 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Madison Drennen — Brand · Web · Marketing",
+  title: "Madison in Marketing — Creative · Marketing · AI",
   description:
-    "Portfolio of Madison Drennen — a brand designer, web designer, and digital marketer building polished brand systems, websites, and campaigns for businesses ready to show up better.",
+    "Portfolio of Madison Drennen — building polished brand systems, websites, and marketing assets for businesses ready to show up better.",
   keywords: [
     "Madison Drennen",
+    "madison in marketing",
     "brand designer",
     "web designer",
     "digital marketer",
@@ -52,16 +46,16 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Madison Drennen — Brand · Web · Marketing",
+    title: "Madison in Marketing — Creative · Marketing · AI",
     description:
       "Polished brand systems, websites, and marketing for businesses ready to show up better.",
     type: "website",
-    siteName: "Madison Drennen",
+    siteName: "Madison in Marketing",
     url: "https://madisondrennen.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Madison Drennen — Brand · Web · Marketing",
+    title: "Madison in Marketing — Creative · Marketing · AI",
     description:
       "Polished brand systems, websites, and marketing for businesses ready to show up better.",
   },
@@ -73,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${syne.variable}`}>
+    <html lang="en" className={`${instrument.variable} ${plexMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

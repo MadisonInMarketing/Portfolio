@@ -38,11 +38,11 @@ function ToolItem({ tool }: { tool: Tool }) {
         />
       ) : (
         <span
-          className="w-1.5 h-1.5 rounded-full bg-accent/65 flex-shrink-0"
+          className="w-1.5 h-1.5 rounded-full bg-berry/65 flex-shrink-0"
           aria-hidden="true"
         />
       )}
-      <span className="font-sans text-[0.72rem] font-medium tracking-[0.22em] uppercase text-ink/65 whitespace-nowrap">
+      <span className="font-mono text-[0.68rem] font-medium tracking-[0.22em] uppercase text-ink/70 whitespace-nowrap">
         {tool.name}
       </span>
     </span>
@@ -56,16 +56,16 @@ export default function MarqueeStrip() {
     <section
       id="marquee-strip"
       aria-label="Tools and platforms I work with"
-      className="relative bg-cream"
+      className="relative bg-ivory text-ink"
     >
       {/* Marquee row */}
-      <div className="marquee-wrapper marquee-fade-cream marquee-pause-hover relative py-5 border-y border-ink/8">
+      <div className="marquee-wrapper marquee-pause-hover relative py-5 border-y border-ink/10">
         <div className="flex whitespace-nowrap animate-marquee">
           {looped.map((tool, i) => (
             <span key={i} className="flex items-center gap-7 md:gap-9 px-5 md:px-7">
               <ToolItem tool={tool} />
               <span
-                className="w-1 h-1 rounded-full bg-ink/15 flex-shrink-0"
+                className="w-1 h-1 rounded-full bg-berry/30 flex-shrink-0"
                 aria-hidden="true"
               />
             </span>

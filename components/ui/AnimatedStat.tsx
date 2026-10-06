@@ -56,10 +56,10 @@ export default function AnimatedStat({ raw, label }: AnimatedStatProps) {
 
   return (
     <div ref={ref} className="text-center">
-      <p className="font-display text-3xl font-light text-ink tabular-nums">
+      <p className="font-display text-4xl font-bold text-ink tabular-nums tracking-[-0.04em]">
         {display}
       </p>
-      <p className="font-accent text-[0.55rem] font-500 tracking-[0.2em] uppercase text-ink-light mt-1.5 leading-snug">
+      <p className="font-mono text-[0.55rem] font-medium tracking-[0.22em] uppercase text-ink/50 mt-2 leading-snug">
         {label}
       </p>
     </div>
