@@ -21,7 +21,7 @@ export default function FeaturedWork() {
             </RevealOnScroll>
             <RevealOnScroll delay={1} variant="clip">
               <h2
-                className="font-display font-bold text-snow leading-[0.9] tracking-[-0.05em] mt-4"
+                className="font-display font-bold text-snow leading-[1.0] tracking-[-0.045em] mt-4 pb-1"
                 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
               >
                 A little look at what I&apos;ve been{" "}

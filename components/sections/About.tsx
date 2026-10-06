@@ -23,18 +23,19 @@ const values = [
 export default function About() {
   return (
     <section id="about" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
-      {/* Chrome sculpture backdrop — flowing silver ribbon */}
+      {/* Chrome sculpture backdrop — full-bleed, clipped by section overflow */}
       <div
-        className="absolute -top-10 -right-16 md:-right-10 w-[85%] md:w-[55%] h-[115%] pointer-events-none opacity-70 md:opacity-80"
+        className="absolute inset-0 pointer-events-none opacity-80 md:opacity-85"
         style={{
           backgroundImage: "url('/brand/v4/bg-chrome-sculpture.png')",
-          backgroundSize: "contain",
-          backgroundPosition: "right top",
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
           backgroundRepeat: "no-repeat",
+          /* fade left half → ivory so copy on the left reads cleanly */
           maskImage:
-            "radial-gradient(ellipse 70% 85% at 75% 40%, black 30%, transparent 85%)",
+            "linear-gradient(to left, black 15%, rgba(0,0,0,0.6) 55%, transparent 85%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 70% 85% at 75% 40%, black 30%, transparent 85%)",
+            "linear-gradient(to left, black 15%, rgba(0,0,0,0.6) 55%, transparent 85%)",
         }}
         aria-hidden="true"
       />
@@ -72,7 +73,7 @@ export default function About() {
           <div className="md:col-span-7 md:pt-14">
             <RevealOnScroll variant="clip">
               <h2
-                className="font-display font-bold text-ink leading-[0.92] tracking-[-0.045em] mb-10"
+                className="font-display font-bold text-ink leading-[1.02] tracking-[-0.04em] mb-10 pb-2"
                 style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
               >
                 Somewhere between{" "}
