@@ -324,6 +324,13 @@
     var(--mahogany-deep);
 }
 
+/* Hero bg — lusher glossy burgundy chrome ribbon with pink highlights */
+.hero-chrome-bg {
+  background:
+    url('/brand/v4/bg-hero-chrome-ribbon.webp') center / cover no-repeat,
+    var(--mahogany-deep);
+}
+
 .silk-bg {
   background:
     url('/brand/v4/bg-burgundy-silk.png') center / cover no-repeat,

@@ -40,17 +40,17 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative sweep-bg overflow-hidden flex flex-col pt-32 pb-20 corner-frame"
+      className="relative hero-chrome-bg overflow-hidden flex flex-col pt-32 pb-20 corner-frame"
     >
       <span className="corner-bl" />
       <span className="corner-br" />
 
-      {/* Dark veil for text contrast over sweep image */}
+      {/* Dark veil for text contrast over chrome ribbon image */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(26,7,20,0.55) 0%, rgba(37,2,9,0.35) 35%, rgba(37,2,9,0.55) 100%)",
+            "linear-gradient(180deg, rgba(26,7,20,0.6) 0%, rgba(37,2,9,0.3) 30%, rgba(37,2,9,0.55) 100%)",
         }}
       />
 
