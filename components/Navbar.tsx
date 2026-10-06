@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 
@@ -53,7 +54,17 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" aria-label="Madison Drennen — Home">
+          <Link href="/" aria-label="Madison Drennen — Home" className="flex items-center gap-3 group">
+            <span className="relative inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden ring-1 ring-snow/20 shadow-[0_4px_14px_rgba(0,0,0,0.3)] transition-transform duration-500 group-hover:scale-105">
+              <Image
+                src="/logos/v4/monogram-light-bg.png"
+                alt=""
+                width={40}
+                height={40}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </span>
             <Logo variant="dark" />
           </Link>
 
