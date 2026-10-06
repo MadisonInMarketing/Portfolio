@@ -1,4 +1,3 @@
-import Image from "next/image";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -14,90 +13,65 @@ export default function Contact() {
       <div className="chrome-aura chrome-aura--petal top-20 -right-32 w-[36rem] h-[36rem] opacity-55" />
       <div className="chrome-aura chrome-aura--icy bottom-0 -left-32 w-[30rem] h-[30rem] opacity-45" />
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
-          {/* ── LEFT: photo in glass frame ── */}
-          <div className="md:col-span-5">
-            <RevealOnScroll>
-              <SectionLabel label="Get in Touch" />
-            </RevealOnScroll>
-            <RevealOnScroll delay={1} className="mt-8">
-              <div className="relative glass-tile-light p-3">
-                <div className="relative w-full aspect-square overflow-hidden rounded-[18px] bg-petal/20 group">
-                  <Image
-                    src="/lets-connect.png"
-                    alt="Let's connect — Madison Drennen workspace"
-                    fill
-                    className="object-cover object-center transition-transform duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                    sizes="(min-width: 768px) 460px, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-berry/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <span className="absolute top-5 right-5 text-berry text-lg spark z-10" aria-hidden="true">
-                  ✦
+      <div className="relative max-w-5xl mx-auto">
+        <RevealOnScroll>
+          <SectionLabel label="Get in Touch" />
+        </RevealOnScroll>
+
+        <RevealOnScroll variant="clip" className="mt-8">
+          <h2
+            className="font-display font-bold text-ink leading-[1.0] tracking-[-0.05em] mb-10 pb-2"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
+          >
+            Let&apos;s make something{" "}
+            <span className="text-berry">memorable<span className="text-berry">.</span></span>
+          </h2>
+        </RevealOnScroll>
+
+        <RevealOnScroll delay={1}>
+          <p className="font-sans text-base md:text-lg font-normal text-ink/70 leading-relaxed mb-14 max-w-xl">
+            Open to freelance work, brand collaborations, and design partnerships.
+          </p>
+        </RevealOnScroll>
+
+        {/* Featured email */}
+        <RevealOnScroll delay={2}>
+          <a
+            href="mailto:madison.drennen7@gmail.com"
+            className="group inline-flex items-baseline gap-4 mb-14 pb-3 border-b-2 border-ink/15 hover:border-berry transition-colors duration-400 max-w-full"
+          >
+            <span
+              className="font-display font-semibold text-ink group-hover:text-berry transition-colors duration-400 leading-none tracking-[-0.02em] break-all"
+              style={{ fontSize: "clamp(1.3rem, 3vw, 2.75rem)" }}
+            >
+              madison.drennen7@gmail.com
+            </span>
+            <span className="inline-block text-berry text-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-1 flex-shrink-0">
+              →
+            </span>
+          </a>
+        </RevealOnScroll>
+
+        {/* Contact rows */}
+        <RevealOnScroll delay={3}>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-10 pt-6 border-t border-ink/10">
+            {socials.map((c) => (
+              <div key={c.label} className="flex flex-col gap-2">
+                <span className="font-mono text-[0.6rem] font-medium tracking-[0.22em] uppercase text-ink/45">
+                  {c.label}
                 </span>
-              </div>
-            </RevealOnScroll>
-          </div>
-
-          {/* ── RIGHT: Closing statement + contact ── */}
-          <div className="md:col-span-7 md:pt-6">
-            <RevealOnScroll variant="clip">
-              <h2
-                className="font-display font-bold text-ink leading-[0.9] tracking-[-0.05em] mb-8"
-                style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
-              >
-                Let&apos;s make something{" "}
-                <span className="text-berry">memorable<span className="text-berry">.</span></span>
-              </h2>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={1}>
-              <p className="font-sans text-base md:text-lg font-normal text-ink/70 leading-relaxed mb-12 max-w-md">
-                Open to freelance work, brand collaborations, and design partnerships.
-              </p>
-            </RevealOnScroll>
-
-            {/* Featured email */}
-            <RevealOnScroll delay={2}>
-              <a
-                href="mailto:madison.drennen7@gmail.com"
-                className="group inline-flex items-baseline gap-4 mb-12 pb-3 border-b-2 border-ink/15 hover:border-berry transition-colors duration-400"
-              >
-                <span
-                  className="font-display font-semibold text-ink group-hover:text-berry transition-colors duration-400 leading-none tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(1.3rem, 2.4vw, 2.2rem)" }}
+                <a
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="font-display text-xl md:text-2xl font-semibold text-ink hover:text-berry transition-colors duration-300 tracking-[-0.02em]"
                 >
-                  madison.drennen7@gmail.com
-                </span>
-                <span className="inline-block text-berry text-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-1">
-                  →
-                </span>
-              </a>
-            </RevealOnScroll>
-
-            {/* Contact rows */}
-            <RevealOnScroll delay={3}>
-              <div className="space-y-5 pt-2">
-                {socials.map((c) => (
-                  <div key={c.label} className="grid grid-cols-[88px_1fr] items-baseline gap-6 pb-3 border-b border-ink/10">
-                    <span className="font-mono text-[0.6rem] font-medium tracking-[0.22em] uppercase text-ink/45">
-                      {c.label}
-                    </span>
-                    <a
-                      href={c.href}
-                      target={c.href.startsWith("http") ? "_blank" : undefined}
-                      rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="font-sans text-base font-normal text-ink/75 hover:text-berry transition-colors duration-300 link-underline self-baseline"
-                    >
-                      {c.value}
-                    </a>
-                  </div>
-                ))}
+                  {c.value}
+                </a>
               </div>
-            </RevealOnScroll>
+            ))}
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );
