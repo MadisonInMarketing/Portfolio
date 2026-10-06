@@ -6,7 +6,7 @@ const values = [
   {
     n: "01",
     title: "Systems, not one-offs",
-    line: "I design pieces that belong together — websites, brand kits, content, and marketing assets that all speak the same language.",
+    line: "I design pieces that belong together, websites, brand kits, content, and marketing assets that all speak the same language.",
   },
   {
     n: "02",
@@ -23,7 +23,7 @@ const values = [
 export default function About() {
   return (
     <section id="about" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
-      {/* Chrome sculpture backdrop — full-bleed, clipped by section overflow */}
+      {/* Chrome sculpture backdrop, full-bleed, clipped by section overflow */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80 md:opacity-85"
         style={{
@@ -46,7 +46,7 @@ export default function About() {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-16 md:gap-12 items-start">
 
-          {/* Left — photo */}
+          {/* Left, photo */}
           <div className="md:col-span-5">
             <RevealOnScroll>
               <SectionLabel label="About Me" />
@@ -66,7 +66,7 @@ export default function About() {
             </RevealOnScroll>
           </div>
 
-          {/* Right — headline + stats + values */}
+          {/* Right, headline + stats + values */}
           <div className="md:col-span-7 md:pt-14">
             <RevealOnScroll variant="clip">
               <h2
@@ -80,7 +80,7 @@ export default function About() {
 
             <RevealOnScroll delay={1}>
               <p className="font-sans text-base md:text-lg font-normal text-ink/70 leading-relaxed mb-10 max-w-xl">
-                I&apos;m Madison. I work in digital marketing — brand systems, websites, and campaign creative for businesses ready to show up better.
+                I&apos;m Madison. I work in digital marketing, brand systems, websites, and campaign creative for businesses ready to show up better.
               </p>
             </RevealOnScroll>
 
@@ -95,7 +95,7 @@ export default function About() {
               ))}
             </RevealOnScroll>
 
-            {/* Values — numbered editorial rows */}
+            {/* Values, numbered editorial rows */}
             <div className="space-y-0">
               {values.map((v, i) => (
                 <RevealOnScroll key={v.title} delay={(i + 1) as 1 | 2 | 3}>

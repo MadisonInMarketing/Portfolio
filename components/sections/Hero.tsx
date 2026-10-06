@@ -110,7 +110,7 @@ export default function Hero() {
           className="mt-8 md:mt-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-16"
         >
           <p className="font-sans text-base md:text-lg font-normal text-snow/75 leading-relaxed max-w-[42ch]">
-            Digital marketer and designer. I make brand systems, websites, campaign creative, and the content that carries them — this is where I keep it all.
+            Digital marketer and designer. I make brand systems, websites, campaign creative, and the content that carries them. This is where I keep it all.
           </p>
 
           <div className="flex items-center gap-3 flex-shrink-0">
@@ -186,7 +186,7 @@ export default function Hero() {
               >
                 <Image
                   src={s.src}
-                  alt={`${s.project} — ${s.category}`}
+                  alt={`${s.project}, ${s.category}`}
                   fill
                   priority={i === 0}
                   className="object-cover"

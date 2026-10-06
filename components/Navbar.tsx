@@ -54,7 +54,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" aria-label="Madison Drennen — Home" className="flex items-center gap-3 group">
+          <Link href="/" aria-label="Madison Drennen, Home" className="flex items-center gap-3 group">
             <span className="relative inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden ring-1 ring-snow/20 shadow-[0_4px_14px_rgba(0,0,0,0.3)] transition-transform duration-500 group-hover:scale-105">
               <Image
                 src="/logos/v4/monogram-light-bg.png"
@@ -69,12 +69,12 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => handleNav("#about")}
+            <Link
+              href="/about"
               className="font-mono text-[0.65rem] font-medium tracking-[0.22em] uppercase text-snow/65 hover:text-snow transition-colors duration-300 link-underline"
             >
               About
-            </button>
+            </Link>
 
             <div
               className="relative"
@@ -174,12 +174,13 @@ export default function Navbar() {
           </div>
           <div className="w-8 h-px bg-berry/70 mb-1" />
 
-          <button
-            onClick={() => handleNav("#about")}
+          <Link
+            href="/about"
+            onClick={() => setMenuOpen(false)}
             className="font-display text-4xl font-bold text-snow hover:text-berry transition-colors duration-300 tracking-[-0.03em]"
           >
             About
-          </button>
+          </Link>
 
           <button
             onClick={() => handleNav("#work")}

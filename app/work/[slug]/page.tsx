@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps) {
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return {};
   return {
-    title: `${project.title} — Madison Drennen`,
+    title: `${project.title}, Madison Drennen`,
     description: project.shortDescription,
   };
 }
@@ -126,14 +126,14 @@ export default function CaseStudyPage({ params }: PageProps) {
             {/* ── Compact layout: Hero image (left) + My Role (right) ── */}
             <section className="px-6 mb-20">
               <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-                {/* Hero image — left */}
+                {/* Hero image, left */}
                 <div className="md:col-span-7">
                   {project.heroImage ? (
                     <div className="relative w-full overflow-hidden rounded-[4px] ring-1 ring-ink/5 shadow-[0_30px_80px_-20px_rgba(17,17,17,0.18)]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={project.heroImage}
-                        alt={`${project.title} — hero`}
+                        alt={`${project.title}, hero`}
                         className="w-full h-auto block"
                         loading="eager"
                       />
@@ -153,7 +153,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                   )}
                 </div>
 
-                {/* My Role — right */}
+                {/* My Role, right */}
                 <div className="md:col-span-5 relative md:pl-8">
                   {/* Vertical accent rail */}
                   <span
@@ -181,7 +181,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                     </span>
                   </h2>
 
-                  {/* Role list — bigger, numbered */}
+                  {/* Role list, bigger, numbered */}
                   <ul className="space-y-4 mb-10">
                     {project.whatIDid.map((item, idx) => (
                       <li key={item} className="flex items-baseline gap-4 group">
@@ -261,7 +261,7 @@ export default function CaseStudyPage({ params }: PageProps) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={project.heroImage}
-                      alt={`${project.title} — hero`}
+                      alt={`${project.title}, hero`}
                       className="w-full h-auto block"
                       loading="eager"
                     />

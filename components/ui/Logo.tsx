@@ -4,7 +4,7 @@ interface LogoProps {
 }
 
 /**
- * Madison Drennen. — official v4 wordmark.
+ * Madison Drennen., official v4 wordmark.
  * Instrument Sans bold with berry "Drennen." accent (per HomeScreen.jsx).
  */
 export default function Logo({ variant = "compact", className = "" }: LogoProps) {
@@ -29,7 +29,7 @@ export default function Logo({ variant = "compact", className = "" }: LogoProps)
     );
   }
 
-  // Compact — tuned for the dark navbar
+  // Compact, tuned for the dark navbar
   const nameColor = variant === "dark" ? "text-snow" : "text-ink";
 
   return (

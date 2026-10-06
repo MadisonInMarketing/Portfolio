@@ -66,7 +66,7 @@ export default function Footer() {
               </defs>
 
               {/*
-                4-point star with CONCAVE curves between the points —
+                4-point star with CONCAVE curves between the points ,
                 the signature ✦ geometry. Points touch 50,4 / 96,50 / 50,96 / 4,50;
                 arms pinch inward through quadratic control points at (50,50).
               */}
@@ -80,7 +80,7 @@ export default function Footer() {
                 fill="url(#sparkRim)"
                 opacity="0.95"
               />
-              {/* Core berry body — slightly inset */}
+              {/* Core berry body, slightly inset */}
               <path
                 d="M50 8
                    Q 50 50, 92 50

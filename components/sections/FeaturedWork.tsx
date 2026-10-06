@@ -41,7 +41,7 @@ export default function FeaturedWork() {
         {/* CTA */}
         <RevealOnScroll className="mt-24 text-center">
           <p className="font-sans text-sm font-normal text-snow/55 mb-5">
-            More work, process notes, and explorations — happy to share.
+            More work, process notes, and explorations, happy to share.
           </p>
           <a
             href="mailto:madison.drennen7@gmail.com"
@@ -88,7 +88,7 @@ function ProjectRow({
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={previewImage}
-                    alt={`${project.title} — preview`}
+                    alt={`${project.title}, preview`}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                   />

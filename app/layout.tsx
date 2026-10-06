@@ -18,7 +18,7 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-// Canonical site URL — custom domain in production, localhost in dev.
+// Canonical site URL, custom domain in production, localhost in dev.
 const siteUrl =
   process.env.NODE_ENV === "production"
     ? "https://madisondrennen.com"
@@ -26,9 +26,9 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Madison in Marketing — Creative · Marketing · AI",
+  title: "Madison in Marketing, Creative · Marketing · AI",
   description:
-    "Portfolio of Madison Drennen — building polished brand systems, websites, and marketing assets for businesses ready to show up better.",
+    "Portfolio of Madison Drennen, building polished brand systems, websites, and marketing assets for businesses ready to show up better.",
   keywords: [
     "Madison Drennen",
     "madison in marketing",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Madison in Marketing — Creative · Marketing · AI",
+    title: "Madison in Marketing, Creative · Marketing · AI",
     description:
       "Polished brand systems, websites, and marketing for businesses ready to show up better.",
     type: "website",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Madison in Marketing — Creative · Marketing · AI",
+    title: "Madison in Marketing, Creative · Marketing · AI",
     description:
       "Polished brand systems, websites, and marketing for businesses ready to show up better.",
   },

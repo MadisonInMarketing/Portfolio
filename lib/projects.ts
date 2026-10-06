@@ -6,7 +6,7 @@ export type GalleryItem = {
 
 /**
  * A single visual row inside a project's gallery.
- * All items share the same aspect ratio and lay out in a clean horizontal strip —
+ * All items share the same aspect ratio and lay out in a clean horizontal strip ,
  * no staggering, no cropping. On mobile, large rows collapse to 2 columns.
  */
 export type GalleryRow = {
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     client: "GYMRISE",
     category: "Brand, Web Design & Growth",
     shortDescription:
-      "Designed and built the GYMRISE website end-to-end — plus the full brand system, social campaigns, sales creative, and email signature suite that all live around it.",
+      "Designed and built the GYMRISE website end-to-end, plus the full brand system, social campaigns, sales creative, and email signature suite that all live around it.",
     whatIDid: [
       "Designed & built the GYMRISE website end-to-end",
       "Social media campaigns & content production",
@@ -68,9 +68,9 @@ export const projects: Project[] = [
     heroImage: "/work/gymrise/hero.png",
     heroCompact: true,
     challenge:
-      "GYMRISE was scaling fast in the fitness industry and needed a brand presence that matched the ambition.\n\nThe website, marketing assets, and content needed to feel unified — built around a single visual system that could ship at the speed the program was growing.",
+      "GYMRISE was scaling fast in the fitness industry and needed a brand presence that matched the ambition.\n\nThe website, marketing assets, and content needed to feel unified, built around a single visual system that could ship at the speed the program was growing.",
     approach:
-      "I designed and built the entire GYMRISE website myself — every page, every interaction, every section — then extended the same visual system across the brand kit, social campaigns, sales creative, and email signatures.\n\nEverything lives together: the same typography, the same energy, the same point of view. Owners, members, and prospects all see one brand, no matter where they meet it.",
+      "I designed and built the entire GYMRISE website myself, every page, every interaction, every section, then extended the same visual system across the brand kit, social campaigns, sales creative, and email signatures.\n\nEverything lives together: the same typography, the same energy, the same point of view. Owners, members, and prospects all see one brand, no matter where they meet it.",
     results: [
       { value: "$224M+", label: "In Client PT Sales" },
       { value: "360+", label: "Active Operators" },
@@ -79,41 +79,41 @@ export const projects: Project[] = [
     ],
     resultsCaption: "Focus: A single brand engine powering web, social, and sales.",
     gallery: [
-      // Row 1 — THE BUILD: the GYMRISE website pages, full-width sequence
+      // Row 1, THE BUILD: the GYMRISE website pages, full-width sequence
       {
-        label: "Designed & Built — The GYMRISE Website",
+        label: "Designed & Built, The GYMRISE Website",
         aspect: "3/4",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/site-01.jpg", alt: "GYMRISE website — homepage hero & client highlights" },
-          { src: "/work/gymrise/site-02.jpg", alt: "GYMRISE website — system & member testimonials" },
-          { src: "/work/gymrise/site-03.jpg", alt: "GYMRISE website — university, FAQs & next-step CTA" },
+          { src: "/work/gymrise/site-01.jpg", alt: "GYMRISE website, homepage hero & client highlights" },
+          { src: "/work/gymrise/site-02.jpg", alt: "GYMRISE website, system & member testimonials" },
+          { src: "/work/gymrise/site-03.jpg", alt: "GYMRISE website, university, FAQs & next-step CTA" },
         ],
       },
-      // Row 2 — Brand kit + email signature bundle (the identity system)
+      // Row 2, Brand kit + email signature bundle (the identity system)
       {
         label: "Brand Kit & Email Signature System",
         aspect: "3/4",
         fit: "contain",
         items: [
-          { src: "/work/gymrise/brand-kit.png", alt: "GYMRISE Brand Kit — iPad mockup" },
-          { src: "/work/gymrise/email-mockup.png", alt: "GYMRISE Email Signature Design Bundle — iPad mockup" },
+          { src: "/work/gymrise/brand-kit.png", alt: "GYMRISE Brand Kit, iPad mockup" },
+          { src: "/work/gymrise/email-mockup.png", alt: "GYMRISE Email Signature Design Bundle, iPad mockup" },
         ],
       },
-      // Row 3 — Social media campaign strip
+      // Row 3, Social media campaign strip
       {
-        label: "Social Campaign — Top Performers & Testimonials",
+        label: "Social Campaign, Top Performers & Testimonials",
         aspect: "4/5",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/04-top-clubs.jpg", alt: "Top Club Owners — monthly leaderboard" },
-          { src: "/work/gymrise/06-marketing.jpg", alt: "Club Owner Spotlight — Todd Adamson" },
-          { src: "/work/gymrise/1.jpg", alt: "Club Hall of Fame — monthly winners" },
-          { src: "/work/gymrise/02-testimonial.jpg", alt: "Client Testimonial — Michael Scaff" },
-          { src: "/work/gymrise/7.jpg", alt: "Client Testimonial — Patrick Flynn" },
+          { src: "/work/gymrise/04-top-clubs.jpg", alt: "Top Club Owners, monthly leaderboard" },
+          { src: "/work/gymrise/06-marketing.jpg", alt: "Club Owner Spotlight, Todd Adamson" },
+          { src: "/work/gymrise/1.jpg", alt: "Club Hall of Fame, monthly winners" },
+          { src: "/work/gymrise/02-testimonial.jpg", alt: "Client Testimonial, Michael Scaff" },
+          { src: "/work/gymrise/7.jpg", alt: "Client Testimonial, Patrick Flynn" },
         ],
       },
-      // Row 4 — Sales / marketing creative
+      // Row 4, Sales / marketing creative
       {
         label: "Sales & Promo Creative",
         aspect: "4/3",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     client: "Social Mulli",
     category: "Brand & Web Design",
     shortDescription:
-      "Designed and built the Social Mulli website from scratch — plus the brand identity, OG visuals, and email signature system that complete the system.",
+      "Designed and built the Social Mulli website from scratch, plus the brand identity, OG visuals, and email signature system that complete the system.",
     whatIDid: [
       "Designed & built the Social Mulli website end-to-end",
       "Meta ad creative for Anytime Fitness campaigns",
@@ -148,9 +148,9 @@ export const projects: Project[] = [
     heroImage: "/work/social-mulli/hero.png",
     heroCompact: true,
     challenge:
-      "Social Mulli was launching as a no-nonsense marketing partner for gyms and local businesses. The brand had to feel grown-up, confident, and refreshingly direct — opposite of the over-promising agency stereotype.\n\nIt needed a complete identity, a website that converted on first read, and assets the team could ship the day they went live.",
+      "Social Mulli was launching as a no-nonsense marketing partner for gyms and local businesses. The brand had to feel grown-up, confident, and refreshingly direct, opposite of the over-promising agency stereotype.\n\nIt needed a complete identity, a website that converted on first read, and assets the team could ship the day they went live.",
     approach:
-      "I designed and built the Social Mulli website end-to-end — every page, every interaction, every section. Then I extended the same visual system across the OG image, email signatures, and audit deliverables.\n\nEverything reinforces one point of view: \"Marketing isn't a magic pill. It's the reps.\" The site, signatures, and pitch assets all share one voice — a brand that feels confident and consistent everywhere it shows up.",
+      "I designed and built the Social Mulli website end-to-end, every page, every interaction, every section. Then I extended the same visual system across the OG image, email signatures, and audit deliverables.\n\nEverything reinforces one point of view: \"Marketing isn't a magic pill. It's the reps.\" The site, signatures, and pitch assets all share one voice, a brand that feels confident and consistent everywhere it shows up.",
     results: [
       { value: "1 Voice", label: "Across every touchpoint" },
       { value: "Full Stack", label: "Brand, web & systems" },
@@ -159,65 +159,65 @@ export const projects: Project[] = [
     ],
     resultsCaption: "Focus: One identity, shipped across web, email, and pitch.",
     gallery: [
-      // Row 1 — THE BUILD: full Social Mulli website (three full-page screenshots)
+      // Row 1, THE BUILD: full Social Mulli website (three full-page screenshots)
       {
-        label: "Designed & Built — The Social Mulli Website",
+        label: "Designed & Built, The Social Mulli Website",
         aspect: "3/4",
         fit: "cover",
         items: [
-          { src: "/work/social-mulli/site-01.jpg", alt: "Social Mulli website — homepage & marketing system pillars" },
-          { src: "/work/social-mulli/site-02.jpg", alt: "Social Mulli website — services & client transformations" },
-          { src: "/work/social-mulli/site-03.jpg", alt: "Social Mulli website — FAQs, results & next-step CTA" },
+          { src: "/work/social-mulli/site-01.jpg", alt: "Social Mulli website, homepage & marketing system pillars" },
+          { src: "/work/social-mulli/site-02.jpg", alt: "Social Mulli website, services & client transformations" },
+          { src: "/work/social-mulli/site-03.jpg", alt: "Social Mulli website, FAQs, results & next-step CTA" },
         ],
       },
-      // Row 2 — Dashboard mockup + laptop website mockup, side by side
+      // Row 2, Dashboard mockup + laptop website mockup, side by side
       {
         label: "Live Site & Device Mockup",
         aspect: "4/3",
         fit: "contain",
         items: [
-          { src: "/work/social-mulli/05-concept.png", alt: "Social Mulli — marketing audit dashboard mockup" },
-          { src: "/work/social-mulli/site-mockup.png", alt: "Social Mulli — site shown on device" },
+          { src: "/work/social-mulli/05-concept.png", alt: "Social Mulli, marketing audit dashboard mockup" },
+          { src: "/work/social-mulli/site-mockup.png", alt: "Social Mulli, site shown on device" },
         ],
       },
-      // Row 3 — Brand touchpoints
+      // Row 3, Brand touchpoints
       {
         label: "Brand Touchpoints",
         aspect: "1.91/1",
         fit: "cover",
         items: [
-          { src: "/work/social-mulli/02-og.png", alt: "Social Mulli — brand positioning card" },
+          { src: "/work/social-mulli/02-og.png", alt: "Social Mulli, brand positioning card" },
         ],
       },
-      // Row — Meta ads campaigns (Anytime Fitness)
+      // Row, Meta ads campaigns (Anytime Fitness)
       {
-        label: "Meta Ads — Anytime Fitness Campaigns",
+        label: "Meta Ads, Anytime Fitness Campaigns",
         aspect: "4/5",
         fit: "contain",
         bg: "transparent",
         items: [
-          { src: "/work/social-mulli/meta-ad-busy-mom.png", alt: "Anytime Fitness Meta ad — Busy Mom 40+ program" },
-          { src: "/work/social-mulli/meta-ad-stay-strong.png", alt: "Anytime Fitness Meta ad — Stay Strong, Stay Steady (Ageless 65+)" },
-          { src: "/work/social-mulli/meta-ad-franklin-moms.png", alt: "Anytime Fitness Meta ad — Franklin Moms: This Is Your Reset" },
+          { src: "/work/social-mulli/meta-ad-busy-mom.png", alt: "Anytime Fitness Meta ad, Busy Mom 40+ program" },
+          { src: "/work/social-mulli/meta-ad-stay-strong.png", alt: "Anytime Fitness Meta ad, Stay Strong, Stay Steady (Ageless 65+)" },
+          { src: "/work/social-mulli/meta-ad-franklin-moms.png", alt: "Anytime Fitness Meta ad, Franklin Moms: This Is Your Reset" },
         ],
       },
-      // Row 3 — Email signature design bundle (iPad mockup)
+      // Row 3, Email signature design bundle (iPad mockup)
       {
         label: "Email Signature Design Bundle",
         aspect: "3/4",
         fit: "contain",
         items: [
-          { src: "/work/social-mulli/email-signature-bundle.png", alt: "Social Mulli Email Signature Design Bundle — iPad mockup" },
+          { src: "/work/social-mulli/email-signature-bundle.png", alt: "Social Mulli Email Signature Design Bundle, iPad mockup" },
         ],
       },
-      // Row 4 — Email signature system (dark + light modes)
+      // Row 4, Email signature system (dark + light modes)
       {
-        label: "Email Signature System — Dark + Light",
+        label: "Email Signature System, Dark + Light",
         aspect: "2.4/1",
         fit: "cover",
         items: [
-          { src: "/work/social-mulli/03-signature-dark.png", alt: "Email signature — dark mode" },
-          { src: "/work/social-mulli/04-signature-light.png", alt: "Email signature — light mode" },
+          { src: "/work/social-mulli/03-signature-dark.png", alt: "Email signature, dark mode" },
+          { src: "/work/social-mulli/04-signature-light.png", alt: "Email signature, light mode" },
         ],
       },
     ],
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     heroImage: "/rekmed-hero.jpg",
     heroCompact: true,
     challenge:
-      "RekMed was scaling its presence in the healthcare education space and needed a more elevated, cohesive digital experience to match its growth.\n\nThe opportunity: enhance social, refine visual consistency, and elevate product presentation — creating a more polished, trustworthy, and engaging experience for nursing students and their educators.",
+      "RekMed was scaling its presence in the healthcare education space and needed a more elevated, cohesive digital experience to match its growth.\n\nThe opportunity: enhance social, refine visual consistency, and elevate product presentation, creating a more polished, trustworthy, and engaging experience for nursing students and their educators.",
     approach:
       "I focused on elevating the brand's overall digital presence through a strategy-first approach to content and design.\n\nThis included enhancing social media content, refining visual consistency, and improving product presentation across the website. I built structured content calendars and created cohesive visuals that aligned both educational value and product promotion.\n\nEvery touchpoint was designed to feel polished, intentional, and aligned with the brand's growth.",
     results: [
@@ -307,26 +307,26 @@ export const projects: Project[] = [
     heroImage: "/work/explorations/02-concept.png",
     heroCompact: true,
     challenge:
-      "A running sketchbook of ideas — campaigns I'd ship if the brief existed, brand systems I'd want to build, type and layout experiments.\n\nLess a project, more a feed of thinking.",
+      "A running sketchbook of ideas, campaigns I'd ship if the brief existed, brand systems I'd want to build, type and layout experiments.\n\nLess a project, more a feed of thinking.",
     approach:
-      "I treat exploration as practice. Anything that catches my eye — a phrase, a layout, a typographic moment — gets a mockup. Some become campaigns. Some stay studies. All of them sharpen the work I ship at the companies I work for.",
+      "I treat exploration as practice. Anything that catches my eye, a phrase, a layout, a typographic moment, gets a mockup. Some become campaigns. Some stay studies. All of them sharpen the work I ship at the companies I work for.",
     gallery: [
       {
         label: "Campaign Concept",
         aspect: "16/9",
         fit: "cover",
         items: [
-          { src: "/work/explorations/01-glove.jpg", alt: "Boxing concept campaign — Don't Fear the Fight" },
+          { src: "/work/explorations/01-glove.jpg", alt: "Boxing concept campaign, Don't Fear the Fight" },
         ],
       },
       {
-        label: "Email Marketing Mockups — Brand Studies",
+        label: "Email Marketing Mockups, Brand Studies",
         aspect: "3/5",
         fit: "cover",
         items: [
-          { src: "/work/explorations/email-01-glossier.jpg", alt: "Glossier — email design study" },
-          { src: "/work/explorations/email-02-quizlet.jpg", alt: "Quizlet — email design study" },
-          { src: "/work/explorations/email-03-notion.jpg", alt: "Notion — email design study" },
+          { src: "/work/explorations/email-01-glossier.jpg", alt: "Glossier, email design study" },
+          { src: "/work/explorations/email-02-quizlet.jpg", alt: "Quizlet, email design study" },
+          { src: "/work/explorations/email-03-notion.jpg", alt: "Notion, email design study" },
         ],
       },
       {
