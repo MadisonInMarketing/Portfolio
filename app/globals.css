@@ -325,20 +325,19 @@
 }
 
 /* Hero bg — glossy burgundy chrome ribbon.
-   Uses a pseudo-element with slight blur + saturate so the compressed
-   webp reads smooth and softly tinted, not sharp/pixelated. */
+   The actual image goes on a .hero-chrome-layer child element because
+   .corner-frame already uses the parent's ::before for brackets. */
 .hero-chrome-bg {
   background: var(--mahogany-deep);
-  isolation: isolate;
 }
-.hero-chrome-bg::before {
-  content: '';
+.hero-chrome-layer {
   position: absolute;
-  inset: -4%;
+  inset: -5%;
   background: url('/brand/v4/bg-hero-chrome-ribbon.webp') center / cover no-repeat;
-  filter: blur(1px) saturate(0.9) brightness(0.72);
-  z-index: 0;
+  /* Soft blur hides webp compression; keep brightness up so chrome reads. */
+  filter: blur(1.5px) saturate(1.05) brightness(0.95);
   pointer-events: none;
+  z-index: 0;
 }
 
 .silk-bg {

@@ -45,12 +45,15 @@ export default function Hero() {
       <span className="corner-bl" />
       <span className="corner-br" />
 
-      {/* Dark veil for text contrast over chrome ribbon image */}
+      {/* Chrome ribbon image layer */}
+      <div className="hero-chrome-layer" aria-hidden="true" />
+
+      {/* Dark veil for text contrast over chrome ribbon */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(26,7,20,0.6) 0%, rgba(37,2,9,0.3) 30%, rgba(37,2,9,0.55) 100%)",
+            "linear-gradient(180deg, rgba(26,7,20,0.4) 0%, rgba(37,2,9,0.2) 35%, rgba(37,2,9,0.45) 100%)",
         }}
       />
 
