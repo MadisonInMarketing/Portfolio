@@ -178,14 +178,14 @@ export default function Navbar() {
             onClick={() => handleNav("#about")}
             className="font-display text-4xl font-bold text-snow hover:text-berry transition-colors duration-300 tracking-[-0.03em]"
           >
-            About<span className="text-berry">.</span>
+            About
           </button>
 
           <button
             onClick={() => handleNav("#work")}
             className="font-display text-4xl font-bold text-snow hover:text-berry transition-colors duration-300 tracking-[-0.03em]"
           >
-            Work<span className="text-berry">.</span>
+            Work
           </button>
           <div className="flex flex-col items-center gap-3 -mt-1">
             {projects.map((p) => (
@@ -204,7 +204,7 @@ export default function Navbar() {
             onClick={() => handleNav("#contact")}
             className="font-display text-4xl font-bold text-snow hover:text-berry transition-colors duration-300 tracking-[-0.03em]"
           >
-            Contact<span className="text-berry">.</span>
+            Contact
           </button>
 
           <a

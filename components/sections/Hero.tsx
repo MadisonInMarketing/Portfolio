@@ -195,27 +195,13 @@ export default function Hero() {
               </div>
             ))}
 
-            {/* Top identity overlay */}
-            <div className="absolute top-0 left-0 right-0 z-[5] px-6 md:px-10 pt-6 md:pt-7 pb-10 bg-gradient-to-b from-mahogany-deep/90 via-mahogany-deep/40 to-transparent">
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <p className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-petal/85 mb-2">
-                    Portfolio · 2026
-                  </p>
-                  <h2
-                    className="font-display font-bold text-snow leading-none tracking-[-0.03em]"
-                    style={{ fontSize: "clamp(1.4rem, 2.6vw, 2rem)" }}
-                  >
-                    Madison <span className="text-berry">Drennen<span className="text-berry">.</span></span>
-                  </h2>
-                </div>
-
-                <span className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/55 tabular-nums">
-                  <span className="text-snow font-semibold">{String(activeIdx + 1).padStart(2, "0")}</span>
-                  <span className="mx-1.5 text-snow/30">/</span>
-                  <span>{String(showcase.length).padStart(2, "0")}</span>
-                </span>
-              </div>
+            {/* Minimal top-right counter */}
+            <div className="absolute top-5 right-5 md:top-6 md:right-7 z-[5]">
+              <span className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/60 tabular-nums bg-mahogany-deep/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                <span className="text-snow font-semibold">{String(activeIdx + 1).padStart(2, "0")}</span>
+                <span className="mx-1.5 text-snow/30">/</span>
+                <span>{String(showcase.length).padStart(2, "0")}</span>
+              </span>
             </div>
 
             {/* Bottom caption overlay */}
@@ -258,36 +244,31 @@ export default function Hero() {
           </div>
 
           {/* Indicator row */}
-          <div className="flex items-center justify-between gap-4 px-2 mt-4">
-            <div className="flex items-center gap-2">
-              {showcase.map((s, i) => (
-                <button
-                  key={s.src}
-                  type="button"
-                  aria-label={`Show ${s.project}`}
-                  onClick={() => setActiveIdx(i)}
-                  className="relative h-[3px] overflow-hidden rounded-full transition-all duration-500"
+          <div className="flex items-center justify-center gap-2 px-2 mt-4">
+            {showcase.map((s, i) => (
+              <button
+                key={s.src}
+                type="button"
+                aria-label={`Show ${s.project}`}
+                onClick={() => setActiveIdx(i)}
+                className="relative h-[3px] overflow-hidden rounded-full transition-all duration-500"
+                style={{
+                  width: i === activeIdx ? 44 : 14,
+                  background: "rgba(255,243,242,0.15)",
+                }}
+              >
+                <span
+                  className="absolute inset-y-0 left-0 bg-berry rounded-full"
                   style={{
-                    width: i === activeIdx ? 44 : 14,
-                    background: "rgba(255,243,242,0.15)",
+                    width: i === activeIdx ? "100%" : 0,
+                    transition:
+                      i === activeIdx
+                        ? `width ${ROTATION_MS}ms linear`
+                        : "width 0.3s",
                   }}
-                >
-                  <span
-                    className="absolute inset-y-0 left-0 bg-berry rounded-full"
-                    style={{
-                      width: i === activeIdx ? "100%" : 0,
-                      transition:
-                        i === activeIdx
-                          ? `width ${ROTATION_MS}ms linear`
-                          : "width 0.3s",
-                    }}
-                  />
-                </button>
-              ))}
-            </div>
-            <span className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/50">
-              Scroll to Explore ↓
-            </span>
+                />
+              </button>
+            ))}
           </div>
         </div>
       </div>

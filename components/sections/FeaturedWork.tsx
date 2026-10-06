@@ -25,7 +25,7 @@ export default function FeaturedWork() {
                 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
               >
                 A little look at what I&apos;ve been{" "}
-                <span className="text-berry">making lately<span className="text-berry">.</span></span>
+                <span className="text-berry">making lately</span>
               </h2>
             </RevealOnScroll>
           </div>
@@ -121,10 +121,6 @@ function ProjectRow({
                   <span>→</span>
                 </span>
               </div>
-              {/* Sparkle */}
-              <span className="absolute -top-2 -right-2 text-berry text-base spark z-10" aria-hidden="true">
-                ✦
-              </span>
             </div>
           </div>
 
@@ -152,7 +148,7 @@ function ProjectRow({
               className="font-display font-bold text-snow leading-[0.9] tracking-[-0.045em] mb-5 transition-colors duration-400 group-hover:text-petal"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
-              {project.title}<span className="text-berry">.</span>
+              {project.title}
             </h3>
 
             {/* Description */}

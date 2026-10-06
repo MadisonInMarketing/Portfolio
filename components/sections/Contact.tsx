@@ -24,7 +24,7 @@ export default function Contact() {
             style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
           >
             Let&apos;s make something{" "}
-            <span className="text-berry">memorable<span className="text-berry">.</span></span>
+            <span className="text-berry">memorable</span>
           </h2>
         </RevealOnScroll>
 

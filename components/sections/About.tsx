@@ -62,9 +62,6 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-berry/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <span className="absolute top-5 right-5 text-berry text-lg spark z-10" aria-hidden="true">
-                  ✦
-                </span>
               </div>
             </RevealOnScroll>
           </div>
@@ -77,7 +74,7 @@ export default function About() {
                 style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
               >
                 Somewhere between{" "}
-                <span className="text-berry">strategy and design<span className="text-berry">.</span></span>
+                <span className="text-berry">strategy and design</span>
               </h2>
             </RevealOnScroll>
 
