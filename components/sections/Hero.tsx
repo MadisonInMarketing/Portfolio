@@ -76,7 +76,7 @@ export default function Hero() {
     <section
       id="hero"
       data-nav-theme="dark"
-      className="relative overflow-hidden hero-chrome-bg corner-frame flex flex-col justify-center min-h-[100svh] pt-28 pb-10 md:pt-32 md:pb-14"
+      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center min-h-[100svh] pt-28 pb-10 md:pt-32 md:pb-14"
     >
       <span className="corner-bl" />
       <span className="corner-br" />
@@ -84,12 +84,12 @@ export default function Hero() {
       {/* Chrome ribbon layer */}
       <div className="hero-chrome-layer" aria-hidden="true" />
 
-      {/* Dark veil */}
+      {/* Very light veil — just enough to soften edges */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(26,7,20,0.55) 0%, rgba(26,7,20,0.3) 50%, rgba(26,7,20,0.6) 100%)",
+            "linear-gradient(180deg, rgba(255,243,242,0.15) 0%, transparent 40%, rgba(255,243,242,0.2) 100%)",
         }}
       />
 
@@ -99,18 +99,18 @@ export default function Hero() {
           <div
             data-hero-reveal
             style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
-            className="flex items-center gap-3 font-mono text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.22em] uppercase text-snow/80"
+            className="flex items-center gap-3 font-mono text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/85"
           >
             <span className="text-berry text-base">✦</span>
             <span>Madison Drennen</span>
-            <span className="hidden md:inline text-snow/30">·</span>
+            <span className="hidden md:inline text-mahogany-deep/35">·</span>
             <span className="hidden md:inline">Portfolio 2026</span>
           </div>
 
           <div
             data-hero-reveal
             style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
-            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-snow/60 tabular-nums"
+            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/65 tabular-nums"
           >
             Issue 04
           </div>
@@ -121,7 +121,7 @@ export default function Hero() {
       <div className="relative z-[3] max-w-[1500px] mx-auto w-full px-6 md:px-12">
         <div
           data-hero-reveal
-          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[28px] ring-1 ring-snow/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7),0_20px_50px_-20px_rgba(186,0,109,0.25)]"
+          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[28px] ring-1 ring-mahogany-deep/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(37,2,9,0.35),0_20px_50px_-20px_rgba(186,0,109,0.25)]"
           style={{
             opacity: 0,
             transform: "translateY(32px)",
@@ -207,7 +207,7 @@ export default function Hero() {
                 className="relative h-[3px] overflow-hidden rounded-full transition-all duration-500 cursor-pointer"
                 style={{
                   width: i === activeIdx ? 44 : 14,
-                  background: "rgba(255,243,242,0.2)",
+                  background: "rgba(37,2,9,0.18)",
                 }}
               >
                 <span
@@ -230,10 +230,10 @@ export default function Hero() {
               e.preventDefault();
               document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group inline-flex items-center gap-3 font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-snow/70 hover:text-snow transition-colors duration-300"
+            className="group inline-flex items-center gap-3 font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/75 hover:text-berry transition-colors duration-300"
           >
             <span>View All Work</span>
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-snow/25 group-hover:border-berry group-hover:bg-berry transition-all duration-300">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-mahogany-deep/25 group-hover:border-berry group-hover:bg-berry text-mahogany-deep group-hover:text-snow transition-all duration-300">
               →
             </span>
           </a>
