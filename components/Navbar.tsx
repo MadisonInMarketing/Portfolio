@@ -12,11 +12,14 @@ const projects = [
   { label: "Explorations", slug: "explorations" },
 ];
 
+type NavTheme = "dark" | "light";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [workOpen, setWorkOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [theme, setTheme] = useState<NavTheme>("light");
 
   useEffect(() => {
     const onScroll = () => {
@@ -26,6 +29,33 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Auto-switch glass theme based on which [data-nav-theme] section
+  // sits behind the navbar bottom edge (~96px).
+  useEffect(() => {
+    const update = () => {
+      const navBottom = 96;
+      const sections = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-nav-theme]")
+      );
+      let next: NavTheme = "light";
+      for (const s of sections) {
+        const r = s.getBoundingClientRect();
+        if (r.top <= navBottom && r.bottom > navBottom) {
+          const val = s.getAttribute("data-nav-theme");
+          if (val === "light" || val === "dark") next = val;
+        }
+      }
+      setTheme((prev) => (prev === next ? prev : next));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   const handleNav = (href: string) => {
@@ -39,13 +69,21 @@ export default function Navbar() {
   };
 
   // ── Theme-aware classes ──
-  // Always light frosted glassmorphism; just a touch denser on scroll.
-  const headerBg = scrolled
+  const isDark = theme === "dark";
+  // Frosted glassmorphism everywhere; dark glass over dark sections,
+  // light glass over light sections. A touch denser on scroll.
+  const headerBg = isDark
+    ? scrolled
+      ? "bg-mahogany-deep/80 backdrop-blur-xl border-b border-snow/10 py-4"
+      : "bg-mahogany-deep/55 backdrop-blur-xl border-b border-snow/5 py-5"
+    : scrolled
     ? "bg-ivory/85 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
     : "bg-ivory/60 backdrop-blur-xl border-b border-ink/5 py-5";
 
-  const linkColor = "text-ink/70 hover:text-berry";
-  const ringTone = "ring-ink/15";
+  const linkColor = isDark
+    ? "text-snow/75 hover:text-snow"
+    : "text-ink/70 hover:text-berry";
+  const ringTone = isDark ? "ring-snow/20" : "ring-ink/15";
 
   return (
     <>
@@ -72,7 +110,7 @@ export default function Navbar() {
                 priority
               />
             </span>
-            <Logo variant="compact" />
+            <Logo variant={isDark ? "dark" : "compact"} />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -111,14 +149,12 @@ export default function Navbar() {
               >
                 <div
                   className={`min-w-[240px] overflow-hidden py-2 rounded-[18px] backdrop-blur-xl border ${
-                    "bg-ivory/95 border-ink/10 shadow-[0_20px_50px_-12px_rgba(37,2,9,0.15)]"
+                    isDark
+                      ? "bg-mahogany-deep/95 border-snow/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]"
+                      : "bg-ivory/95 border-ink/10 shadow-[0_20px_50px_-12px_rgba(37,2,9,0.15)]"
                   }`}
                 >
-                  <span
-                    className={`block px-5 pt-2 pb-2.5 font-mono text-[0.52rem] font-medium tracking-[0.3em] uppercase ${
-                      "text-berry"
-                    }`}
-                  >
+                  <span className="block px-5 pt-2 pb-2.5 font-mono text-[0.52rem] font-medium tracking-[0.3em] uppercase text-berry">
                     ✦ &nbsp; Case Studies
                   </span>
                   {projects.map((p) => (
@@ -126,7 +162,9 @@ export default function Navbar() {
                       key={p.slug}
                       href={`/work/${p.slug}`}
                       className={`group flex items-center justify-between px-5 py-2.5 font-display text-base font-semibold transition-colors duration-200 ${
-                        "text-ink/85 hover:text-ink hover:bg-berry/8"
+                        isDark
+                          ? "text-snow/85 hover:text-snow hover:bg-berry/15"
+                          : "text-ink/85 hover:text-ink hover:bg-berry/8"
                       }`}
                     >
                       {p.label}
@@ -161,17 +199,17 @@ export default function Navbar() {
           >
             <span
               className={`block w-full h-px transition-all duration-300 origin-center ${
-                "bg-ink"
+                isDark ? "bg-snow" : "bg-ink"
               } ${menuOpen ? "rotate-45 translate-y-[4px]" : ""}`}
             />
             <span
               className={`block w-full h-px transition-all duration-300 ${
-                "bg-ink"
+                isDark ? "bg-snow" : "bg-ink"
               } ${menuOpen ? "opacity-0 -translate-x-2" : ""}`}
             />
             <span
               className={`block w-full h-px transition-all duration-300 origin-center ${
-                "bg-ink"
+                isDark ? "bg-snow" : "bg-ink"
               } ${menuOpen ? "-rotate-45 -translate-y-[4px]" : ""}`}
             />
           </button>
