@@ -12,16 +12,12 @@ const projects = [
   { label: "Explorations", slug: "explorations" },
 ];
 
-type NavTheme = "dark" | "light";
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [workOpen, setWorkOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [theme, setTheme] = useState<NavTheme>("dark");
 
-  // Scroll progress + scrolled flag
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
@@ -30,36 +26,6 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Auto theme switch based on which [data-nav-theme] section sits
-  // behind the navbar at a sample Y just below the header.
-  useEffect(() => {
-    // Sample at the top-edge of each known themed section against the
-    // navbar's bottom edge (~96px). Whichever one straddles that line wins.
-    const update = () => {
-      const navBottom = 96;
-      const sections = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-nav-theme]")
-      );
-      let next: NavTheme = "dark";
-      for (const s of sections) {
-        const r = s.getBoundingClientRect();
-        if (r.top <= navBottom && r.bottom > navBottom) {
-          const val = s.getAttribute("data-nav-theme");
-          if (val === "light" || val === "dark") next = val;
-          // Don't break — later DOM order wins when sections nest/overlap.
-        }
-      }
-      setTheme((prev) => (prev === next ? prev : next));
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
   }, []);
 
   const handleNav = (href: string) => {
@@ -73,22 +39,13 @@ export default function Navbar() {
   };
 
   // ── Theme-aware classes ──
-  const isDark = theme === "dark";
-  // At the top of the hero (unscrolled + dark theme): solid wine bar.
-  // Everywhere else: frosted glassmorphism.
+  // Always light theme — solid ivory at top of page, frosted glassmorphism on scroll.
   const headerBg = scrolled
-    ? isDark
-      ? "bg-mahogany-deep/92 backdrop-blur-xl border-b border-snow/8 py-4"
-      : "bg-ivory/90 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
-    : isDark
-    ? "bg-mahogany-deep border-b border-snow/5 py-5"
-    : "bg-ivory/65 backdrop-blur-xl py-6";
+    ? "bg-ivory/90 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
+    : "bg-ivory border-b border-ink/5 py-5";
 
-  const linkColor = isDark
-    ? "text-snow/70 hover:text-snow"
-    : "text-ink/70 hover:text-berry";
-
-  const ringTone = isDark ? "ring-snow/20" : "ring-ink/15";
+  const linkColor = "text-ink/70 hover:text-berry";
+  const ringTone = "ring-ink/15";
 
   return (
     <>
@@ -115,7 +72,7 @@ export default function Navbar() {
                 priority
               />
             </span>
-            <Logo variant={isDark ? "dark" : "compact"} />
+            <Logo variant="compact" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -154,14 +111,12 @@ export default function Navbar() {
               >
                 <div
                   className={`min-w-[240px] overflow-hidden py-2 rounded-[18px] backdrop-blur-xl border ${
-                    isDark
-                      ? "bg-mahogany-deep/95 border-snow/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]"
-                      : "bg-ivory/95 border-ink/10 shadow-[0_20px_50px_-12px_rgba(37,2,9,0.15)]"
+                    "bg-ivory/95 border-ink/10 shadow-[0_20px_50px_-12px_rgba(37,2,9,0.15)]"
                   }`}
                 >
                   <span
                     className={`block px-5 pt-2 pb-2.5 font-mono text-[0.52rem] font-medium tracking-[0.3em] uppercase ${
-                      isDark ? "text-berry" : "text-berry"
+                      "text-berry"
                     }`}
                   >
                     ✦ &nbsp; Case Studies
@@ -171,9 +126,7 @@ export default function Navbar() {
                       key={p.slug}
                       href={`/work/${p.slug}`}
                       className={`group flex items-center justify-between px-5 py-2.5 font-display text-base font-semibold transition-colors duration-200 ${
-                        isDark
-                          ? "text-snow/85 hover:text-snow hover:bg-berry/15"
-                          : "text-ink/85 hover:text-ink hover:bg-berry/8"
+                        "text-ink/85 hover:text-ink hover:bg-berry/8"
                       }`}
                     >
                       {p.label}
@@ -208,17 +161,17 @@ export default function Navbar() {
           >
             <span
               className={`block w-full h-px transition-all duration-300 origin-center ${
-                isDark ? "bg-snow" : "bg-ink"
+                "bg-ink"
               } ${menuOpen ? "rotate-45 translate-y-[4px]" : ""}`}
             />
             <span
               className={`block w-full h-px transition-all duration-300 ${
-                isDark ? "bg-snow" : "bg-ink"
+                "bg-ink"
               } ${menuOpen ? "opacity-0 -translate-x-2" : ""}`}
             />
             <span
               className={`block w-full h-px transition-all duration-300 origin-center ${
-                isDark ? "bg-snow" : "bg-ink"
+                "bg-ink"
               } ${menuOpen ? "-rotate-45 -translate-y-[4px]" : ""}`}
             />
           </button>
