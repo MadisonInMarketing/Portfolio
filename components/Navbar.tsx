@@ -39,10 +39,10 @@ export default function Navbar() {
   };
 
   // ── Theme-aware classes ──
-  // Always light theme — solid ivory at top of page, frosted glassmorphism on scroll.
+  // Always light frosted glassmorphism; just a touch denser on scroll.
   const headerBg = scrolled
-    ? "bg-ivory/90 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
-    : "bg-ivory border-b border-ink/5 py-5";
+    ? "bg-ivory/85 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
+    : "bg-ivory/60 backdrop-blur-xl border-b border-ink/5 py-5";
 
   const linkColor = "text-ink/70 hover:text-berry";
   const ringTone = "ring-ink/15";
