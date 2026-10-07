@@ -2,6 +2,13 @@ export type GalleryItem = {
   src: string;
   alt: string;
   type?: "image" | "video";
+  /** Blur a region of the item to anonymize client / member names
+   *  while leaving the design + numbers readable.
+   *  "top"     → blurs top 30% (header/testimonial name area)
+   *  "names"   → blurs 2 strips (top header + a mid area where names usually sit)
+   *  "full"    → blurs the whole image (last resort)
+   */
+  redact?: "top" | "names" | "full";
 };
 
 /**
@@ -100,20 +107,55 @@ export const projects: Project[] = [
           { src: "/work/gymrise/email-mockup.png", alt: "GYMRISE Email Signature Design Bundle, iPad mockup" },
         ],
       },
-      // Row 3, Social media campaign strip
+      // Row 3, Reels & Motion
       {
-        label: "Social Campaign, Top Performers & Testimonials",
+        label: "Reels & Motion",
+        aspect: "9/16",
+        fit: "cover",
+        items: [
+          { src: "/work/gymrise/reel-brand.mp4", alt: "GYMRISE brand reel animation", type: "video" },
+          { src: "/work/gymrise/reel-identity.mp4", alt: "GYMRISE identity reel animation", type: "video" },
+          { src: "/work/gymrise/reel-system.mp4", alt: "GYMRISE system reel animation", type: "video" },
+          { src: "/work/gymrise/reel-proof.mp4", alt: "GYMRISE proof reel animation", type: "video" },
+          { src: "/work/gymrise/reel-september-numbers.mp4", alt: "GYMRISE September numbers reel", type: "video" },
+          { src: "/work/gymrise/reel-time.mp4", alt: "GYMRISE time reel animation", type: "video" },
+        ],
+      },
+      // Row 4, Client Wins & Shoutouts (names redacted, numbers visible)
+      {
+        label: "Client Wins & Shoutouts",
         aspect: "4/5",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/04-top-clubs.jpg", alt: "Top Club Owners, monthly leaderboard" },
-          { src: "/work/gymrise/06-marketing.jpg", alt: "Club Owner Spotlight, Todd Adamson" },
-          { src: "/work/gymrise/1.jpg", alt: "Club Hall of Fame, monthly winners" },
-          { src: "/work/gymrise/02-testimonial.jpg", alt: "Client Testimonial, Michael Scaff" },
-          { src: "/work/gymrise/7.jpg", alt: "Client Testimonial, Patrick Flynn" },
+          { src: "/work/gymrise/post-client-wins-01.png", alt: "Client win post, monthly results", redact: "top" },
+          { src: "/work/gymrise/post-client-wins-02.png", alt: "Client win post, monthly results", redact: "top" },
+          { src: "/work/gymrise/post-client-wins-03.png", alt: "Client win post, monthly results", redact: "top" },
+          { src: "/work/gymrise/post-september-shoutout.png", alt: "September client shoutout post", redact: "top" },
         ],
       },
-      // Row 4, Sales / marketing creative
+      // Row 5, Top Clubs & Leaderboard (club names redacted)
+      {
+        label: "Top Clubs & Leaderboard",
+        aspect: "4/5",
+        fit: "cover",
+        items: [
+          { src: "/work/gymrise/post-top-7.png", alt: "Top 7 clubs of the month leaderboard", redact: "names" },
+          { src: "/work/gymrise/post-top-club.png", alt: "Top club spotlight post", redact: "top" },
+          { src: "/work/gymrise/post-top-club-owners.png", alt: "Top club owners of the month", redact: "names" },
+        ],
+      },
+      // Row 6, Weekly Recaps + Poll
+      {
+        label: "Weekly Recaps & Polls",
+        aspect: "4/5",
+        fit: "cover",
+        items: [
+          { src: "/work/gymrise/post-week-1.jpg", alt: "Week 1 recap post", redact: "top" },
+          { src: "/work/gymrise/post-sept-week-5.png", alt: "September week 5 recap post", redact: "top" },
+          { src: "/work/gymrise/post-poll.png", alt: "Poll engagement post" },
+        ],
+      },
+      // Row 7, Sales / marketing creative
       {
         label: "Sales & Promo Creative",
         aspect: "4/3",
@@ -189,16 +231,31 @@ export const projects: Project[] = [
           { src: "/work/social-mulli/02-og.png", alt: "Social Mulli, brand positioning card" },
         ],
       },
-      // Row, Meta ads campaigns (Anytime Fitness)
+      // Row, Content & Post Graphics
       {
-        label: "Meta Ads, Anytime Fitness Campaigns",
+        label: "Content & Post Graphics",
+        aspect: "4/5",
+        fit: "cover",
+        items: [
+          { src: "/work/social-mulli/post-reps-graphics.png", alt: "REPS content graphics series" },
+          { src: "/work/social-mulli/post-static-graphics.png", alt: "Static post graphics system" },
+          { src: "/work/social-mulli/post-numbers-graphics.png", alt: "Numbers / results post graphics", redact: "names" },
+          { src: "/work/social-mulli/post-office-hours.png", alt: "Office hours promo graphics" },
+          { src: "/work/social-mulli/post-reps.png", alt: "REPS campaign graphic" },
+          { src: "/work/social-mulli/post-testimonial.png", alt: "Client testimonial graphic", redact: "top" },
+        ],
+      },
+      // Row, Google Business Profile + Meta ads
+      {
+        label: "Google Business Profile & Meta Ads",
         aspect: "4/5",
         fit: "contain",
         bg: "transparent",
         items: [
+          { src: "/work/social-mulli/post-gbp.png", alt: "Google Business Profile post graphic", redact: "top" },
           { src: "/work/social-mulli/meta-ad-busy-mom.png", alt: "Anytime Fitness Meta ad, Busy Mom 40+ program" },
           { src: "/work/social-mulli/meta-ad-stay-strong.png", alt: "Anytime Fitness Meta ad, Stay Strong, Stay Steady (Ageless 65+)" },
-          { src: "/work/social-mulli/meta-ad-franklin-moms.png", alt: "Anytime Fitness Meta ad, Franklin Moms: This Is Your Reset" },
+          { src: "/work/social-mulli/meta-ad-franklin-moms.png", alt: "Anytime Fitness Meta ad, Franklin Moms Reset campaign" },
         ],
       },
       // Row 3, Email signature design bundle (iPad mockup)
