@@ -48,7 +48,7 @@ const showcase = [
   },
 ];
 
-const ROTATION_MS = 5200;
+const ROTATION_MS = 3800;
 
 export default function Hero() {
   const [activeIdx, setActiveIdx] = useState(0);
