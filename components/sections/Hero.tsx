@@ -76,7 +76,7 @@ export default function Hero() {
     <section
       id="hero"
       data-nav-theme="dark"
-      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center min-h-[100svh] pt-28 pb-10 md:pt-32 md:pb-14"
+      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center h-[100svh] min-h-[640px] pt-20 pb-6 md:pt-24 md:pb-10"
     >
       <span className="corner-bl" />
       <span className="corner-br" />

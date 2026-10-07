@@ -74,13 +74,15 @@ export default function Navbar() {
 
   // ── Theme-aware classes ──
   const isDark = theme === "dark";
+  // At the top of the hero (unscrolled + dark theme): solid wine bar.
+  // Everywhere else: frosted glassmorphism.
   const headerBg = scrolled
     ? isDark
-      ? "bg-mahogany-deep/92 border-b border-snow/8 py-4"
-      : "bg-ivory/90 border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
+      ? "bg-mahogany-deep/92 backdrop-blur-xl border-b border-snow/8 py-4"
+      : "bg-ivory/90 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
     : isDark
-    ? "bg-mahogany-deep/55 py-6"
-    : "bg-ivory/55 py-6";
+    ? "bg-mahogany-deep border-b border-snow/5 py-5"
+    : "bg-ivory/65 backdrop-blur-xl py-6";
 
   const linkColor = isDark
     ? "text-snow/70 hover:text-snow"
@@ -97,7 +99,7 @@ export default function Navbar() {
       />
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl ${headerBg}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerBg}`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" aria-label="Madison Drennen, Home" className="flex items-center gap-3 group">
