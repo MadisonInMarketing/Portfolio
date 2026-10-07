@@ -1,14 +1,21 @@
+/** One rectangular region to blur, expressed as percentages 0–100
+ *  of the item's rendered box. Leave `left` / `width` undefined for a
+ *  full-width horizontal band. */
+export type RedactBox = {
+  top: number;
+  height: number;
+  left?: number;
+  width?: number;
+};
+
 export type GalleryItem = {
   src: string;
   alt: string;
   type?: "image" | "video";
-  /** Blur a region of the item to anonymize client / member names
-   *  while leaving the design + numbers readable.
-   *  "top"     → blurs top 30% (header/testimonial name area)
-   *  "names"   → blurs 2 strips (top header + a mid area where names usually sit)
-   *  "full"    → blurs the whole image (last resort)
-   */
-  redact?: "top" | "names" | "full";
+  /** Blur specific zones to anonymize names/clubs while keeping
+   *  numbers and the design legible. Pass an array of boxes with
+   *  percentage coordinates. */
+  redact?: RedactBox[];
 };
 
 /**
@@ -121,37 +128,78 @@ export const projects: Project[] = [
           { src: "/work/gymrise/reel-time.mp4", alt: "GYMRISE time reel animation", type: "video" },
         ],
       },
-      // Row 4, Client Wins & Shoutouts (names redacted, numbers visible)
+      // Row 4, Client Wins & Shoutouts (city/club name blurred, body copy + numbers visible)
       {
         label: "Client Wins & Shoutouts",
         aspect: "4/5",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/post-client-wins-01.png", alt: "Client win post, monthly results", redact: "top" },
-          { src: "/work/gymrise/post-client-wins-02.png", alt: "Client win post, monthly results", redact: "top" },
-          { src: "/work/gymrise/post-client-wins-03.png", alt: "Client win post, monthly results", redact: "top" },
-          { src: "/work/gymrise/post-september-shoutout.png", alt: "September client shoutout post", redact: "top" },
+          {
+            src: "/work/gymrise/post-client-wins-01.png",
+            alt: "Win of the Day post",
+            redact: [{ top: 42, height: 15, left: 5, width: 60 }],
+          },
+          {
+            src: "/work/gymrise/post-client-wins-02.png",
+            alt: "Win of the Day post",
+            redact: [{ top: 48, height: 15, left: 5, width: 65 }],
+          },
+          {
+            src: "/work/gymrise/post-client-wins-03.png",
+            alt: "Win of the Day post",
+            redact: [{ top: 42, height: 15, left: 5, width: 65 }],
+          },
+          {
+            src: "/work/gymrise/post-september-shoutout.png",
+            alt: "Lifetime milestone shoutout post",
+            // Face photo spans most of the top, name + location below the face.
+            redact: [{ top: 0, height: 72, left: 0, width: 100 }],
+          },
         ],
       },
-      // Row 5, Top Clubs & Leaderboard (club names redacted)
+      // Row 5, Top Clubs & Leaderboard (club names column blurred, numbers readable)
       {
         label: "Top Clubs & Leaderboard",
         aspect: "4/5",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/post-top-7.png", alt: "Top 7 clubs of the month leaderboard", redact: "names" },
-          { src: "/work/gymrise/post-top-club.png", alt: "Top club spotlight post", redact: "top" },
-          { src: "/work/gymrise/post-top-club-owners.png", alt: "Top club owners of the month", redact: "names" },
+          {
+            src: "/work/gymrise/post-top-7.png",
+            alt: "Top 7 clubs of the month leaderboard",
+            // Vertical strip over the club name column.
+            // The rank number (1–7) and the dollar amount stay visible.
+            redact: [{ top: 34, height: 62, left: 15, width: 42 }],
+          },
+          {
+            src: "/work/gymrise/post-top-club.png",
+            alt: "Club of the month spotlight post",
+            redact: [
+              // Big club name "GIG HARBOR, WA"
+              { top: 25, height: 16, left: 4, width: 72 },
+              // Face photo + couple name row
+              { top: 41, height: 18, left: 4, width: 80 },
+            ],
+          },
+          {
+            src: "/work/gymrise/post-top-club-owners.png",
+            alt: "Top performing club owners of the month",
+            redact: [
+              // Row 1 — 4 face photos + names + locations (keep dollar amounts below)
+              { top: 23, height: 33, left: 0, width: 100 },
+              // Row 2 — 3 face photos + names + locations
+              { top: 62, height: 29, left: 22, width: 60 },
+            ],
+          },
         ],
       },
-      // Row 6, Weekly Recaps + Poll
+      // Row 6, Weekly Recaps + Poll (no names on these — just session titles)
       {
         label: "Weekly Recaps & Polls",
         aspect: "4/5",
         fit: "cover",
         items: [
-          { src: "/work/gymrise/post-week-1.jpg", alt: "Week 1 recap post", redact: "top" },
-          { src: "/work/gymrise/post-sept-week-5.png", alt: "September week 5 recap post", redact: "top" },
+          { src: "/work/gymrise/post-week-1.jpg", alt: "Weekly live-sessions schedule post" },
+          { src: "/work/gymrise/post-sept-week-5.png", alt: "September weekly schedule post" },
           { src: "/work/gymrise/post-poll.png", alt: "Poll engagement post" },
         ],
       },
@@ -239,10 +287,19 @@ export const projects: Project[] = [
         items: [
           { src: "/work/social-mulli/post-reps-graphics.png", alt: "REPS content graphics series" },
           { src: "/work/social-mulli/post-static-graphics.png", alt: "Static post graphics system" },
-          { src: "/work/social-mulli/post-numbers-graphics.png", alt: "Numbers / results post graphics", redact: "names" },
+          { src: "/work/social-mulli/post-numbers-graphics.png", alt: "Honest Reporting post graphic" },
           { src: "/work/social-mulli/post-office-hours.png", alt: "Office hours promo graphics" },
           { src: "/work/social-mulli/post-reps.png", alt: "REPS campaign graphic" },
-          { src: "/work/social-mulli/post-testimonial.png", alt: "Client testimonial graphic", redact: "top" },
+          {
+            src: "/work/social-mulli/post-testimonial.png",
+            alt: "Client testimonial graphic",
+            redact: [
+              // Big quote block that mentions the client's name
+              { top: 36, height: 34, left: 5, width: 95 },
+              // Attribution block (name + company)
+              { top: 82, height: 10, left: 5, width: 40 },
+            ],
+          },
         ],
       },
       // Row, Google Business Profile + Meta ads
@@ -252,7 +309,16 @@ export const projects: Project[] = [
         fit: "contain",
         bg: "transparent",
         items: [
-          { src: "/work/social-mulli/post-gbp.png", alt: "Google Business Profile post graphic", redact: "top" },
+          {
+            src: "/work/social-mulli/post-gbp.png",
+            alt: "Google Business Profile testimonial card",
+            redact: [
+              // Quote block (mentions client name)
+              { top: 25, height: 48, left: 10, width: 90 },
+              // Attribution strip (avatar + name + company)
+              { top: 76, height: 20, left: 10, width: 60 },
+            ],
+          },
           { src: "/work/social-mulli/meta-ad-busy-mom.png", alt: "Anytime Fitness Meta ad, Busy Mom 40+ program" },
           { src: "/work/social-mulli/meta-ad-stay-strong.png", alt: "Anytime Fitness Meta ad, Stay Strong, Stay Steady (Ageless 65+)" },
           { src: "/work/social-mulli/meta-ad-franklin-moms.png", alt: "Anytime Fitness Meta ad, Franklin Moms Reset campaign" },

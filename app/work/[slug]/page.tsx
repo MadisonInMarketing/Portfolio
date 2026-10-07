@@ -416,52 +416,22 @@ export default function CaseStudyPage({ params }: PageProps) {
                                 </span>
                               )}
 
-                              {/* ── Name redaction overlays (keeps numbers legible) ── */}
-                              {item.redact === "full" && (
+                              {/* ── Per-box name redaction overlays ── */}
+                              {item.redact?.map((box, bi) => (
                                 <div
-                                  className="absolute inset-0 z-[2] pointer-events-none"
+                                  key={bi}
+                                  className="absolute z-[2] pointer-events-none"
                                   style={{
-                                    backdropFilter: "blur(16px)",
-                                    WebkitBackdropFilter: "blur(16px)",
+                                    top: `${box.top}%`,
+                                    height: `${box.height}%`,
+                                    left: `${box.left ?? 0}%`,
+                                    width: `${box.width ?? 100}%`,
+                                    backdropFilter: "blur(18px)",
+                                    WebkitBackdropFilter: "blur(18px)",
                                     background: "rgba(255,243,242,0.08)",
                                   }}
                                 />
-                              )}
-                              {item.redact === "top" && (
-                                <div
-                                  className="absolute inset-x-0 top-0 h-[28%] z-[2] pointer-events-none"
-                                  style={{
-                                    backdropFilter: "blur(14px)",
-                                    WebkitBackdropFilter: "blur(14px)",
-                                    background: "rgba(255,243,242,0.1)",
-                                  }}
-                                />
-                              )}
-                              {item.redact === "names" && (
-                                <>
-                                  <div
-                                    className="absolute inset-x-0 top-0 h-[22%] z-[2] pointer-events-none"
-                                    style={{
-                                      backdropFilter: "blur(14px)",
-                                      WebkitBackdropFilter: "blur(14px)",
-                                      background: "rgba(255,243,242,0.1)",
-                                    }}
-                                  />
-                                  <div
-                                    className="absolute inset-x-0 top-[52%] h-[14%] z-[2] pointer-events-none"
-                                    style={{
-                                      backdropFilter: "blur(14px)",
-                                      WebkitBackdropFilter: "blur(14px)",
-                                      background: "rgba(255,243,242,0.1)",
-                                    }}
-                                  />
-                                </>
-                              )}
-                              {item.redact && (
-                                <span className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-ink/70 backdrop-blur-sm text-snow text-[0.48rem] font-mono font-bold tracking-[0.2em] uppercase">
-                                  Anonymized
-                                </span>
-                              )}
+                              ))}
 
                               {!isTransparent && (
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
