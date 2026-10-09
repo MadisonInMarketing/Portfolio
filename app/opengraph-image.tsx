@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Madison in Marketing, Creative · Marketing · AI";
+export const alt = "Madison Drennen, Portfolio · Creative · Marketing · AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,30 +10,28 @@ async function load() {
   const fontsDir = join(process.cwd(), "public", "fonts");
   const ogDir = join(process.cwd(), "public", "og-assets");
 
-  const [instrumentBold, instrumentReg, plexMedium, w1, w2, w3] = await Promise.all([
+  const [instrumentBold, instrumentReg, plexMedium, w2, w3] = await Promise.all([
     readFile(join(fontsDir, "instrument-700.ttf")),
     readFile(join(fontsDir, "instrument-500.ttf")),
     readFile(join(fontsDir, "plexmono-500.ttf")),
-    readFile(join(ogDir, "w1.jpg")),
-    readFile(join(ogDir, "w2.jpg")),
-    readFile(join(ogDir, "w3.jpg")),
+    readFile(join(ogDir, "w2.jpg")), // Peachy HVAC web mockup
+    readFile(join(ogDir, "w3.jpg")), // Social Mulli brand print
   ]);
 
-  const toDataUri = (buf: Buffer) =>
-    `data:image/jpeg;base64,${buf.toString("base64")}`;
+  const toDataUri = (buf: Buffer, mime = "image/jpeg") =>
+    `data:${mime};base64,${buf.toString("base64")}`;
 
   return {
     instrumentBold,
     instrumentReg,
     plexMedium,
-    w1: toDataUri(w1),
     w2: toDataUri(w2),
     w3: toDataUri(w3),
   };
 }
 
 export default async function OpenGraphImage() {
-  const { instrumentBold, instrumentReg, plexMedium, w1, w2, w3 } = await load();
+  const { instrumentBold, instrumentReg, plexMedium, w2, w3 } = await load();
 
   return new ImageResponse(
     (
@@ -42,40 +40,58 @@ export default async function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          backgroundColor: "#FDF8F4",
+          backgroundColor: "#FFF3F2",
           fontFamily: "Instrument Sans",
           position: "relative",
           overflow: "hidden",
-          // Chrome gradient backdrop
+          // Pastel pink + icy blue silky sweeps on paper-white, mimics live hero
           backgroundImage:
-            "linear-gradient(135deg, rgba(253,248,244,0.3) 0%, rgba(220,215,213,0.65) 18%, rgba(245,240,236,1) 36%, rgba(253,250,247,1) 50%, rgba(235,228,224,0.9) 68%, rgba(205,198,195,0.75) 82%, rgba(248,243,240,1) 100%)",
+            "radial-gradient(ellipse 70% 55% at 15% 15%, rgba(224,90,159,0.42) 0%, transparent 55%), radial-gradient(ellipse 65% 55% at 88% 85%, rgba(224,90,159,0.5) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 50% 50%, rgba(217,234,254,0.65) 0%, transparent 70%), linear-gradient(135deg, #FFF3F2 0%, #FFE4EF 50%, #FFF3F2 100%)",
         }}
       >
-        {/* Pink gradient blobs */}
+        {/* ── Corner brackets, mirrors the live hero ── */}
         <div
           style={{
             position: "absolute",
-            top: "-180px",
-            right: "-120px",
-            width: "620px",
-            height: "620px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(212,37,95,0.55) 0%, rgba(229,90,137,0.3) 40%, transparent 70%)",
-            filter: "blur(90px)",
+            top: 32,
+            left: 32,
+            width: 36,
+            height: 36,
+            borderTop: "1px solid rgba(37,2,9,0.3)",
+            borderLeft: "1px solid rgba(37,2,9,0.3)",
           }}
         />
         <div
           style={{
             position: "absolute",
-            bottom: "-220px",
-            left: "80px",
-            width: "520px",
-            height: "520px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(212,37,95,0.4) 0%, rgba(255,207,226,0.2) 50%, transparent 75%)",
-            filter: "blur(110px)",
+            top: 32,
+            right: 32,
+            width: 36,
+            height: 36,
+            borderTop: "1px solid rgba(37,2,9,0.3)",
+            borderRight: "1px solid rgba(37,2,9,0.3)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 32,
+            left: 32,
+            width: 36,
+            height: 36,
+            borderBottom: "1px solid rgba(37,2,9,0.3)",
+            borderLeft: "1px solid rgba(37,2,9,0.3)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 32,
+            right: 32,
+            width: 36,
+            height: 36,
+            borderBottom: "1px solid rgba(37,2,9,0.3)",
+            borderRight: "1px solid rgba(37,2,9,0.3)",
           }}
         />
 
@@ -85,29 +101,42 @@ export default async function OpenGraphImage() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            width: "580px",
-            padding: "70px 0 70px 80px",
+            width: "600px",
+            padding: "72px 0 72px 72px",
             position: "relative",
           }}
         >
           {/* Eyebrow */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div style={{ width: "44px", height: "1px", backgroundColor: "#D4255F" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+            <div style={{ fontSize: "22px", color: "#BA006D", lineHeight: 1 }}>✦</div>
             <div
               style={{
                 fontSize: "15px",
                 fontFamily: "IBM Plex Mono",
                 fontWeight: 500,
-                letterSpacing: "0.32em",
+                letterSpacing: "0.26em",
                 textTransform: "uppercase",
-                color: "#D4255F",
+                color: "rgba(37,2,9,0.75)",
               }}
             >
-              Portfolio · 2026
+              Madison in Marketing
+            </div>
+            <div
+              style={{
+                fontSize: "14px",
+                fontFamily: "IBM Plex Mono",
+                fontWeight: 500,
+                letterSpacing: "0.26em",
+                textTransform: "uppercase",
+                color: "rgba(37,2,9,0.45)",
+                marginLeft: 4,
+              }}
+            >
+              · Issue 04
             </div>
           </div>
 
-          {/* Name */}
+          {/* Name lockup */}
           <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
             <div
               style={{
@@ -116,11 +145,11 @@ export default async function OpenGraphImage() {
                 fontWeight: 700,
                 color: "#1A0810",
                 lineHeight: 0.86,
-                letterSpacing: "-0.045em",
+                letterSpacing: "-0.05em",
                 display: "flex",
               }}
             >
-              madison<span style={{ color: "#D4255F" }}>.</span>
+              Madison
             </div>
             <div
               style={{
@@ -129,11 +158,11 @@ export default async function OpenGraphImage() {
                 fontWeight: 700,
                 color: "#BA006D",
                 lineHeight: 0.9,
-                letterSpacing: "-0.045em",
+                letterSpacing: "-0.05em",
                 display: "flex",
               }}
             >
-              in marketing<span style={{ color: "#D4255F" }}>.</span>
+              Drennen<span style={{ color: "#D4255F" }}>.</span>
             </div>
 
             {/* Roles */}
@@ -142,19 +171,19 @@ export default async function OpenGraphImage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "12px",
-                marginTop: "28px",
+                marginTop: "26px",
                 fontSize: "15px",
                 fontFamily: "IBM Plex Mono",
                 fontWeight: 500,
                 letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                color: "#5C4049",
+                color: "rgba(37,2,9,0.65)",
               }}
             >
               <span>Creative</span>
-              <span style={{ color: "#D4255F" }}>·</span>
+              <span style={{ color: "#BA006D" }}>·</span>
               <span>Marketing</span>
-              <span style={{ color: "#D4255F" }}>·</span>
+              <span style={{ color: "#BA006D" }}>·</span>
               <span>AI</span>
             </div>
           </div>
@@ -165,9 +194,9 @@ export default async function OpenGraphImage() {
               fontSize: "14px",
               fontFamily: "IBM Plex Mono",
               fontWeight: 500,
-              letterSpacing: "0.28em",
+              letterSpacing: "0.26em",
               textTransform: "uppercase",
-              color: "#5C4049",
+              color: "rgba(37,2,9,0.55)",
               marginTop: "44px",
             }}
           >
@@ -177,70 +206,55 @@ export default async function OpenGraphImage() {
 
         {/* ── RIGHT: floating work cards ── */}
         <div style={{ position: "relative", flex: 1, display: "flex" }}>
-          <img
-            src={w1}
-            width={440}
-            height={330}
-            style={{
-              position: "absolute",
-              top: "96px",
-              left: "20px",
-              width: "440px",
-              height: "330px",
-              objectFit: "cover",
-              borderRadius: "22px",
-              transform: "rotate(-5deg)",
-              boxShadow: "0 40px 90px rgba(26,8,16,0.22)",
-              border: "1px solid rgba(26,8,16,0.08)",
-            }}
-          />
+          {/* Back card: Social Mulli brand print (portrait) */}
           <img
             src={w3}
-            width={250}
-            height={312}
+            width={255}
+            height={320}
             style={{
               position: "absolute",
-              top: "40px",
-              right: "30px",
-              width: "250px",
-              height: "312px",
+              top: 70,
+              right: 56,
+              width: 255,
+              height: 320,
               objectFit: "cover",
-              borderRadius: "22px",
+              borderRadius: "18px",
               transform: "rotate(6deg)",
-              boxShadow: "0 30px 70px rgba(26,8,16,0.2)",
+              boxShadow: "0 30px 70px rgba(26,8,16,0.22)",
               border: "1px solid rgba(26,8,16,0.08)",
             }}
           />
+          {/* Front card: Peachy HVAC web mockup (landscape) */}
           <img
             src={w2}
             width={440}
             height={330}
             style={{
               position: "absolute",
-              bottom: "70px",
-              right: "60px",
-              width: "440px",
-              height: "330px",
+              bottom: 80,
+              right: 46,
+              width: 440,
+              height: 330,
               objectFit: "cover",
               borderRadius: "22px",
-              transform: "rotate(4deg)",
-              boxShadow: "0 44px 100px rgba(26,8,16,0.26)",
-              border: "1px solid rgba(212,37,95,0.3)",
+              transform: "rotate(-4deg)",
+              boxShadow: "0 44px 100px rgba(26,8,16,0.3)",
+              border: "1px solid rgba(186,0,109,0.3)",
             }}
           />
-        </div>
 
-        {/* Sparkle */}
-        <div
-          style={{
-            position: "absolute",
-            top: "44px",
-            right: "60px",
-            fontSize: "30px",
-            color: "#D4255F",
-          }}
-        >
-          ✦
+          {/* Small sparkle accent */}
+          <div
+            style={{
+              position: "absolute",
+              top: 56,
+              right: 40,
+              fontSize: "30px",
+              color: "#D4255F",
+            }}
+          >
+            ✦
+          </div>
         </div>
       </div>
     ),
