@@ -50,6 +50,13 @@ const showcase = [
 
 const ROTATION_MS = 3800;
 
+/**
+ * Shared grid container — everything in the hero (top strip,
+ * slideshow, bottom controls) sits on this one axis so their
+ * left/right edges line up as a single composition.
+ */
+const GRID = "mx-auto w-full max-w-[1280px] px-6 sm:px-8 md:px-12 lg:px-20";
+
 export default function Hero() {
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -76,7 +83,7 @@ export default function Hero() {
     <section
       id="hero"
       data-nav-theme="light"
-      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center h-[100svh] min-h-[660px] pt-24 pb-8 md:pt-28 md:pb-12"
+      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center h-[100svh] min-h-[680px] pt-24 pb-10 md:pt-28 md:pb-14"
     >
       <span className="corner-bl" />
       <span className="corner-br" />
@@ -84,7 +91,7 @@ export default function Hero() {
       {/* Chrome ribbon layer */}
       <div className="hero-chrome-layer" aria-hidden="true" />
 
-      {/* Very light veil — just enough to soften edges */}
+      {/* Very light veil, just enough to soften edges */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
@@ -93,35 +100,43 @@ export default function Hero() {
         }}
       />
 
-      {/* ── TOP STRIP (on the frame) ── */}
-      <div className="relative z-[3] max-w-[1500px] mx-auto w-full px-6 md:px-12 mb-6 md:mb-8">
-        <div className="flex items-start justify-between gap-6">
+      {/* ── TOP STRIP ── */}
+      <div className={`relative z-[3] ${GRID} mb-6 md:mb-8`}>
+        <div className="flex items-center justify-between gap-6">
           <div
             data-hero-reveal
-            style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
+            style={{
+              opacity: 0,
+              transform: "translateY(14px)",
+              transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
+            }}
             className="flex items-center gap-3 font-mono text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/85"
           >
-            <span className="text-berry text-base">✦</span>
+            <span className="text-berry text-base leading-none">✦</span>
             <span>Madison Drennen</span>
-            <span className="hidden md:inline text-mahogany-deep/35">·</span>
+            <span className="hidden md:inline text-mahogany-deep/30">·</span>
             <span className="hidden md:inline">Portfolio 2026</span>
           </div>
 
           <div
             data-hero-reveal
-            style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
-            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/65 tabular-nums"
+            style={{
+              opacity: 0,
+              transform: "translateY(14px)",
+              transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
+            }}
+            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/60 tabular-nums"
           >
             Issue 04
           </div>
         </div>
       </div>
 
-      {/* ── CENTERED SLIDESHOW RECTANGLE ── */}
-      <div className="relative z-[3] max-w-[1360px] mx-auto w-full px-6 md:px-16 lg:px-24">
+      {/* ── SLIDESHOW STAGE ── */}
+      <div className={`relative z-[3] ${GRID}`}>
         <div
           data-hero-reveal
-          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[28px] ring-1 ring-mahogany-deep/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(37,2,9,0.4),0_20px_60px_-20px_rgba(186,0,109,0.3)] mx-auto"
+          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[24px] ring-1 ring-mahogany-deep/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(37,2,9,0.4),0_20px_60px_-20px_rgba(186,0,109,0.3)]"
           style={{
             opacity: 0,
             transform: "translateY(32px)",
@@ -151,17 +166,17 @@ export default function Hero() {
                 fill
                 priority={i === 0}
                 className="object-cover"
-                sizes="(min-width: 1500px) 1440px, 100vw"
+                sizes="(min-width: 1280px) 1200px, 100vw"
               />
             </div>
           ))}
 
           {/* Caption overlay inside the slideshow */}
-          <div className="absolute bottom-0 left-0 right-0 z-[5] px-6 md:px-10 py-6 md:py-8 bg-gradient-to-t from-mahogany-deep/95 via-mahogany-deep/55 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 z-[5] px-6 sm:px-8 md:px-10 lg:px-12 py-6 md:py-8 bg-gradient-to-t from-mahogany-deep/95 via-mahogany-deep/55 to-transparent">
             <div className="flex items-end justify-between gap-6">
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <p
-                  className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-berry mb-2 flex items-center gap-2.5 flex-wrap"
+                  className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-berry mb-2.5 flex items-center gap-2.5 flex-wrap"
                   key={`cat-${activeIdx}`}
                   style={{ animation: "fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both" }}
                 >
@@ -172,9 +187,9 @@ export default function Hero() {
                 </p>
                 <h2
                   key={`proj-${activeIdx}`}
-                  className="font-display font-bold text-snow leading-none tracking-[-0.04em]"
+                  className="font-display font-bold text-snow leading-[0.95] tracking-[-0.04em]"
                   style={{
-                    fontSize: "clamp(1.75rem, 4vw, 3.5rem)",
+                    fontSize: "clamp(1.5rem, 3.2vw, 2.75rem)",
                     animation: "fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) 0.08s both",
                   }}
                 >
@@ -182,20 +197,28 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <span className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/60 tabular-nums flex-shrink-0 pb-1">
-                <span className="text-snow font-semibold">{String(activeIdx + 1).padStart(2, "0")}</span>
+              <span className="font-mono text-[0.55rem] md:text-[0.6rem] font-medium tracking-[0.22em] uppercase text-snow/60 tabular-nums flex-shrink-0 pb-1.5">
+                <span className="text-snow font-semibold">
+                  {String(activeIdx + 1).padStart(2, "0")}
+                </span>
                 <span className="mx-1.5 text-snow/30">/</span>
                 <span>{String(showcase.length).padStart(2, "0")}</span>
               </span>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* ── BOTTOM: INDICATOR + CTA (on the frame, below slideshow) ── */}
+      {/* ── BOTTOM: INDICATOR + CTA ── */}
+      <div className={`relative z-[3] ${GRID} mt-5 md:mt-6`}>
         <div
           data-hero-reveal
-          style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
-          className="flex items-center justify-between gap-4 pt-5 md:pt-6 px-1 mx-auto w-full"
+          style={{
+            opacity: 0,
+            transform: "translateY(14px)",
+            transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
+          }}
+          className="flex items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2">
             {showcase.map((s, i) => (
