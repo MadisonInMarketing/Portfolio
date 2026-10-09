@@ -16,7 +16,7 @@ export default function FeaturedWork() {
       <div className={`relative ${SITE_GRID}`}>
         {/* Header */}
         <div className="mb-14 md:mb-16 lg:mb-20 flex items-end justify-between flex-wrap gap-6">
-          <div className="max-w-[22ch]">
+          <div className="max-w-4xl">
             <RevealOnScroll>
               <SectionLabel label="Recent Work" variant="dark" />
             </RevealOnScroll>
