@@ -82,8 +82,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      data-nav-theme="light"
-      className="relative overflow-hidden hero-chrome-bg corner-frame corner-frame-light flex flex-col justify-center h-[100svh] min-h-[680px] pt-24 pb-10 md:pt-28 md:pb-14"
+      data-nav-theme="dark"
+      className="relative overflow-hidden hero-chrome-bg corner-frame flex flex-col justify-center h-[100svh] min-h-[680px] pt-24 pb-10 md:pt-28 md:pb-14"
     >
       <span className="corner-bl" />
       <span className="corner-br" />
@@ -91,12 +91,12 @@ export default function Hero() {
       {/* Chrome ribbon layer */}
       <div className="hero-chrome-layer" aria-hidden="true" />
 
-      {/* Very light veil, just enough to soften edges */}
+      {/* Dark veil for text contrast over the chrome ribbon */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,243,242,0.15) 0%, transparent 40%, rgba(255,243,242,0.2) 100%)",
+            "linear-gradient(180deg, rgba(26,7,20,0.5) 0%, rgba(26,7,20,0.2) 40%, rgba(26,7,20,0.55) 100%)",
         }}
       />
 
@@ -110,11 +110,11 @@ export default function Hero() {
               transform: "translateY(14px)",
               transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
             }}
-            className="flex items-center gap-3 font-mono text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/85"
+            className="flex items-center gap-3 font-mono text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.22em] uppercase text-snow/85"
           >
             <span className="text-berry text-base leading-none">✦</span>
             <span>Madison Drennen</span>
-            <span className="hidden md:inline text-mahogany-deep/30">·</span>
+            <span className="hidden md:inline text-snow/35">·</span>
             <span className="hidden md:inline">Portfolio 2026</span>
           </div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
               transform: "translateY(14px)",
               transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
             }}
-            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/60 tabular-nums"
+            className="font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-snow/65 tabular-nums"
           >
             Issue 04
           </div>
@@ -230,7 +230,7 @@ export default function Hero() {
                 className="relative h-[3px] overflow-hidden rounded-full transition-all duration-500 cursor-pointer"
                 style={{
                   width: i === activeIdx ? 44 : 14,
-                  background: "rgba(37,2,9,0.18)",
+                  background: "rgba(255,243,242,0.2)",
                 }}
               >
                 <span
@@ -253,10 +253,10 @@ export default function Hero() {
               e.preventDefault();
               document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group inline-flex items-center gap-3 font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-mahogany-deep/75 hover:text-berry transition-colors duration-300"
+            className="group inline-flex items-center gap-3 font-mono text-[0.6rem] md:text-[0.65rem] font-medium tracking-[0.22em] uppercase text-snow/80 hover:text-petal transition-colors duration-300"
           >
             <span>View All Work</span>
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-mahogany-deep/25 group-hover:border-berry group-hover:bg-berry text-mahogany-deep group-hover:text-snow transition-all duration-300">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-snow/30 group-hover:border-berry group-hover:bg-berry text-snow group-hover:text-snow transition-all duration-300">
               →
             </span>
           </a>

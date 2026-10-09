@@ -324,16 +324,16 @@
     var(--mahogany-deep);
 }
 
-/* Hero bg — pastel pink + icy blue silk sweeps on a paper-white base.
+/* Hero bg — glossy burgundy chrome ribbon on a deep mahogany base.
    The actual image goes on a .hero-chrome-layer child element because
    .corner-frame already uses the parent's ::before for brackets. */
 .hero-chrome-bg {
-  background: var(--ivory);
+  background: var(--mahogany-deep);
 }
 .hero-chrome-layer {
   position: absolute;
   inset: -5%;
-  background: url('/brand/v4/bg-hero-pastel.png') center / cover no-repeat;
+  background: url('/brand/v4/bg-hero-chrome-ribbon.png') center / cover no-repeat;
   pointer-events: none;
   z-index: 0;
 }
