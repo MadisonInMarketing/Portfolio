@@ -333,7 +333,7 @@
 .hero-chrome-layer {
   position: absolute;
   inset: -5%;
-  background: url('/brand/v4/bg-hero-chrome-ribbon.png') center / cover no-repeat;
+  background: url('/brand/v4/bg-primary-sweeps.png') center / cover no-repeat;
   pointer-events: none;
   z-index: 0;
 }
