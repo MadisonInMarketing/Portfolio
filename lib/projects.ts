@@ -104,16 +104,6 @@ export const projects: Project[] = [
           { src: "/work/gymrise/site-03.jpg", alt: "GYMRISE website, university, FAQs & next-step CTA" },
         ],
       },
-      // Row 2, Brand kit + email signature bundle (the identity system)
-      {
-        label: "Brand Kit & Email Signature System",
-        aspect: "3/4",
-        fit: "contain",
-        items: [
-          { src: "/work/gymrise/brand-kit.png", alt: "GYMRISE Brand Kit, iPad mockup" },
-          { src: "/work/gymrise/email-mockup.png", alt: "GYMRISE Email Signature Design Bundle, iPad mockup" },
-        ],
-      },
       // Row 3, Reels & Motion
       {
         label: "Reels & Motion",
