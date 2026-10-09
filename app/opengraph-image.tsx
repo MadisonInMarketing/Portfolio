@@ -15,7 +15,7 @@ async function load() {
     instrumentBold,
     instrumentReg,
     plexMedium,
-    bgPastel,
+    bgChrome,
     w2,
     w3,
     monogram,
@@ -23,30 +23,28 @@ async function load() {
     readFile(join(fontsDir, "instrument-700.ttf")),
     readFile(join(fontsDir, "instrument-500.ttf")),
     readFile(join(fontsDir, "plexmono-500.ttf")),
-    readFile(join(brandDir, "bg-hero-pastel.png")),
+    readFile(join(brandDir, "bg-hero-chrome-ribbon.png")),
     readFile(join(ogDir, "w2.jpg")), // Peachy HVAC
     readFile(join(ogDir, "w3.jpg")), // Social Mulli print
-    readFile(join(process.cwd(), "public", "logos", "v4", "monogram-light-bg.png")),
+    readFile(join(process.cwd(), "public", "logos", "v4", "monogram-mahogany-bg.png")),
   ]);
 
-  const png = (buf: Buffer) =>
-    `data:image/png;base64,${buf.toString("base64")}`;
-  const jpg = (buf: Buffer) =>
-    `data:image/jpeg;base64,${buf.toString("base64")}`;
+  const toDataUri = (buf: Buffer, mime: string) =>
+    `data:${mime};base64,${buf.toString("base64")}`;
 
   return {
     instrumentBold,
     instrumentReg,
     plexMedium,
-    bgPastel: png(bgPastel),
-    w2: jpg(w2),
-    w3: jpg(w3),
-    monogram: png(monogram),
+    bgChrome: toDataUri(bgChrome, "image/png"),
+    w2: toDataUri(w2, "image/jpeg"),
+    w3: toDataUri(w3, "image/jpeg"),
+    monogram: toDataUri(monogram, "image/png"),
   };
 }
 
 export default async function OpenGraphImage() {
-  const { instrumentBold, instrumentReg, plexMedium, bgPastel, w2, w3, monogram } =
+  const { instrumentBold, instrumentReg, plexMedium, bgChrome, w2, w3, monogram } =
     await load();
 
   return new ImageResponse(
@@ -56,15 +54,15 @@ export default async function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          backgroundColor: "#FFF3F2",
+          backgroundColor: "#1A0714",
           fontFamily: "Instrument Sans",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Actual pastel sweep bg — matches live hero */}
+        {/* Glossy burgundy chrome ribbon background */}
         <img
-          src={bgPastel}
+          src={bgChrome}
           width={1200}
           height={630}
           style={{
@@ -75,13 +73,13 @@ export default async function OpenGraphImage() {
             objectFit: "cover",
           }}
         />
-        {/* Soft brightness veil */}
+        {/* Darker veil for text contrast */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(255,243,242,0.25) 0%, rgba(255,243,242,0.05) 40%, rgba(255,243,242,0.25) 100%)",
+              "linear-gradient(180deg, rgba(26,7,20,0.55) 0%, rgba(26,7,20,0.3) 40%, rgba(26,7,20,0.6) 100%)",
           }}
         />
 
@@ -93,8 +91,8 @@ export default async function OpenGraphImage() {
             left: 28,
             width: 44,
             height: 44,
-            borderTop: "1.5px solid rgba(37,2,9,0.4)",
-            borderLeft: "1.5px solid rgba(37,2,9,0.4)",
+            borderTop: "1.5px solid rgba(255,243,242,0.4)",
+            borderLeft: "1.5px solid rgba(255,243,242,0.4)",
           }}
         />
         <div
@@ -104,8 +102,8 @@ export default async function OpenGraphImage() {
             right: 28,
             width: 44,
             height: 44,
-            borderTop: "1.5px solid rgba(37,2,9,0.4)",
-            borderRight: "1.5px solid rgba(37,2,9,0.4)",
+            borderTop: "1.5px solid rgba(255,243,242,0.4)",
+            borderRight: "1.5px solid rgba(255,243,242,0.4)",
           }}
         />
         <div
@@ -115,8 +113,8 @@ export default async function OpenGraphImage() {
             left: 28,
             width: 44,
             height: 44,
-            borderBottom: "1.5px solid rgba(37,2,9,0.4)",
-            borderLeft: "1.5px solid rgba(37,2,9,0.4)",
+            borderBottom: "1.5px solid rgba(255,243,242,0.4)",
+            borderLeft: "1.5px solid rgba(255,243,242,0.4)",
           }}
         />
         <div
@@ -126,8 +124,8 @@ export default async function OpenGraphImage() {
             right: 28,
             width: 44,
             height: 44,
-            borderBottom: "1.5px solid rgba(37,2,9,0.4)",
-            borderRight: "1.5px solid rgba(37,2,9,0.4)",
+            borderBottom: "1.5px solid rgba(255,243,242,0.4)",
+            borderRight: "1.5px solid rgba(255,243,242,0.4)",
           }}
         />
 
@@ -153,8 +151,8 @@ export default async function OpenGraphImage() {
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                border: "1px solid rgba(37,2,9,0.15)",
-                boxShadow: "0 4px 14px rgba(37,2,9,0.1)",
+                border: "1px solid rgba(255,243,242,0.2)",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.3)",
               }}
             />
             <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
@@ -197,14 +195,14 @@ export default async function OpenGraphImage() {
               fontWeight: 500,
               letterSpacing: "0.3em",
               textTransform: "uppercase",
-              color: "rgba(37,2,9,0.65)",
+              color: "rgba(255,243,242,0.75)",
             }}
           >
-            <span style={{ color: "#BA006D", fontSize: 18, lineHeight: 1 }}>✦</span>
+            <span style={{ color: "#E05A9F", fontSize: 18, lineHeight: 1 }}>✦</span>
             <span>Portfolio</span>
-            <span style={{ color: "rgba(37,2,9,0.25)" }}>·</span>
+            <span style={{ color: "rgba(255,243,242,0.35)" }}>·</span>
             <span>Issue 04</span>
-            <span style={{ color: "rgba(37,2,9,0.25)" }}>·</span>
+            <span style={{ color: "rgba(255,243,242,0.35)" }}>·</span>
             <span>2026</span>
           </div>
         </div>
@@ -214,36 +212,23 @@ export default async function OpenGraphImage() {
           style={{
             position: "absolute",
             left: 72,
-            top: 176,
+            top: 220,
             display: "flex",
             flexDirection: "column",
           }}
         >
           <div
             style={{
-              fontSize: "165px",
+              fontSize: "200px",
               fontFamily: "Instrument Sans",
               fontWeight: 700,
-              color: "#1A0810",
-              lineHeight: 0.85,
-              letterSpacing: "-0.055em",
-              display: "flex",
-            }}
-          >
-            Madison
-          </div>
-          <div
-            style={{
-              fontSize: "165px",
-              fontFamily: "Instrument Sans",
-              fontWeight: 700,
-              color: "#BA006D",
+              color: "#FFF3F2",
               lineHeight: 0.9,
               letterSpacing: "-0.055em",
               display: "flex",
             }}
           >
-            Drennen<span style={{ color: "#D4255F" }}>.</span>
+            portfolio<span style={{ color: "#D4255F" }}>.</span>
           </div>
 
           {/* Tag rail */}
@@ -258,15 +243,15 @@ export default async function OpenGraphImage() {
               fontWeight: 500,
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: "rgba(37,2,9,0.7)",
+              color: "rgba(255,243,242,0.75)",
             }}
           >
             <span>Brand</span>
-            <span style={{ color: "#BA006D" }}>·</span>
+            <span style={{ color: "#E05A9F" }}>·</span>
             <span>Web</span>
-            <span style={{ color: "#BA006D" }}>·</span>
+            <span style={{ color: "#E05A9F" }}>·</span>
             <span>Marketing</span>
-            <span style={{ color: "#BA006D" }}>·</span>
+            <span style={{ color: "#E05A9F" }}>·</span>
             <span>AI</span>
           </div>
         </div>
@@ -286,8 +271,8 @@ export default async function OpenGraphImage() {
             objectFit: "cover",
             borderRadius: "16px",
             transform: "rotate(7deg)",
-            boxShadow: "0 30px 70px rgba(26,8,16,0.3)",
-            border: "1px solid rgba(26,8,16,0.1)",
+            boxShadow: "0 30px 70px rgba(0,0,0,0.5)",
+            border: "1px solid rgba(255,243,242,0.1)",
           }}
         />
         {/* Front: Peachy HVAC web landscape */}
@@ -304,8 +289,8 @@ export default async function OpenGraphImage() {
             objectFit: "cover",
             borderRadius: "20px",
             transform: "rotate(-5deg)",
-            boxShadow: "0 44px 100px rgba(26,8,16,0.4)",
-            border: "1px solid rgba(186,0,109,0.35)",
+            boxShadow: "0 44px 100px rgba(0,0,0,0.6)",
+            border: "1px solid rgba(224,90,159,0.45)",
           }}
         />
 
@@ -323,14 +308,14 @@ export default async function OpenGraphImage() {
             fontWeight: 500,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(37,2,9,0.7)",
+            color: "rgba(255,243,242,0.7)",
           }}
         >
           <span
             style={{
               width: 32,
               height: 1,
-              background: "#BA006D",
+              background: "#E05A9F",
             }}
           />
           <span>madisondrennen.com</span>
