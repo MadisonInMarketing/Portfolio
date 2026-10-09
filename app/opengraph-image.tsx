@@ -9,29 +9,45 @@ export const contentType = "image/png";
 async function load() {
   const fontsDir = join(process.cwd(), "public", "fonts");
   const ogDir = join(process.cwd(), "public", "og-assets");
+  const brandDir = join(process.cwd(), "public", "brand", "v4");
 
-  const [instrumentBold, instrumentReg, plexMedium, w2, w3] = await Promise.all([
+  const [
+    instrumentBold,
+    instrumentReg,
+    plexMedium,
+    bgPastel,
+    w2,
+    w3,
+    monogram,
+  ] = await Promise.all([
     readFile(join(fontsDir, "instrument-700.ttf")),
     readFile(join(fontsDir, "instrument-500.ttf")),
     readFile(join(fontsDir, "plexmono-500.ttf")),
-    readFile(join(ogDir, "w2.jpg")), // Peachy HVAC web mockup
-    readFile(join(ogDir, "w3.jpg")), // Social Mulli brand print
+    readFile(join(brandDir, "bg-hero-pastel.png")),
+    readFile(join(ogDir, "w2.jpg")), // Peachy HVAC
+    readFile(join(ogDir, "w3.jpg")), // Social Mulli print
+    readFile(join(process.cwd(), "public", "logos", "v4", "monogram-light-bg.png")),
   ]);
 
-  const toDataUri = (buf: Buffer, mime = "image/jpeg") =>
-    `data:${mime};base64,${buf.toString("base64")}`;
+  const png = (buf: Buffer) =>
+    `data:image/png;base64,${buf.toString("base64")}`;
+  const jpg = (buf: Buffer) =>
+    `data:image/jpeg;base64,${buf.toString("base64")}`;
 
   return {
     instrumentBold,
     instrumentReg,
     plexMedium,
-    w2: toDataUri(w2),
-    w3: toDataUri(w3),
+    bgPastel: png(bgPastel),
+    w2: jpg(w2),
+    w3: jpg(w3),
+    monogram: png(monogram),
   };
 }
 
 export default async function OpenGraphImage() {
-  const { instrumentBold, instrumentReg, plexMedium, w2, w3 } = await load();
+  const { instrumentBold, instrumentReg, plexMedium, bgPastel, w2, w3, monogram } =
+    await load();
 
   return new ImageResponse(
     (
@@ -44,217 +60,293 @@ export default async function OpenGraphImage() {
           fontFamily: "Instrument Sans",
           position: "relative",
           overflow: "hidden",
-          // Pastel pink + icy blue silky sweeps on paper-white, mimics live hero
-          backgroundImage:
-            "radial-gradient(ellipse 70% 55% at 15% 15%, rgba(224,90,159,0.42) 0%, transparent 55%), radial-gradient(ellipse 65% 55% at 88% 85%, rgba(224,90,159,0.5) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 50% 50%, rgba(217,234,254,0.65) 0%, transparent 70%), linear-gradient(135deg, #FFF3F2 0%, #FFE4EF 50%, #FFF3F2 100%)",
         }}
       >
-        {/* ── Corner brackets, mirrors the live hero ── */}
-        <div
+        {/* Actual pastel sweep bg — matches live hero */}
+        <img
+          src={bgPastel}
+          width={1200}
+          height={630}
           style={{
             position: "absolute",
-            top: 32,
-            left: 32,
-            width: 36,
-            height: 36,
-            borderTop: "1px solid rgba(37,2,9,0.3)",
-            borderLeft: "1px solid rgba(37,2,9,0.3)",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
         />
+        {/* Soft brightness veil */}
         <div
           style={{
             position: "absolute",
-            top: 32,
-            right: 32,
-            width: 36,
-            height: 36,
-            borderTop: "1px solid rgba(37,2,9,0.3)",
-            borderRight: "1px solid rgba(37,2,9,0.3)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 32,
-            left: 32,
-            width: 36,
-            height: 36,
-            borderBottom: "1px solid rgba(37,2,9,0.3)",
-            borderLeft: "1px solid rgba(37,2,9,0.3)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 32,
-            right: 32,
-            width: 36,
-            height: 36,
-            borderBottom: "1px solid rgba(37,2,9,0.3)",
-            borderRight: "1px solid rgba(37,2,9,0.3)",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(255,243,242,0.25) 0%, rgba(255,243,242,0.05) 40%, rgba(255,243,242,0.25) 100%)",
           }}
         />
 
-        {/* ── LEFT: identity panel ── */}
+        {/* ── Corner brackets ── */}
         <div
           style={{
+            position: "absolute",
+            top: 28,
+            left: 28,
+            width: 44,
+            height: 44,
+            borderTop: "1.5px solid rgba(37,2,9,0.4)",
+            borderLeft: "1.5px solid rgba(37,2,9,0.4)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 28,
+            right: 28,
+            width: 44,
+            height: 44,
+            borderTop: "1.5px solid rgba(37,2,9,0.4)",
+            borderRight: "1.5px solid rgba(37,2,9,0.4)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 28,
+            left: 28,
+            width: 44,
+            height: 44,
+            borderBottom: "1.5px solid rgba(37,2,9,0.4)",
+            borderLeft: "1.5px solid rgba(37,2,9,0.4)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 28,
+            right: 28,
+            width: 44,
+            height: 44,
+            borderBottom: "1.5px solid rgba(37,2,9,0.4)",
+            borderRight: "1.5px solid rgba(37,2,9,0.4)",
+          }}
+        />
+
+        {/* ── TOP EDITORIAL STRIP ── */}
+        <div
+          style={{
+            position: "absolute",
+            top: 70,
+            left: 72,
+            right: 72,
             display: "flex",
-            flexDirection: "column",
             justifyContent: "space-between",
-            width: "600px",
-            padding: "72px 0 72px 72px",
-            position: "relative",
+            alignItems: "center",
           }}
         >
-          {/* Eyebrow */}
-          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <div style={{ fontSize: "22px", color: "#BA006D", lineHeight: 1 }}>✦</div>
-            <div
+          {/* Left: monogram + wordmark */}
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <img
+              src={monogram}
+              width={44}
+              height={44}
               style={{
-                fontSize: "15px",
-                fontFamily: "IBM Plex Mono",
-                fontWeight: 500,
-                letterSpacing: "0.26em",
-                textTransform: "uppercase",
-                color: "rgba(37,2,9,0.75)",
+                width: 44,
+                height: 44,
+                borderRadius: "50%",
+                border: "1px solid rgba(37,2,9,0.15)",
+                boxShadow: "0 4px 14px rgba(37,2,9,0.1)",
               }}
-            >
-              Madison in Marketing
-            </div>
-            <div
-              style={{
-                fontSize: "14px",
-                fontFamily: "IBM Plex Mono",
-                fontWeight: 500,
-                letterSpacing: "0.26em",
-                textTransform: "uppercase",
-                color: "rgba(37,2,9,0.45)",
-                marginLeft: 4,
-              }}
-            >
-              · Issue 04
-            </div>
-          </div>
-
-          {/* Name lockup */}
-          <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
-            <div
-              style={{
-                fontSize: "128px",
-                fontFamily: "Instrument Sans",
-                fontWeight: 700,
-                color: "#1A0810",
-                lineHeight: 0.86,
-                letterSpacing: "-0.05em",
-                display: "flex",
-              }}
-            >
-              Madison
-            </div>
-            <div
-              style={{
-                fontSize: "128px",
-                fontFamily: "Instrument Sans",
-                fontWeight: 700,
-                color: "#BA006D",
-                lineHeight: 0.9,
-                letterSpacing: "-0.05em",
-                display: "flex",
-              }}
-            >
-              Drennen<span style={{ color: "#D4255F" }}>.</span>
-            </div>
-
-            {/* Roles */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                marginTop: "26px",
-                fontSize: "15px",
-                fontFamily: "IBM Plex Mono",
-                fontWeight: 500,
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-                color: "rgba(37,2,9,0.65)",
-              }}
-            >
-              <span>Creative</span>
-              <span style={{ color: "#BA006D" }}>·</span>
-              <span>Marketing</span>
-              <span style={{ color: "#BA006D" }}>·</span>
-              <span>AI</span>
+            />
+            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+              <div
+                style={{
+                  fontSize: "22px",
+                  fontFamily: "Instrument Sans",
+                  fontWeight: 700,
+                  color: "#1A0810",
+                  letterSpacing: "-0.02em",
+                  display: "flex",
+                }}
+              >
+                Madison <span style={{ color: "#BA006D", marginLeft: 6 }}>Drennen<span style={{ color: "#D4255F" }}>.</span></span>
+              </div>
+              <div
+                style={{
+                  fontSize: "11px",
+                  fontFamily: "IBM Plex Mono",
+                  fontWeight: 500,
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: "rgba(37,2,9,0.55)",
+                  marginTop: 5,
+                }}
+              >
+                In Marketing
+              </div>
             </div>
           </div>
 
-          {/* URL */}
+          {/* Right: issue label */}
           <div
             style={{
-              fontSize: "14px",
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              fontSize: "13px",
               fontFamily: "IBM Plex Mono",
               fontWeight: 500,
-              letterSpacing: "0.26em",
+              letterSpacing: "0.3em",
               textTransform: "uppercase",
-              color: "rgba(37,2,9,0.55)",
-              marginTop: "44px",
+              color: "rgba(37,2,9,0.65)",
             }}
           >
-            madisondrennen.com
+            <span style={{ color: "#BA006D", fontSize: 18, lineHeight: 1 }}>✦</span>
+            <span>Portfolio</span>
+            <span style={{ color: "rgba(37,2,9,0.25)" }}>·</span>
+            <span>Issue 04</span>
+            <span style={{ color: "rgba(37,2,9,0.25)" }}>·</span>
+            <span>2026</span>
           </div>
         </div>
 
-        {/* ── RIGHT: floating work cards ── */}
-        <div style={{ position: "relative", flex: 1, display: "flex" }}>
-          {/* Back card: Social Mulli brand print (portrait) */}
-          <img
-            src={w3}
-            width={255}
-            height={320}
-            style={{
-              position: "absolute",
-              top: 70,
-              right: 56,
-              width: 255,
-              height: 320,
-              objectFit: "cover",
-              borderRadius: "18px",
-              transform: "rotate(6deg)",
-              boxShadow: "0 30px 70px rgba(26,8,16,0.22)",
-              border: "1px solid rgba(26,8,16,0.08)",
-            }}
-          />
-          {/* Front card: Peachy HVAC web mockup (landscape) */}
-          <img
-            src={w2}
-            width={440}
-            height={330}
-            style={{
-              position: "absolute",
-              bottom: 80,
-              right: 46,
-              width: 440,
-              height: 330,
-              objectFit: "cover",
-              borderRadius: "22px",
-              transform: "rotate(-4deg)",
-              boxShadow: "0 44px 100px rgba(26,8,16,0.3)",
-              border: "1px solid rgba(186,0,109,0.3)",
-            }}
-          />
-
-          {/* Small sparkle accent */}
+        {/* ── CENTER LOCKUP ── */}
+        <div
+          style={{
+            position: "absolute",
+            left: 72,
+            top: 176,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <div
             style={{
-              position: "absolute",
-              top: 56,
-              right: 40,
-              fontSize: "30px",
-              color: "#D4255F",
+              fontSize: "165px",
+              fontFamily: "Instrument Sans",
+              fontWeight: 700,
+              color: "#1A0810",
+              lineHeight: 0.85,
+              letterSpacing: "-0.055em",
+              display: "flex",
             }}
           >
-            ✦
+            Madison
           </div>
+          <div
+            style={{
+              fontSize: "165px",
+              fontFamily: "Instrument Sans",
+              fontWeight: 700,
+              color: "#BA006D",
+              lineHeight: 0.9,
+              letterSpacing: "-0.055em",
+              display: "flex",
+            }}
+          >
+            Drennen<span style={{ color: "#D4255F" }}>.</span>
+          </div>
+
+          {/* Tag rail */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              marginTop: 36,
+              fontSize: "15px",
+              fontFamily: "IBM Plex Mono",
+              fontWeight: 500,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: "rgba(37,2,9,0.7)",
+            }}
+          >
+            <span>Brand</span>
+            <span style={{ color: "#BA006D" }}>·</span>
+            <span>Web</span>
+            <span style={{ color: "#BA006D" }}>·</span>
+            <span>Marketing</span>
+            <span style={{ color: "#BA006D" }}>·</span>
+            <span>AI</span>
+          </div>
+        </div>
+
+        {/* ── FLOATING WORK CARDS (right side) ── */}
+        {/* Back: Social Mulli brand print portrait */}
+        <img
+          src={w3}
+          width={240}
+          height={300}
+          style={{
+            position: "absolute",
+            top: 170,
+            right: 90,
+            width: 240,
+            height: 300,
+            objectFit: "cover",
+            borderRadius: "16px",
+            transform: "rotate(7deg)",
+            boxShadow: "0 30px 70px rgba(26,8,16,0.3)",
+            border: "1px solid rgba(26,8,16,0.1)",
+          }}
+        />
+        {/* Front: Peachy HVAC web landscape */}
+        <img
+          src={w2}
+          width={400}
+          height={300}
+          style={{
+            position: "absolute",
+            bottom: 95,
+            right: 60,
+            width: 400,
+            height: 300,
+            objectFit: "cover",
+            borderRadius: "20px",
+            transform: "rotate(-5deg)",
+            boxShadow: "0 44px 100px rgba(26,8,16,0.4)",
+            border: "1px solid rgba(186,0,109,0.35)",
+          }}
+        />
+
+        {/* URL ribbon bottom-left */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 56,
+            left: 72,
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            fontSize: "13px",
+            fontFamily: "IBM Plex Mono",
+            fontWeight: 500,
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "rgba(37,2,9,0.7)",
+          }}
+        >
+          <span
+            style={{
+              width: 32,
+              height: 1,
+              background: "#BA006D",
+            }}
+          />
+          <span>madisondrennen.com</span>
+        </div>
+
+        {/* Small sparkle on top of front card */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 400,
+            right: 62,
+            fontSize: "26px",
+            color: "#D4255F",
+          }}
+        >
+          ✦
         </div>
       </div>
     ),

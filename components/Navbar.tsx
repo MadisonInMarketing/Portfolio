@@ -74,11 +74,11 @@ export default function Navbar() {
   // light glass over light sections. A touch denser on scroll.
   const headerBg = isDark
     ? scrolled
-      ? "bg-mahogany-deep/80 backdrop-blur-xl border-b border-snow/10 py-4"
-      : "bg-mahogany-deep/55 backdrop-blur-xl border-b border-snow/5 py-5"
+      ? "bg-mahogany-deep/80 backdrop-blur-xl border-b border-snow/10 py-2.5"
+      : "bg-mahogany-deep/55 backdrop-blur-xl border-b border-snow/5 py-3"
     : scrolled
-    ? "bg-ivory/85 backdrop-blur-xl border-b border-ink/8 py-4 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
-    : "bg-ivory/60 backdrop-blur-xl border-b border-ink/5 py-5";
+    ? "bg-ivory/85 backdrop-blur-xl border-b border-ink/8 py-2.5 shadow-[0_4px_30px_rgba(37,2,9,0.05)]"
+    : "bg-ivory/60 backdrop-blur-xl border-b border-ink/5 py-3";
 
   const linkColor = isDark
     ? "text-snow/75 hover:text-snow"
@@ -99,13 +99,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" aria-label="Madison Drennen, Home" className="flex items-center gap-3 group">
             <span
-              className={`relative inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden ring-1 ${ringTone} shadow-[0_4px_14px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-105`}
+              className={`relative inline-flex items-center justify-center w-8 h-8 rounded-full overflow-hidden ring-1 ${ringTone} shadow-[0_4px_14px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-105`}
             >
               <Image
                 src="/logos/v4/monogram-light-bg.png"
                 alt=""
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 className="object-cover w-full h-full"
                 priority
               />
