@@ -1,6 +1,7 @@
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedStat from "@/components/ui/AnimatedStat";
+import { SITE_GRID } from "@/components/ui/grid";
 
 const values = [
   {
@@ -22,7 +23,7 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" data-nav-theme="light" className="relative py-20 md:py-28 bg-ivory text-ink px-6 overflow-hidden">
+    <section id="about" data-nav-theme="light" className="relative py-20 md:py-24 lg:py-28 bg-ivory text-ink overflow-hidden">
       {/* Chrome sculpture backdrop, full-bleed, clipped by section overflow */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80 md:opacity-85"
@@ -43,8 +44,8 @@ export default function About() {
       <div className="chrome-aura chrome-aura--petal -top-24 -right-32 w-[32rem] h-[32rem] opacity-30" />
       <div className="chrome-aura chrome-aura--icy bottom-0 -left-32 w-[30rem] h-[30rem] opacity-50" />
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-16 md:gap-12 items-start">
+      <div className={`relative ${SITE_GRID}`}>
+        <div className="grid md:grid-cols-12 gap-14 md:gap-14 lg:gap-16 items-start">
 
           {/* Left, photo */}
           <div className="md:col-span-5">
@@ -70,8 +71,8 @@ export default function About() {
           <div className="md:col-span-7 md:pt-14">
             <RevealOnScroll variant="clip">
               <h2
-                className="font-display font-bold text-ink leading-[1.02] tracking-[-0.04em] mb-10 pb-2"
-                style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
+                className="font-display font-bold text-ink leading-[1.02] tracking-[-0.04em] mb-8 pb-1"
+                style={{ fontSize: "clamp(2rem, 4.4vw, 3.75rem)" }}
               >
                 Somewhere between{" "}
                 <span className="text-berry">strategy and design</span>
@@ -99,15 +100,15 @@ export default function About() {
             <div className="space-y-0">
               {values.map((v, i) => (
                 <RevealOnScroll key={v.title} delay={(i + 1) as 1 | 2 | 3}>
-                  <div className="grid grid-cols-[48px_1fr] gap-6 py-6 border-t border-ink/10 items-baseline">
-                    <span className="font-mono text-xs font-medium tracking-[0.22em] text-berry">
+                  <div className="grid grid-cols-[56px_1fr] md:grid-cols-[64px_1fr] gap-6 md:gap-8 py-7 border-t border-ink/10 items-baseline last:border-b last:border-ink/10">
+                    <span className="font-mono text-xs font-medium tracking-[0.22em] text-berry pt-1">
                       {v.n}
                     </span>
                     <div>
                       <p className="font-display text-xl md:text-2xl font-bold text-ink mb-2 tracking-[-0.02em]">
                         {v.title}
                       </p>
-                      <p className="font-sans text-sm md:text-base font-normal text-ink/65 leading-relaxed">
+                      <p className="font-sans text-sm md:text-base font-normal text-ink/65 leading-relaxed max-w-xl">
                         {v.line}
                       </p>
                     </div>

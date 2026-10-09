@@ -4,25 +4,26 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { SITE_GRID } from "@/components/ui/grid";
 
 export default function FeaturedWork() {
   return (
-    <section id="work" data-nav-theme="dark" className="relative pt-24 md:pt-28 pb-28 md:pb-32 plum-bloom px-6 overflow-hidden">
+    <section id="work" data-nav-theme="dark" className="relative pt-20 md:pt-24 lg:pt-28 pb-20 md:pb-24 plum-bloom overflow-hidden">
       {/* Chrome auras */}
       <div className="chrome-aura chrome-aura--berry top-10 -right-32 w-[36rem] h-[36rem]" />
       <div className="chrome-aura chrome-aura--petal bottom-20 -left-32 w-[32rem] h-[32rem] opacity-30" />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className={`relative ${SITE_GRID}`}>
         {/* Header */}
-        <div className="mb-16 md:mb-20 flex items-end justify-between flex-wrap gap-6">
-          <div>
+        <div className="mb-14 md:mb-16 lg:mb-20 flex items-end justify-between flex-wrap gap-6">
+          <div className="max-w-[22ch]">
             <RevealOnScroll>
               <SectionLabel label="Recent Work" variant="dark" />
             </RevealOnScroll>
             <RevealOnScroll delay={1} variant="clip">
               <h2
                 className="font-display font-bold text-snow leading-[1.0] tracking-[-0.045em] mt-4 pb-1"
-                style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+                style={{ fontSize: "clamp(2.5rem, 5.4vw, 4.5rem)" }}
               >
                 A little look at what I&apos;ve been{" "}
                 <span className="text-berry">making lately</span>
@@ -32,14 +33,14 @@ export default function FeaturedWork() {
         </div>
 
         {/* Project rows */}
-        <div className="space-y-20 md:space-y-28">
+        <div className="space-y-16 md:space-y-20 lg:space-y-24">
           {projects.map((project, index) => (
             <ProjectRow key={project.slug} project={project} index={index} />
           ))}
         </div>
 
         {/* CTA */}
-        <RevealOnScroll className="mt-24 text-center">
+        <RevealOnScroll className="mt-16 md:mt-20 text-center">
           <p className="font-sans text-sm font-normal text-snow/55 mb-5">
             More work, process notes, and explorations, happy to share.
           </p>
