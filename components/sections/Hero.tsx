@@ -118,15 +118,16 @@ export default function Hero() {
       </div>
 
       {/* ── CENTERED SLIDESHOW RECTANGLE ── */}
-      <div className="relative z-[3] max-w-[1500px] mx-auto w-full px-6 md:px-12">
+      <div className="relative z-[3] max-w-[1100px] mx-auto w-full px-6 md:px-12">
         <div
           data-hero-reveal
-          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[28px] ring-1 ring-mahogany-deep/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(37,2,9,0.35),0_20px_50px_-20px_rgba(186,0,109,0.25)]"
+          className="relative w-full overflow-hidden rounded-[20px] md:rounded-[28px] ring-1 ring-mahogany-deep/15 bg-mahogany-deep/40 shadow-[0_40px_100px_-30px_rgba(37,2,9,0.35),0_20px_50px_-20px_rgba(186,0,109,0.25)] mx-auto"
           style={{
             opacity: 0,
             transform: "translateY(32px)",
             transition: "all 1s cubic-bezier(0.16,1,0.3,1)",
             aspectRatio: "16 / 9",
+            maxWidth: "860px",
           }}
         >
           {showcase.map((s, i) => (
@@ -194,8 +195,8 @@ export default function Hero() {
         {/* ── BOTTOM: INDICATOR + CTA (on the frame, below slideshow) ── */}
         <div
           data-hero-reveal
-          style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)" }}
-          className="flex items-center justify-between gap-4 pt-5 md:pt-6 px-1"
+          style={{ opacity: 0, transform: "translateY(14px)", transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)", maxWidth: "860px" }}
+          className="flex items-center justify-between gap-4 pt-5 md:pt-6 px-1 mx-auto w-full"
         >
           <div className="flex items-center gap-2">
             {showcase.map((s, i) => (
